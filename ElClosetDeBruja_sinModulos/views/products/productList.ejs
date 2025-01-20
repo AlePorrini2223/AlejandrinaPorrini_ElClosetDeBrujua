@@ -1,0 +1,55 @@
+<%- include('../partials/head.ejs',{title:"Lista de Productos - El Closet de Brujua"}) %>
+
+<body>
+
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+
+        <section class="products-container">
+
+            <h2 class="title-products">Productos</h2>
+
+            <article class="products-cards-container">
+
+                    <% productosCloset.forEach(producto => { %>
+                        <div class="products-card" id="productsCard">
+                        <div class="product-card-info">
+
+                            <a href="/products/<%= producto.id %>/productDetail">
+                                <img src="/images/productos/<%= producto.img %>"  alt="foto '<%= producto.nombre %>'">
+                            </a>
+                            <h3 class=".title-products"><%= producto.nombre %></h3>
+                            <p class="descripcion"><%= producto.descripcion %></p>
+                            <p><span class="info">Estado: </span><%= producto.estado %></p>
+                            <p><span class="info">Material: </span><%= producto.material %></p>
+                            <p><span class="info">Categoría: </span><%= producto.categoria %> </p>
+                            <p><span class="info">Talle: </span><%= producto.talle %></p>
+                            <p class="price" id="price"><%= producto.precio %></p>
+                            <button>Agregar al Carrito</button>
+                        </div>
+                    </div>
+                    <%  }); %>
+
+            </article>
+
+            <div class="cart-summary">
+                <p>Total: <span id="total-price">$0.00</span></p>
+                <button id="finalize-purchase">Finalizar Compra</button>
+                <button id="clear-cart">Vaciar Carrito</button>
+            </div>
+
+        </section>
+        
+
+    </main>
+
+    <%-include("../partials/footer.ejs")%>
+
+
+</body>
+</html>
+
+
+
+

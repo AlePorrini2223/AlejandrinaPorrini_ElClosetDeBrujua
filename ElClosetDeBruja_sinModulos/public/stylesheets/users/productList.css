@@ -1,0 +1,124 @@
+/* ---------------- MOBILE ------------*/
+
+@media (min-width:320px) {
+
+    .products-container {
+        width: 100%;
+        background-image: url(/images/fondo-products.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .products-cards-container {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .title-products {
+        width: 100%;
+        background-color: rgba(165, 164, 164, 0.4);
+        backdrop-filter: blur(2px);
+        color: var(--black-color);
+        font-size: 3em;
+        font-family: "Cookie", sans-serif;
+        text-align: center;
+    }
+    
+    .products-card {
+        background-color: rgba(255, 253, 253, 0.6);
+        border-radius: 9px;
+        border: 1px solid var(--violet-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .productst-card img {
+        width: 100%;
+        height: 310px;
+        object-fit: cover;
+    }
+
+    .product-card-info {
+        padding: 15px;
+    }
+
+    .product-card-info h3 {
+        font-family: 'Cookie', cursive;
+        font-size: 34px;
+        color: var(--grey-color);
+        padding-bottom: 5px;
+    }
+    
+    .product-card-info p {
+        font-size: 1em;
+    }
+
+    .product-card-info >p :first-child {
+        font-weight: bold;
+        font-family: 'Cookie', cursive;
+        font-size: 22px;
+    }
+    
+    .product-card-info .price {
+        font-style: italic;
+        font-size: 1.5em;
+        font-weight: 200;
+        padding-bottom: 8px;
+        color: var(--black-color);
+    }
+
+    .product-card-info .price:hover {
+        color: var(--violet-color);
+    }
+
+    .product-card-info button {
+        background-color: var(--grey-color);
+        border: 2px solid #6ef801;
+        border-radius: 20px;
+        width: 180px;
+        height: 35px;
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+    .product-card-info button:hover {
+        background-color: var(--turquoise-color);
+    }
+
+    .cart-summary {
+        text-align: center;
+    }
+    
+    #finalize-purchase, 
+    #clear-cart {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+    }
+    
+}
+
+/* ---------------- TABLET ------------
+@media (min-width:320px) {
+
+}
+
+/* ---------------- DESKTOP ------------
+@media (min-width:320px) {
+
+}
+
+*/

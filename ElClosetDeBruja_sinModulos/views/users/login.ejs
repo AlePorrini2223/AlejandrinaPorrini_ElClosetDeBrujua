@@ -1,0 +1,42 @@
+<%-include("../partials/head.ejs")%>
+
+<body>
+    <%-include('../partials/header.ejs')%>
+
+    <main>
+        <section id="section-login">
+            <article class ="login-form-container">
+                <h2 class="h2-login">Iniciá sesión</h2>
+
+                <form action="#" method="post" class="login-form">
+                    <label>
+                        <span class="label-text">Usuario</span>
+                        <input type="text" name="nombre" class="login-label-input" id="firstName"  min="6" max="50" required>
+                    </label>
+
+                    <label class="password">
+                        <span class="label-text">Contraseña</span>
+                        <input type="password" class="login-label-input" name="password">
+                    </label>
+                    
+                    <label class="login-checkbox">
+                        <input type="checkbox" class="checkbox-input" name="newsletter">
+                        <span>Me quiero suscribir a las novedades</span>
+                    </label>
+
+                    <div class="submit-div">
+                        <button type="submit" name="register">Enviar</button>
+                    </div>
+                </form>
+        
+                <p>¿No tenés una cuenta? <a href="./register">Registrate</a></p>
+        
+                </form>
+            </article>
+    
+        </section>
+            
+    </main>
+    <%-include("../partials/footer.ejs")%>
+    
+</body>

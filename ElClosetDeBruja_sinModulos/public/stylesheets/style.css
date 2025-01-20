@@ -1,0 +1,22 @@
+/* Partials */
+@import url(../stylesheets/partials/general.css);
+@import url(../stylesheets/partials/header.css);
+@import url(../stylesheets/partials/footer.css);
+
+/* Main */
+@import url(../stylesheets/home.css);
+@import url(../stylesheets/register.css);
+@import url(../stylesheets/login.css);
+
+/* User */
+@import url(../stylesheets/users/productCartl.css);
+@import url(../stylesheets/users/productDetail.css);
+@import url(../stylesheets/users/productList.css);
+@import url(../stylesheets/users/profile.css);
+
+/* Admin */
+@import url(../stylesheets/admin/productAdd.css);
+@import url(../stylesheets/admin/productEdit.css);
+@import url(../stylesheets/admin/admin.css);
+
+

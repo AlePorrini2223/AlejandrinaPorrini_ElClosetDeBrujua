@@ -1,0 +1,17 @@
+<div class="detail-btn-cart-container">
+    <button id="addCart">Agregar al Carrito</button>
+    <p id="msgCart" class="add-cart-msg">Se agregó al carrito</p>
+</div>
+
+<script>
+    const btnAddCart = document.getElementById('addCart');
+    const msgCart = document.getElementById('msgCart');
+
+    function agregarAlCarrito() {          
+        msgCart.style.display = 'block';    
+        setTimeout(() => {
+        msgCart.style.display = 'none';}, 1000); 
+    }
+    
+    btnAddCart.addEventListener('click', agregarAlCarrito);
+</script>

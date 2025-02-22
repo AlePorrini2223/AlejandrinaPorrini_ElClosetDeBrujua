@@ -1,0 +1,129 @@
+<%-include("./partials/head.ejs", { title: 'El Closet de Brujua - Moda que circula'} )%>
+
+    <body>
+
+        <%-include("./partials/header.ejs")%>
+
+        <main>
+            <!-- banner -->
+            <section id="home-banner">
+                <div class="adbar"><p>Envío Gratis a TODO EL PAÍS con tu compra mínima de $40.000</p></div>
+                
+                <div class="banner-container">
+                    <img src="/images/banner.jpg" class="desktop-banner" alt="">
+                    <img src="/images/banner-mobile.jpg" class="mobile-banner" alt="">
+                    <h1 class="title-banner">comprá . vendé . reutilizá </h1>
+                </div>
+
+            </section>
+
+            <!-- slider -->
+            <section id="home-section-slider-desktop">
+                <div class="home-slide-cont">
+                    <div class="slider">
+                        <div class="slider-item">Comprá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Vendé</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Reutilizá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Comprá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Vendé</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Reutilizá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Comprá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Vendé</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Reutilizá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Comprá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Vendé</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Reutilizá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Comprá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Vendé</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Reutilizá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Comprá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Vendé</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                        <div class="slider-item">Reutilizá</div>
+                        <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- productos -->
+            <section id="home-section-products">
+                <article class="home-carrousel-mobile">
+                    <div class="carrousel-imagenes">
+                        <% productosCloset.forEach(( {img} ) => { %>
+                            <figure class="imagen">
+                                <a href="./products/productList">
+                                    <img src="/images/productos/<%= img %>" alt="imagen">
+                                </a>
+                            </figure>
+                        <% }) %>
+                    </div>
+                </article>
+
+                <article class="home-carrousel-container-desktop"> <!-- hacer un forEach para mostrar las imgs en un carrousel -->
+
+                    <div style="background-image: url('/images/productos/1.png');"></div>
+                    <div style="background-image: url('/images/productos/2.png');"></div>
+                    <div style="background-image: url('/images/productos/3.png');"></div>
+                    <div style="background-image: url('/images/productos/4.png');"></div>
+                    <div style="background-image: url('/images/productos/5.png');"></div>
+                    <div style="background-image: url('/images/productos/6.png');"></div>
+                    <div style="background-image: url('/images/productos/7.png');"></div>
+                    <div style="background-image: url('/images/productos/8.png');"></div>
+                    <div style="background-image: url('/images/productos/9.png');"></div>
+                </article>    
+            
+            </section>
+
+            <!-- ofertas -->
+            <section id="home-section-ofertas">
+
+                <div class="ofertas-container">
+                    <h1 class="title-ofertas">
+                        <span class="cursive">Sale</span><br>
+                        <span class="cinzel">TEMPORADA DE</span><br>
+                        <span class="cursive-desktop">Ofertas</span>
+                        <span class="cursive">Ofertas</span>
+                    </h1>
+                </div>
+
+                <a href="/products/productList"><button class="ofertas-btn">COMPRAR AHORA</button></a>
+            </section>
+
+            <!-- ingresos -->
+            <section id="home-section-ingresos">
+                <img src="/images/arrow1.png" class="arrows1" alt=""> 
+                <div class="ingresos-container">
+                    <h1 class="title-ingresos">Nuevos<br>Ingresos</h1>
+                    <h1 class="title-ingresos-desktop">Nuevos Ingresos</h1>
+                </div>
+                <a href="#"><button class="ingresos-btn">VER MÁS</button></a>
+            </section>
+
+        </main>
+
+        <%-include("./partials/footer.ejs")%>
+
+        <script src="/javascript/homeScript.js"></script>
+
+
+    </body>
+    </html>
+
+

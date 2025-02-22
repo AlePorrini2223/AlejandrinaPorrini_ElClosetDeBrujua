@@ -1,0 +1,51 @@
+<%-include("../partials/head.ejs", {title: "Iniciar Sesión"} )%>
+
+<body>
+    <%-include('../partials/header.ejs')%>
+
+    <main>
+        <section id="section-login">
+            <article class ="login-form-container">
+                <h2 class="h2-login">Iniciá sesión</h2>
+
+                <form action="" method="POST" class="login-form">
+                    <label>
+                        <span class="label-text">Usuario/Email</span>
+                        <input type="text" name="email" class="login-label-input" id="firstName"  min="6" max="50" required>
+                    </label>
+
+                    <label class="password">
+                        <span class="label-text">Contraseña</span>
+                        <input type="password" class="login-label-input" name="password">
+                    </label>
+                    
+                    <label class="login-checkbox">
+                        <input type="checkbox" class="checkbox-input" name="newsletter">
+                        <span>Me quiero suscribir a las novedades</span>
+                    </label>
+
+                    <div class="error-login">
+                        <% if (locals.error) { %>
+                            <div class="alert alert-danger">
+                                <%= error %>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="submit-div">
+                        <button type="submit" name="register">Enviar</button>
+                    </div>
+                </form>
+        
+                <p>¿No tenés una cuenta? <a href="./register">Registrate</a></p>
+        
+                
+            </article>
+    
+        </section>
+            
+    </main>
+
+    <%-include("../partials/footer.ejs")%>
+    
+</body>

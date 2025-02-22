@@ -1,0 +1,46 @@
+   [
+   {
+      "id": "1",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "email": "admin@ejemplo.com",
+      "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+      "token": null,
+      "validate": true,
+      "lock": false,
+      "rol": "admin"
+   },
+   {
+      "id": "2",
+      "firstName": "User",
+      "lastName": "Usuario",
+      "email": "user@ejemplo.com",
+      "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+      "token": null,
+      "validate": false,
+      "lock": false,
+      "rol": "user"
+   },
+   {
+      "id": "3",
+      "firstName": "Locked",
+      "lastName": "Bloqueado",
+      "email": "locked@ejemplo.com",
+      "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+      "token": null,
+      "validate": true,
+      "lock": true,
+      "rol": "user"
+   },
+   {
+      "id": "25dc5e2d-41f8-4877-ac53-d24669f5bfa3",
+      "firstName": "Alejandrina",
+      "lastName": "Porrini",
+      "email": "ale123@gmail.com",
+      "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+      "validate": true,
+      "token": null,
+      "lock": false,
+      "rol": "user"
+   }
+]

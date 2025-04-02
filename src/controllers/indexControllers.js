@@ -25,19 +25,6 @@ const indexController = {
          return res.status(500).send('Error in database');
       }
    
-   /* 
-   !!!!!!!!!!
-   NO HE PODIDO CREAR LA BASE DE DATOS CON SEQUELIZE, NI CONECTARLO CON WORKBENCH
-   LUEGO DE INSTALAR TODAS LAS DEPENDENCIAS E INTENTAR CREAR LA BASE DE DATOS, 
-   ME SALE EL ERROR: "ERROR: Please install mysql2 package manually"
-   !!!!!!!!!
-   */
-
-   /*
-
-   */
-
-
 
    },
 

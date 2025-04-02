@@ -1,0 +1,64 @@
+<%- include('../partials/head.ejs') %>
+
+
+	<body id="body-table">
+
+		<%- include('../partials/headerAdmin.ejs') %>
+
+		<h1 class="title-table"> <%= title %> </h1>
+
+			<div class="user-table-container">
+				<table class="user-table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Email</th>
+							<th>Validado</th>
+							<th>Bloquear</th>
+							<th>Rol</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Admin</td>
+							<td>Admin</td>
+							<td>admin@ejemplo.com</td>
+							<td><span class="validado">Sí</span></td>
+							<td><button class="bloquear">Bloquear</button></td>
+							<td>Admin</td>
+							<td><button class="acciones">Editar</button> <button class="acciones">Eliminar</button></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>User</td>
+							<td>Usuario</td>
+							<td>user@ejemplo.com</td>
+							<td><span class="validado">No</span></td>
+							<td><button class="bloquear">Bloquear</button></td>
+							<td>Usuario</td>
+							<td><button class="acciones">Editar</button> <button class="acciones">Eliminar</button></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Locked</td>
+							<td>Bloqueado</td>
+							<td>locked@ejemplo.com</td>
+							<td><span class="validado">Sí</span></td>
+							<td><button class="bloquear">Desbloquear</button></td>
+							<td>Usuario</td>
+							<td><button class="acciones">Editar</button> <button class="acciones">Eliminar</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+	</body>
+
+</html>
+
+
+

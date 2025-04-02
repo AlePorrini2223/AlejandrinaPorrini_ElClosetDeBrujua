@@ -1,0 +1,176 @@
+/* ---------------- MOBILE ------------*/
+@media (min-width: 320px) {
+    #section-register {
+        background: url('/images/fondo-registro-mobile.jpg') no-repeat;
+        background-size: cover;
+        font-size: 18px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 1em;
+    }
+    
+    .register-form-container {
+        border-radius: 0.5em;
+        background-color: rgba(165, 164, 164, 0.5);
+        backdrop-filter: blur(2px);
+        width: 90vw;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .register-title {
+        font-size: 3em;
+        font-family: cookie;
+        text-align: center;
+        color: var(--black-color);
+    }
+    
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    
+    /* input*/
+    .register-form label {
+        width: 97%;
+        position: relative;
+    }
+
+    .register-form label input {
+        border-radius: 0.5em;
+		outline: none;
+		border: 2px solid var(--turquoise-color);
+		background-color: #121212;
+		color: var(--white-color);
+		font-weight: 200;
+		padding: 0.125em 0.25em;
+		width: 100%;
+    }
+
+    .register-form input:focus {
+        border: 2px solid var(--violet-color);
+    }
+    
+    .register-label-input {
+        height: 40px;
+    }
+
+    .label-text {
+        text-align: center;
+		padding-bottom: 8px;
+		padding-top: 8px;
+    }
+
+    .register-form label span.label-text {
+        display: flex;
+		flex-direction: column;
+		justify-content: center;
+        font-size: 0.7em;
+		font-weight: bold;
+		padding-left: 0.5em;
+		text-transform: uppercase;
+    }
+
+    .register-checkbox {
+        text-align: center;
+		padding: 20px 0px;
+    }
+
+    .register-checkbox span {
+        font-family: "Cedarville Cursive", serif;
+		font-size: 1.3em;
+    }
+
+    /* button */
+    .register-btn-container {
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 18px;
+
+    }
+    
+    .register-btn-container button {
+        font-family: "Roboto Condensed", serif; 
+        font-weight: bold;
+        background-color: var(--violet-color);
+        border: 2px solid #6ef801;
+        color: var(--white-color);
+        height: 40px;
+        width: 80px;
+        border-radius: 25px;
+        text-align: center;
+    }
+
+    .register-btn-container button:hover {
+        background-color: var(--turquoise-color);
+    }
+
+    .register-a-login-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .register-a-login-container p {
+        color: var(--black-color);
+    }
+
+    .register-a-login-container a{
+        font-family: "Roboto Condensed", serif;
+        font-weight: bold;
+        font-size: 20px;
+        color: var(--black-color);
+    }
+
+    .register-a-login-container a:hover {
+        color: var(--white-color) ;
+    }
+
+    /* error */
+    .error-msg {
+        color: red;
+        font-size: 0.8em;
+        text-align: center;
+    }
+}
+
+/* ---------------- TABLET ------------ */
+@media (min-width: 768px) {
+    .register-form label {
+        width: 75%;
+        position: relative;
+    }
+    
+}
+
+
+/* ---------------- DESKTOP ------------*/
+@media (min-width: 1024px) {
+
+    #section-register {
+        background: url('/images/fondo-registro-desktop.jpg') no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+    .register-form-container {
+        backdrop-filter: blur(1px);
+        width: 75vw;
+    }
+
+    .register-btn-container{
+        width: 50%;
+    }
+    .register-btn-container button {
+        height: 40px;
+    }
+}
+

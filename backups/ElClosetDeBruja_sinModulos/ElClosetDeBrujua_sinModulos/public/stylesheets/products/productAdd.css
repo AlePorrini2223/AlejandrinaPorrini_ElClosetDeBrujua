@@ -1,0 +1,142 @@
+@media (min-width: 768px) {
+
+    #body-addProduct {
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 90%;
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        border: 2px solid var(--turquoise-color);
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        background-color: var(--grey-color);
+        background-size: cover;
+    }
+
+    .title-admin {
+        font-size: 3em;
+        font-family: 'Cookie', cursive;
+        color: #8f8eca;
+        text-align: center;
+    }
+
+    .title-adminProduct span {
+        font-family: "Cedarville Cursive", serif;
+        font-size: 0.5em;
+        color: var(--white-color)
+    }
+
+    .admin-refresh-icon {
+    text-align: end;
+    padding-right: 1em;
+    }
+
+    .admin-refresh-icon i {
+        color: var(--white-color);
+        font-size: 1.5em;
+    }
+
+    .admin-refresh-icon i:hover {
+        color: var(--turquoise-color);
+    }
+
+    .fa-rotate-right {
+        font-size: 18px;
+    }
+
+
+    /* Formulario */
+    .admin-form-addProduct {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.5em 1em;
+        gap: 30px;
+    }
+
+    /* input */
+    .admin-form-addProduct label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        color: var(--white-color);
+        font-weight: 500;
+    }
+
+    .admin-form-addProduct label input,
+    select {
+        height: 2em;
+    }
+
+    .admin-form-addProduct label input,
+    textarea,
+    select {
+        border-radius: 0.5em;
+        outline: none;
+        border: 2px solid var(--turquoise-color);
+        background-color: var(--black-color);
+        color: var(--white-color);
+        font-weight: 200;
+        padding: 0.220em 0.25em;
+        padding-left: 10px;
+    }
+
+    .admin-select-addProduct {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .admin-select-input {
+        width: 90%;
+        align-self: center;
+        padding-left: 10px;
+    }
+
+    
+    .admin-form-addProduct label span {
+        padding-bottom: 8px;
+    }
+
+
+    .admin-form-addProduct input:focus,
+    textarea:focus,
+    select:focus {
+        border: 2px solid var(--violet-color);
+    }
+
+
+
+    /* Precio */
+    .admin-price-container {
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    .admin-price {
+        width: 45%;
+    }
+
+    .admin-addProduct-btn {
+        width: 35%;
+        align-content: end;
+    }
+
+    .admin-addProduct-btn button {
+        color: var(--black-color);
+        background-color: var(--turquoise-color);
+        border-color: var(--black-color);
+        padding: 7px;
+        border-radius: 20px;
+        transition: all 1ms ease;
+        cursor: pointer;
+    }
+
+    .admin-addProduct-btn button:hover {
+        background-color: var(--violet-color);
+        color: var(--white-color);
+        border-color: greenyellow;
+    }
+
+}

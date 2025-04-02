@@ -1,0 +1,95 @@
+<%-include("../partials/head.ejs", {title: "Gestion de productos - Agregar Producto" })%>
+
+<body id="body-addProduct">
+
+    <%- include('../partials/headerAdmin.ejs') %>
+
+    <h1 class="title-admin"><%= title %></h1>
+
+    <div class="admin-refresh-icon">
+        <a href="#"><i class="fa-solid fa-rotate-right"></i></a>
+    </div>
+
+    <div class="admin-form-addProduct">
+
+        <form action="" method="POST" class="admin-form-addProduct">
+
+            <label for="name">
+                <span>Nombre del Producto</span>
+                <input type="text" id="name" name="name" required>
+            </label>
+
+            <label for="description">
+                <span>Descripción</span>
+                <textarea id="description" name="description" rows="1" required></textarea>
+            </label>
+
+            <label for="detailedDescription">
+                <span>Descripción Detallada</span>
+                <textarea id="detailedDescription" name="detailedDescription" rows="5" required></textarea>
+            </label>
+
+            <div class="admin-select-addProduct">
+                    <label for="condition">
+                        <span>Estado</span>
+                        <select id="condition" name="condition" class="admin-select-input">
+                            <option value="" hidden selected>Elegir Estado</option>
+                            <option value="usado - con detalle">Usado - Con detalle</option>
+                            <option value="usado - buen estado">Usado - Buen Estado</option>
+                            <option value="usado - como nuevo">Usado - Como nuevo</option>
+                            <option value="nuevo">Nuevo</option>
+                        </select>
+                    </label>
+
+                    <label for="stuff">
+                        <span>Material del Producto</span>
+                        <input type="text" id="stuff" name="stuff" required>
+                    </label>
+            </div>
+
+            <div class="admin-select-addProduct">
+
+                <label for="category">
+                    <span>Categoria</span>
+                    <select id="category" name="category" class="admin-select-input">
+                        <option value="" hidden selected>Elegir Categoría</option>
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category %>"><%= category %></option>
+                        <% }) %>
+                    </select>
+                </label>
+
+                <label for="size">
+                    <span>Talle</span>
+                    <select id="size" name="size" class="admin-select-input" required>
+                        <option value="xs">XS</option>
+                        <option value="s">S</option>
+                        <option value="m">M</option>
+                        <option value="l">L</option>
+                        <option value="xl">XL</option>
+                        <option value="xxl">Oversize</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="admin-price-container">
+                <label for="price" >
+                    <span>Precio</span>
+                    <input type="number" id="price" name="price" class="admin-price" required min="0" step="500">
+                </label>
+
+                <label for="img">
+                    <span>Subir Imagen</span>
+                    <input type="file" id="image" name="img">
+                </label>
+            </div>
+
+            <div class="admin-addProduct-btn">
+                <button type="submit">Guardar cambios</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

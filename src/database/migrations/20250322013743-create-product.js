@@ -10,10 +10,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nameProduct: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       description: {
-        type: Sequelize.STRING(500)
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       detailedDescription: {
         type: Sequelize.STRING(600)
@@ -37,7 +40,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       price: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER.UNSIGNED,
+        allowNull: false
       },
       sectionId: {
         type: Sequelize.INTEGER,

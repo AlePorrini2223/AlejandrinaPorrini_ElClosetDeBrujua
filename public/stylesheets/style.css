@@ -20,6 +20,7 @@
 @import url(/stylesheets/products/productCartl.css);
 @import url(/stylesheets/products/productAdd.css);
 @import url(/stylesheets/products/productEdit.css);
+@import url(/stylesheets/products/productsAdmin.css);
 
 /* Other Views */
 @import url(/stylesheets/faq.css);

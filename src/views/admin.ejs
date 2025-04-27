@@ -1,76 +1,47 @@
 <%-include("./partials/head.ejs")%> 
 
-<body id="body-table">
+<body id="body-admin">
 
-    <%- include('./partials/headerAdmin.ejs') %>
+    <%-include("./partials/headerAdmin.ejs")%>
 
-    <h1 class="title-admin">Listado de Productos</h1>
-    
-    <div class="add-admin-product">
-        <a href="./products/productAdd"><i class="fa-solid fa-plus"></i></a>
-    </div>
+    <main class="admin-container">
 
+        <p class="admin-alert">Disculpe las molestias. Vista en proceso...</p>
 
-    <table class="product-table">
+        <section class="admin-stats">
+            <div class="admin-card">
+                <h2>📦 Productos</h2>
+                <p>125</p>
+            </div>
+            <div class="admin-card">
+                <h2>👤 Usuarios</h2>
+                <p>58</p>
+            </div>
+            <div class="admin-card">
+                <h2>👁️ Visitas</h2>
+                <p>1,024</p>
+            </div>
+        </section>
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre Producto</th>
-                <th>Descripcion</th>
-                <th>Categoría</th>
-                <th>Talle</th>
-                <th>Precio</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
+        <section class="admin-latest-product">
+            <h2>🆕 Último producto agregado</h2>
+            <img src="https://via.placeholder.com/300x200" alt="Último producto">
+        </section>
 
-        <tbody>
-            <% productosCloset.forEach(product => { %>
-            <tr>
-                <td><%= product.id %></td>
-                <td><%= product.nameProduct %></td>
-                <td><%= product.description %></td>
-                <td><%= product.category%></td>
-                <td><%= product.size %></td>
-                <td>$<span class="total-price"><%= product.price %></span></td>
-                <td>
-                    <a href="#"><i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="confirmarEliminar(this)"></i></a></td>
-                <td>
-                    <a href="./products/productEdit/<% product.id %>" id="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-            </tr>
-            <%  }); %>
-        </tbody>
-    </table>
+        <section class="admin-categories">
+            <h2>📂 Categorías</h2>
+            <ul>
+            <li>Mujer</li>
+            <li>Hombre</li>
+            <li>Accesorios</li>
+            <li>Bijou</li>
+            <li>Teens</li>
+            <li>Niños</li>
+            <li>Calzado</li>
+            </ul>
+        </section>
 
-        <script>
-            // Eliminar producto del Listado
-            function confirmarEliminar(icon) {
-                const confirmar = confirm("¿Estás seguro de que deseas eliminar este producto?"); // muestra un cuadro de confirmación
-                
-                if (confirmar) {                                                    // Si el usuario confirma, eliminar el producto
-                    const row = icon.parentElement;
-                    row.remove();  // Elimina la fila de la tabla
-                    alert("Producto eliminado exitosamente.");
-                } else {
-                    alert("Operación cancelada.");
-                }
-            }
-            /*
-            // Ver Editar Producto
-            document.getElementById('editIcon').addEventListener('click', function(e) {
-                e.preventDefault();
-                window.location.href = `./products/productEdit`;
-                const productID =  productosCloset.find(productEdit => productEdit.id ==req.params.id);
-                
-            }); 
-            */
-
-        </script>
+    </main>
 </body>
 
 
-
-</html>

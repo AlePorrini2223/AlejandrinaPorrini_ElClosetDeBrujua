@@ -1,30 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const {list, detail, cartl, add, create, edit, update, remove} = require('../controllers/productsControllers');
+const productValidator = require('../validations/productValidator');
+const userSessionCheck = require('../middlewares/userSessionCheck');
+const upload = require('../middlewares/uploadFiles');
+
+const {list, detail, cart, add, create, edit, update, remove} = require('../controllers/productsControllers');
 
 
-/* GET products listing. */
+/* Routes */
 
-// Read:
-router.get('/', list);                      // lista de productos
+router
+   .get('/', list) // Lista de productos
+   .get('/:id/productDetail', detail) // Detalle de producto
+   .get('/:id/productDetail', userSessionCheck, cart) // Muestra el carrito de compras
+   .get('/productAdd', userSessionCheck, add) // Renderiza el formulario de creación del producto
+   .post('/productAdd', upload.single('img'), productValidator, create) // Recibe los datos del fomulario luego de la validación
+   .get('/productEdit/:id', edit) // Renderiza el formulario de edición del producto
+   .put('/productEdit/:id', update) // Guarda edición del producto
+   .delete('/remove/:id', remove) // Elimina el producto
+   
 
+// Categoría del productos???
+//router.get('/:categoria', list);   
 
-//router.get('/:categoria', list);                       // categorías del productos
-router.get('/:id/productDetail', detail);                // detalles de productos
-//router.get('/:id/productDetail', cartl)                // compra del producto - carrito
+// Busca el producto???
 //router.get('/search', search) 
-
-// Create:
-router.get('/productAdd', add);                    // formulario de creación del producto
-router.post('/productAdd', create);                    // creación del producto luego de la validación
-
-// Update:
-router.get('/productEdit/:id', edit);                 // edición del producto
-router.put('/productEdit/:id', update);               // guarda edición del producto
-
-//Delete:
-router.delete('/remove/:id', remove);                 // remover el producto
-
 
 module.exports = router;
 

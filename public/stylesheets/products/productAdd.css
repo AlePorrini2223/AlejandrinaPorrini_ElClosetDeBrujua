@@ -94,16 +94,21 @@
         padding-left: 10px;
     }
 
-    
     .admin-form-addProduct label span {
         padding-bottom: 8px;
     }
-
 
     .admin-form-addProduct input:focus,
     textarea:focus,
     select:focus {
         border: 2px solid var(--violet-color);
+    }
+
+    .add-error-msg {
+        color: var(--red-color);
+        font-size: 0.8em;
+        text-align: center;
+        margin-top: 10px;
     }
 
 

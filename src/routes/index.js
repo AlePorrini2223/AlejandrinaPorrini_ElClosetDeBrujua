@@ -1,18 +1,16 @@
 var express = require('express');
 var router = express.Router();
-const {index, admin, adminUsers, faq} = require('../controllers/indexControllers');
+const {index, admin, productsAdmin, usersAdmin, faq, about} = require('../controllers/indexControllers');
 const adminSessionCheck = require('../middlewares/adminSessionCheck.js');
 
-/* GET index page. */
 
-router.get('/', index);;
+/* Routes */
 
-router.get('/admin', admin);
-router.get('/admin/users', adminUsers);
-
-
-router.get('/faq', faq);
-
+router.get('/', index); //home 
+router.get('/admin', admin); //admin
+router.get('/admin/products'), productsAdmin; //admin products
+router.get('/admin/users', usersAdmin); //admin users
+//router.get('/faq', faq);
 //router.get('/about', about);
 
 

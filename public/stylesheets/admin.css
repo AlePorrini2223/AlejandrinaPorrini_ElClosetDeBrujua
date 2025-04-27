@@ -1,93 +1,80 @@
-/* ------------ TABLA GESTIÓN DE PRODUCTOS ------------  */
-
 @media (min-width:768px) {
-    #body-table{
-        margin: 0 auto;
-        margin-top: 50px;
-        width: 90%;
-        font-family: Arial, sans-serif;
-        border-collapse: collapse;
-        border: 2px solid var(--turquoise-color);
-        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
-        background-color: var(--black-color);
-        background-size: cover;
+    #body-admin {
+        background-color: #000000;
+        padding: 20px;
     }
 
-    .title-table{
-        font-size: 3em;
-        font-family: 'Cookie', cursive;
-        color:#8f8eca;
+    .admin-alert {
+        background-color: #be2c2c;
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
         text-align: center;
     }
 
-    .title-table span {
-        font-family: "Cedarville Cursive", serif;
-        font-size: 0.8em;
-        color: var(--white-color)
+    .admin-container {
+        max-width: 1000px;
+        margin: auto;
+        background-color: #1b1a1a;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Icono Agregar producto */
-    .add-admin-product {
+    .admin-stats {
         display: flex;
-        justify-content: end;
-        padding-right: 20px;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
     }
 
-    .fa-plus {
-        font-size: 2em;
-        color: var(--white-color);
-    }
-
-    .fa-plus:hover {
-        color: green;
-    }
-
-    
-    /* Tabla */
-    table.product-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    table.product-table td {
-        height: 60px;
-        width: 80px;
-    }
-    
-    table.product-table th, table.product-table td {
-        border: 1px solid #e9e7e7;
-        padding: 12px;
-        color: var(--white-color);
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    .admin-card {
+        background-color: #e9f0ff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 30%;
         text-align: center;
-    }
-
-    table.product-table th {
-        background-color: var(--turquoise-color);
-        color: var(--black-color);
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+        margin-bottom: 15px;
     }
     
-    /* Eliminar producto */
-    .fa-trash-can {
-        font-size: 20px;
-        color: var(--white-color);
-        text-decoration: none;
+    .admin-card h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .admin-card p {
+        font-size: 2rem;
+        color: #333;
     }
 
-    .fa-trash-can:hover {
-        color: rgb(252, 82, 82);
+    .admin-latest-product {
+        margin-bottom: 30px;
+    }
+    
+    .admin-latest-product h2 {
+        margin-bottom: 15px;
+    }
+    
+    .admin-latest-product img {
+        max-width: 100%;
+        border-radius: 8px;
     }
 
-    /* Editar producto */
-    .fa-pen-to-square {
-        font-size: 20px;
-        color: var(--white-color);
-        text-decoration: none;
+    .admin-categories h2 {
+        margin-bottom: 10px;
     }
-
-    .fa-pen-to-square:hover {
-        color: #ffbb33;
+    
+    .admin-categories ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .admin-categories li {
+        background-color: #d0f0c0;
+        padding: 10px 20px;
+        border-radius: 20px;
     }
 }

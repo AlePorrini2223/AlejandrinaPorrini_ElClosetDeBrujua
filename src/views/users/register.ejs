@@ -8,45 +8,73 @@
             <article class ="register-form-container">
                 <h2 class="register-title">Registrarse</h2>
 
-                <form action="" method="POST" class="register-form" id="registerForm">
+                <form action="/processRegister" method="POST" class="register-form" id="registerForm" novalidate>
 
+                    <!-- Nombre -->
                     <label>
                         <span class="label-text">Nombre</span>
-                        <input type="text" name="firstName" class="register-label-input" id="name" autocomplete="off">
-                        <p id="register-error-msg" class="error-msg"></p>
+                        <input type="text" name="firstName" class="register-label-input" id="firstName" autocomplete="off">
+                        <p class="error-msg"> <!--Error Nombre-->
+                            <%= locals.errors && errors.firstName ? errors.firstName.msg : null %>
+                        </p>
                     </label>
 
+                    <!-- Apellido -->
                     <label>
                         <span class="label-text">Apellido</span>
-                        <input type="text" name="lastName" class="register-label-input" id="surname" autocomplete="off">
-                        <p id="register-error-msg" class="error-msg"></p>
+                        <input type="text" name="lastName" class="register-label-input" id="lastName" autocomplete="off">
+                        <p class="error-msg"> <!--Error Apellido-->
+                            <%= locals.errors && errors.lastNameerrors.lastName.msg : null %>
+                        </p>
                     </label>
 
-                    <label>
+                    <!-- Email -->
+                    <label> 
                         <span class="label-text">Email</span>
                         <input type="email" name="email" class="register-label-input" id="email" autocomplete="off">
-                        <p id="register-error-msg" class="error-msg"></p>
+                        <p class="error-msg"> <!--Error Email-->
+                            <%= locals.errors && errors.email ? errors.email.msg : null %>
+                        </p>
                     </label>
 
+                    <!-- Contraseña -->
                     <label>
                         <span class="label-text">Contraseña</span>
                         <input type="password" name="password" class="register-label-input" id="password" autocomplete="off">
-                        <p id="register-error-msg" class="error-msg"></p>
+                        <p class="error-msg"> <!--Error Contraseña-->
+                            <%= locals.errors && errors.password ? errors.password.msg : null %>
+                        </p>
                     </label>
 
+                    <!-- Confirmación Contraseña -->
                     <label>
                         <span class="label-text">Confirmar contraseña</span>
                         <input type="password" name="confirmPassword" class="register-label-input" id="confirmPassword" autocomplete="off">
-                        <p id="register-error-msg" class="error-msg"></p>
+                        <p class="error-msg"> <!--Error Confirmar Contraseña-->
+                            <%= locals.errors && errors.confirmPassword ? errors.confirmPassword.msg : null %>
+                        </p>
                     </label>
 
+                    <!-- Imagen de perfil -->
+                    <label>
+                        <span class="label-text">Subir imagen</span>
+                        <input type="file" id="avatar" name="avatar" class="file-img" accept=".jpg, .jpeg, .png, .gif">
+                        <p class="error-msg"> <!--Error Imagen de perfil-->
+                            <%= locals.errors && errors.avatar ? errors.avatar.msg : null %>
+                        </p>
+                    </label>
+
+                    <!-- Aceptar Términos y condiciones -->
                     <label class="register-checkbox">
                         <input type="checkbox" class="checkbox-input" name="newsletter">
                         <span>He leído y acepto Términos y Condiciones</span>
+                        <p class="error-msg"> <!--Error Términos y condiciones-->
+                            <%= locals.errors && errors.newsletter ? errors.newsletter.msg : null %>
+                        </p>
                     </label>
                     
-                    <div class="register-btn-container">
-                        <button type="submit" onclick="submitForm()">Enviar</button>
+                    <div class="register-btn-container"> 
+                        <button type="submit">Enviar</button>
                         <button type="reset">Borrar</button>
                     </div>
 
@@ -65,169 +93,210 @@
 
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-        /*
+            // elementos
+            const registerForm = document.getElementById("registerForm");
+            const firstName = document.getElementById("firstName");
+            const lastName = document.getElementById("lastName");
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const confirmPassword = document.getElementById("confirmPassword");
+            const registerImg = document.getElementById("registerImg");
 
-    // Captura los elementos
-    const form = document.getElementById('registerForm');
-    const email = document.getElementById('email');
-    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const nombre = document.getElementById('firstName');
-    const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/;
-    const apellido = document.getElementById('lastName');
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirmPassword');
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            
+            // funciones
+            function validateFirstName() {
+                const errorMsg = document.getElementsByClassName("error-msg")[0];
 
-
-
-    // Agrega y remueve el mensaje de error
-    function addError (element, message) {
-        //const p = document.getElementById('register-error-msg');
-        const p = element.parentNode.lastChild.previousSibling;
-        p.textContent = message;
-        p.style.display = 'block';
-        p.classList.add('error-msg');
-    }
-
-    function removeError (element) {
-        //const p = document.getElementById('register-error-msg');
-        const p = element.parentNode.lastChild.previousSibling;
-        p.textContent = '';
-        p.style.display = 'none';
-        p.classList.remove('error-msg');
-    }
-
-    function toogleError(element) {
-        //const p = document.getElementById('register-error-msg');
-        const p = element.parentNode.lastChild.previousSibling;
-        p.classList.toggle('error-msg');
-    }
-
-
-    // Confirma contraseña
-    function comparePassword(password, confirmPassword) {
-        return password === confirmPassword;
-    }
-
-
-    // Validación de campos
-    nombre.addEventListener('change', function() {
-
-        if (this.value.length < 6 || this.value.length > 40) {
-            console.log('No posee la cantidad de caracteres necesarios');
-            addError(nombre, 'El campo debe contener entre 6 y 40 caracteres.');
-        } else {
-            removeError(nombre);
-        }
-
-        if (!regexNombre.test(this.value)) {
-            addError(nombre, 'No ppuede contener caracteres especiales.');
-            console.log('Nombre inválido');
-        } else {
-            console.log('Nombre válido');
-            removeError(nombre);
-        }
-
-        if (this.value.length === 0) {
-            addError(nombre, 'El campo no puede quedar vacío.');
-        } else {
-            removeError(nombre);
-        }
-    });
-
-    apellido.addEventListener('change', function() {
-
-        if (this.value.length < 6 || this.value.length > 40) {
-            console.log('No posee la cantidad de caracteres necesarios');
-            addError(apellido, 'El campo debe contener entre 6 y 40 caracteres.');
-        } else {
-            removeError(apellido);
-        }
-
-        if (this.value.length === 0) {
-            addError(apellido, 'El campo no puede quedar vacío.');
-        } else {
-            removeError(apellido);
-        }
-    });
-
-
-    email.addEventListener('change', function() {
-        if (!regexEmail.test(this.value)) {
-            addError(email, 'Ingrese un email válido.');
-            console.log('Email inválido');
-        } else {
-            console.log('Email válido');
-            removeError(email);
-        }
-
-        if (this.value.length === 0) {
-            addError(email, 'El campo no puede estar vacío.');
-        } else {
-            removeError(email);
-        }
-    });
-
-
-    password.addEventListener('change', function() {
-        if (this.value.length < 6 || this.value.length > 20) {
-        console.log('No posee la cantidad de caracteres necesarios');
-        addError(password, 'Escriba una contraseña de entre 6 y 20 caracteres.');
-        } else {
-        removeError(password);
-        }
-
-        if (this.value.length === 0) {
-        addError(password, 'Debe ingresar una contraseña.');
-        } else {
-        removeError(password);
-        }
-    });
-
-    confirmPassword.addEventListener('change', function() {
-
-        if (this.value.length === 0) {
-            addError(confirmPassword, 'Confirme su contraseña.');
-        } else {
-            removeError(confirmPassword);
-        }
-
-        if(!comparePassword(password.value, confirmPassword.value)) {
-            addError(confirmPassword, 'Las contraseñas no coinciden.');
-        } else {
-            removeError(confirmPassword);
-        }
-    });
-
-
-    // Submit
-    function submitForm() {
-        event.preventDefault();
-        console.log('Formulario enviado con éxito');
-        //alert('Formulario enviado con éxito');
-        form.submit();
-    }
-    
-
-    //intento de forEach
-    /*
-    function validarFormulario() {
-        const inputsText = document.querySelectorAll('input[type="text"]');
-        let isValid = true;
-
-        inputsText.forEach(input => {
-            if (input.value.length =='') {
-                addError(inputsText, 'El campo no puede quedar vacío.');
-                isValid = false;
-            } else if (input.value.length < 6 && input.value.length > 40) {
-                addError(inputsText, 'El campo debe contener entre 6 y 40 caracteres.');
-                isValid = false;
-            } else {
-                removeError(inputsText);
+                if (firstName.value.trim() === "") {
+                    errorMsg.textContent = "El nombre es obligatorio";
+                    return false;
+                } else if (firstName.value.trim().length < 2) {
+                    errorMsg.textContent = "El nombre debe tener al menos 2 caracteres";
+                    return false;
+                } else {
+                    firstName.nextElementSibling.textContent = "";
+                    return true;
+                }
             }
+
+            function validateLastName() {
+                const errorMsg = document.getElementsByClassName("error-msg")[1];
+
+                if (lastName.value.trim() === "") {
+                    errorMsg.textContent = "El apellido es obligatorio";
+                    return false;
+                } else if (lastName.value.trim().length < 5) {
+                    errorMsg.textContent = "El apellido debe tener al menos 5 caracteres";
+                    return false;
+                } else {
+                    lastName.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+
+            function validateEmail() {
+                const errorMsg = document.getElementsByClassName("error-msg")[2];
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (email.value.trim() === "") {
+                    errorMsg.textContent = "El email es obligatorio";
+                    return false;
+                } else if (!emailRegex.test(email.value)) {
+                    errorMsg.textContent = "El email no es válido";
+                    return false;
+                } else {
+                    email.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+
+            function validatePassword() {
+                const errorMsg = document.getElementsByClassName("error-msg")[3];
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+                if (password.value.trim() === "") {
+                    errorMsg.textContent = "La contraseña es obligatoria";
+                    return false;
+                } else if (!passwordRegex.test(password.value.trim())) {
+                    errorMsg.textContent = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
+                    return false;
+                } else {
+                    password.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+
+            function validateConfirmPassword() {
+                const errorMsg = document.getElementsByClassName("error-msg")[4];
+
+                if (confirmPassword.value.trim() === "") {
+                    errorMsg.textContent = "Confirme su contraseña";
+                    return false;
+                } else if (confirmPassword.value !== password.value) {
+                    errorMsg.textContent = "Las contraseñas no coinciden";
+                    return false;
+                } else {
+                    confirmPassword.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+
+            function validateCheckbox() {
+                const errorMsg = document.getElementsByClassName("error-msg")[5];
+                const checkbox = document.querySelector(".checkbox-input");
+
+                if (!checkbox.checked) {
+                    errorMsg.textContent = "Debes aceptar los términos y condiciones";
+                    return false;
+                } else {
+                    checkbox.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+            
+            function validateImg() {
+                const errorMsg = document.getElementsByClassName("error-msg")[6];
+
+                if (registerImg.files.length === 0) {
+                    errorMsg.textContent = "Debes subir una imagen";
+                    return false;
+                } else if (!allowedExtensions.test(registerImg.value)) {
+                    errorMsg.textContent = "Formato de imagen inválido. Solo se permiten .jpg, .jpeg, .png y .gif";
+                    return false;
+                } else {
+                    registerImg.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+
+        // validación al enviar el formulario
+        registerForm.addEventListener("submit", function (e) {
+                const isRegisterFormValid = 
+                    validatefirstName() &&
+                    validateLastName() &&
+                    validateEmail() &&
+                    validatePassword() &&
+                    validateConfirmPassword() &&
+                    validateImg() &&
+                    validateCheckbox()
+
+                if (!isRegisterFormValid) {
+                    e.preventDefault();
+                    alert("Por favor, complete todos los campos correctamente para registrarse.");
+                }
+            });
         });
-    }
-    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     </script>
 
 </body>

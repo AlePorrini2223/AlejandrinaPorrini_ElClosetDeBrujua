@@ -12,43 +12,79 @@
 
     <div class="admin-form-addProduct">
 
-        <form action="" method="POST" class="admin-form-addProduct">
+        <form action="#" method="POST" class="admin-form-addProduct" id="adminAddProduct" enctype="multipart/form-data">
 
-            <label for="name">
+            <!-- Nombre -->
+            <label for="nameProduct">
                 <span>Nombre del Producto</span>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="nameProduct" name="nameProduct">
+                
+                <p class="add-error-msg" id="errorName"> <!--Error Nombre-->
+                    <%= local.errors && errors.name ? errors.name.msg : null  %>
+                </p>
             </label>
 
+            <!-- Descripción -->
             <label for="description">
                 <span>Descripción</span>
-                <textarea id="description" name="description" rows="1" required></textarea>
+                <textarea id="description" name="description" rows="1"></textarea>
+
+                <p class="add-error-msg" id="errorDescription"> <!--Error Descripción-->
+                    <%= local.errors && errors.description ? errors.description.msg : null  %>
+                </p>
             </label>
 
+            <!-- Descripcion Detallada -->
             <label for="detailedDescription">
                 <span>Descripción Detallada</span>
-                <textarea id="detailedDescription" name="detailedDescription" rows="5" required></textarea>
+                <textarea id="detailedDescription" name="detailedDescription" rows="5"></textarea>
+
+                <p class="add-error-msg" id="errorDetailedDescription"> <!--Error Descripción Detallada-->
+                    <%= local.errors && errors.detailedDescription ? errors.detailedDescription.msg : null  %>
+                </p>
             </label>
 
-            <div class="admin-select-addProduct">
-                    <label for="condition">
-                        <span>Estado</span>
-                        <select id="condition" name="condition" class="admin-select-input">
-                            <option value="" hidden selected>Elegir Estado</option>
-                            <option value="usado - con detalle">Usado - Con detalle</option>
-                            <option value="usado - buen estado">Usado - Buen Estado</option>
-                            <option value="usado - como nuevo">Usado - Como nuevo</option>
-                            <option value="nuevo">Nuevo</option>
-                        </select>
-                    </label>
 
-                    <label for="stuff">
-                        <span>Material del Producto</span>
-                        <input type="text" id="stuff" name="stuff" required>
-                    </label>
+            <div class="admin-select-addProduct">
+
+                <!-- Estado -->
+                <label for="condition">
+                    <span>Estado</span>
+                    <select id="condition" name="condition" class="admin-select-input">
+                        <option value="" hidden selected>Elegir Estado</option>
+                        <option value="usado - con detalle">Usado - Con detalle</option>
+                        <option value="usado - buen estado">Usado - Buen Estado</option>
+                        <option value="usado - como nuevo">Usado - Como nuevo</option>
+                        <option value="nuevo">Nuevo</option>
+
+                        <% conditions.forEach(condition => { %>
+                            <option value="<%= condition.id %>">
+                                <%= condition.name %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <p class="add-error-msg" id="errorCondition"> <!--Error Estado-->
+                        <%= local.errors && errors.condition ? errors.condition.msg : null  %>
+                    </p>
+                </label>
+
+                <!-- Material -->
+                <label for="stuff">
+                    <span>Material del Producto</span>
+                    <input type="text" id="stuff" name="stuff">
+
+                    <p class="add-error-msg" id="errorStuff"> <!--Error Material-->
+                        %= local.errors && errors.stuff ? errors.stuff.msg : null  %>
+                    </p>
+                </label>
+
             </div>
 
+
             <div class="admin-select-addProduct">
 
+                <!-- Categoría -->
                 <label for="category">
                     <span>Categoria</span>
                     <select id="category" name="category" class="admin-select-input">
@@ -57,30 +93,75 @@
                             <option value="<%= category %>"><%= category %></option>
                         <% }) %>
                     </select>
+
+                    <p class="add-error-msg" id="errorCategory"> <!--Error Categoria-->
+                        <%= local.errors && errors.category ? errors.category.msg : null  %>
+                    </p>
                 </label>
 
+                <!-- Talle -->   
                 <label for="size">
                     <span>Talle</span>
-                    <select id="size" name="size" class="admin-select-input" required>
+                    <select id="size" name="size" class="admin-select-input">
                         <option value="xs">XS</option>
                         <option value="s">S</option>
                         <option value="m">M</option>
                         <option value="l">L</option>
                         <option value="xl">XL</option>
                         <option value="xxl">Oversize</option>
+
+                        <% sizes.forEach(size => { %>
+                            <option value="<%= size.id %>">
+                                <%= size.name %>
+                            </option>
+                            <% }) %>
                     </select>
+
+                    <p class="add-error-msg" id="errorSize"> <!--Error Talle-->
+                        <%= local.errors && errors.size ? errors.size.msg : null  %>
+                    </p>
                 </label>
+
             </div>
 
+
             <div class="admin-price-container">
+
+                <!-- Precio --> 
                 <label for="price" >
                     <span>Precio</span>
-                    <input type="number" id="price" name="price" class="admin-price" required min="0" step="500">
+                    <input type="number" id="price" name="price" class="admin-price">
+                    <span class="admin-price-symbol">$</span>
+
+                    <p class="add-error-msg" id="errorPrice"> <!--Error Precio-->
+                        <%= local.errors && errors.price ? errors.price.msg : null  %>
+                    </p>
                 </label>
 
+                <!-- Sección -->   
+                <label for="section">
+                    <span>Sección</span>
+                    <select id="section" name="section" class="admin-select-input">
+                        <option value="ingreso">Ingreso</option>
+                        <option value="ofertas">Oferta</option>
+
+                        <% sections.forEach(section => { %>
+                            <option value="<%= section.id %>">
+                                <%= section.name %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <p class="add-error-msg" id="errorSection"> <!--Error Sección-->
+                        <%= local.errors && errors.price ? errors.price.msg : null  %>
+                    </p>
+                </label>
+
+                <!-- Imagen -->
                 <label for="img">
                     <span>Subir Imagen</span>
-                    <input type="file" id="image" name="img">
+                    <input type="file" id="img" name="img" class="file-img">
+                    <p class="add-error-msg" id="errorImg"></p> <!--Error Imagen-->
                 </label>
             </div>
 
@@ -88,8 +169,182 @@
                 <button type="submit">Guardar cambios</button>
             </div>
 
+            <p>cuadro de error?</p>
+
         </form>
     </div>
 
-</body>
+    <script>
+        //******* VALIDACIÓN DE FORMULARIO *******//
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // elementos
+            const formProduct = document.getElementById("adminAddProduct");
+            const nameInput = document.getElementById("nameProduct");
+            const descriptionInput = document.getElementById("description");
+            const detailedDescriptionInput = document.getElementById("detailedDescription");
+            const conditionSelect = document.getElementById("condition");
+            const stuffInput = document.getElementById("stuff");
+            const categorySelect = document.getElementById("category");
+            const sizeSelect = document.getElementById("size");
+            const priceInput = document.getElementById("price");
+            const sectionSelect = document.getElementById("section");
+            const imgInput = document.getElementById("img");
+            
+            const allowedExtensions= ['jpg', 'jpeg', 'png', 'gif'];
+
+            // funciones
+            function validateName() {
+                const errorMsg = document.getElementById("errorName");
+                if (nameInput.value.trim() === "") {
+                    errorMsg.textContent = "Este campo es obligatorio";
+                    return false;
+                } else if (nameInput.value.trim().length < 5) {
+                    errorMsg.textContent = "El nombre debe tener al menos 5 caracteres";
+                    return false;
+                } else {
+                    errorName.textContent = "";
+                    return true;
+                }
+            }
+
+            function validateDescription() {
+                const errorMsg = document.getElementById("errorDescription");
+                if (descriptionInput.value.trim() === "") {
+                    errorMsg.textContent = "Este campo es obligatorio";
+                    return false;
+                } else if (descriptionInput.value.trim().length < 20) {
+                    errorMsg.textContent = "La descripción debe tener al menos 20 caracteres";
+                    return false;
+                }
+                errorDescription.textContent = "";
+                return true;
+            }
+
+            function validateDetailedDescription() {
+                const errorMsg = document.getElementById("errorDetailedDescription");
+                if (detailedDescriptionInput.value.trim().length < 20) {
+                    errorMsg.textContent = "La descripción detallada debe tener al menos 20 caracteres";
+                    return false;
+                }
+                errorDetailedDescription.textContent = "";
+                return true;
+            }
+
+            function validateCondition() {
+                const errorMsg = document.getElementById("errorCondition");
+                if (!conditionSelect.value) {
+                    errorMsg.textContent = "Debe seleccionar un estado";
+                    return false;
+                }
+                errorCondition.textContent = "";
+                return true;
+            }
+
+            function validateStuff() {
+                const errorMsg = document.getElementById("errorStuff");
+                if (stuffInput.value.trim() === "") {
+                    errorMsg.textContent = "Este campo es obligatorio";
+                    return false;
+                } else if (stuffInput.value.trim().length < 3) {
+                    errorMsg.textContent = "El material debe tener al menos 3 caracteres";
+                    return false;
+                } else {
+                    errorStuff.textContent = "";
+                    return true;
+                }
+            }
+
+            function validateCategory() {
+                const errorMsg = document.getElementById("errorCategory");
+                if (!categorySelect.value) {
+                    errorMsg.textContent = "Debe seleccionar una categoría";
+                    return false;
+                }
+                errorCategory.textContent = "";
+                return true;
+            }
+
+            function validateSize() {
+                const errorMsg = document.getElementById("errorSize");
+                if (!sizeSelect.value) {
+                    errorMsg.textContent = "Debe seleccionar un talle";
+                    return false;
+                }
+                errorSize.textContent = "";
+                return true;
+            }
+
+            function validatePrice() {
+                const errorMsg = document.getElementById("errorPrice");
+                const price = parseFloat(priceInput.value);
+                if (isNaN(price) || price <= 1000) {
+                    errorMsg.textContent = "Debe ingresar un precio válido mayor a 1000";
+                    return false;
+                }
+                errorPrice.textContent = "";
+                return true;
+            }
+
+            function validateSection() {
+                const errorMsg = document.getElementById("errorSection");
+                if (!sectionSelect.value) {
+                    errorMsg.textContent = "Debe seleccionar una sección";
+                    return false;
+                }
+                errorSection.textContent = "";
+                return true;
+            }
+
+            function validateImg() {
+                const errorMsg = document.getElementById("errorImg");
+                const file = imgInput.files[0];
+                if (!file) {
+                    errorMsg.textContent = "Debe subir una imagen";
+                    return false;
+                }
+                const extension = file.name.split('.').pop().toLowerCase(); //extrae y convierte a minúsculas la extensión del archivo
+                if (!allowedExtensions.includes(extension)) {
+                    errorMsg.textContent = "El archivo debe ser una imagen válida (.jpg, .jpeg, .png, .gif)";
+                    return false;
+                }
+                errorImg.textContent = "";
+                return true;
+            }
+
+            // eventos blur y change
+            nameInput.addEventListener("blur", validateName);
+            descriptionInput.addEventListener("blur", validateDescription);
+            detailedDescriptionInput.addEventListener("blur", validateDetailedDescription);
+            conditionSelect.addEventListener("change", validateCondition);
+            stuffInput.addEventListener("blur", validateStuff);
+            categorySelect.addEventListener("change", validateCategory);
+            sizeSelect.addEventListener("change", validateSize);
+            priceInput.addEventListener("blur", validatePrice);
+            sectionSelect.addEventListener("change", validateSection);
+            imgInput.addEventListener("change", validateImg);
+
+            // validación al enviar el formulario
+            formProduct.addEventListener("submit", function (e) {
+                const isFormValid = 
+                    validateName() &&
+                    validateDescription() &&
+                    validateDetailedDescription() &&
+                    validateCondition() &&
+                    validateStuff() &&
+                    validateCategory() &&
+                    validateSize() &&
+                    validatePrice() &&
+                    validateSection() &&
+                    validateImg();
+
+                if (!isFormValid) {
+                    e.preventDefault();
+                    alert("Por favor, complete todos los campos correctamente antes de enviar el formulario.");
+                }
+            });
+        });
+
+        </script>
+    </body>
 </html>

@@ -1,4 +1,4 @@
-<%-include("../partials/head.ejs")%>
+<%-include("../partials/head.ejs", { title: "Tu Perfil - El Closet de Bruja" })%>
 
 <body>
     <%-include('../partials/header.ejs')%>
@@ -11,9 +11,13 @@
 
             <h1>Perfil de Usuario</h1>
 
+            <div class="avatar-container">
+                <img src="/images/users/<%= user.avatar %>">
+            </div>
+
             <div class="user-data">
                 <h2>Datos del Usuario</h2>
-                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Nombre: <%= user.firstName %></strong> Juan Pérez</p>
                 <p><strong>Email:</strong> juan.perez@mail.com</p>
                 <p><strong>Dirección:</strong> Calle Ficticia 123, Ciudad</p>
             </div>

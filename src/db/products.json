@@ -10,7 +10,7 @@
       "category": "Mujer",
       "size": "M",
       "price": "6000",
-      "section": "ingresos"
+      "section": "ofertas"
    },
    {
       "id": 2,
@@ -101,7 +101,7 @@
       "category": "Hombre",
       "size": "M",
       "price": "10000",
-      "section": "ingresos"
+      "section": "ofertas"
    },
    {
       "id": 9,

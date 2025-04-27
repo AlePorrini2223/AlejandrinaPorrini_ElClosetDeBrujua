@@ -1,57 +1,98 @@
-<%-include("../partials/head.ejs")%>
+<%-include("../partials/head.ejs", { title: 'Preguntas Frecuentes' })%>
 
 <body>
 
     <%-include("../partials/header.ejs")%>
 
-  <main class="faq-container">
+  <main id="faq-container">
 
-    <section id="faq-formas-de-pago">
-      <h2>¿Cómo son las formas de pago?</h2>
-      <p>Ofrecemos diversas opciones para realizar tus pagos de forma segura:</p>
-      <ul>
-        <li>Tarjetas de crédito/débito (Visa, MasterCard, American Express)</li>
-        <li>PayPal</li>
-        <li>Transferencia bancaria</li>
-        <li>Contra reembolso (solo en algunas zonas)</li>
-      </ul>
+    <h1>---------------------BANNER DE FAQ----------------------</h1>
+
+    <section class="faq-formas-de-pago">
+        <button class="section-accordion-btn">
+          ¿Cuáles son las formas de pago?
+          <span class="arrow">&#9660;</span>
+        </button>
+
+        <article class="section-accordion-content">
+        <p>Ofrecemos diversas opciones para realizar tus pagos de forma segura:</p>
+        <ul>
+          <li><i class="fa-solid fa-credit-card"></i>Tarjetas de crédito/débito (Visa, Mastercard)</li>
+          <li><i class="fa-solid fa-credit-card"></i>Mercado Pago</li>
+          <li><i class="fa-solid fa-credit-card"></i>Transf. bancaria</li>
+        </ul>
+        <p>Contra reembolso (solo en algunas zonas)</p>
+        </article>
     </section>
 
-    <section id="medios-de-envio">
-      <h2>¿Cómo son los medios de envío?</h2>
-      <p>Los métodos de envío disponibles son:</p>
-      <ul>
-        <li>Envío estándar (3-5 días hábiles)</li>
-        <li>Envío exprés (24-48 horas)</li>
-        <li>Recogida en tienda (sin costo adicional)</li>
-      </ul>
-      <p>Los costos de envío dependen de la ubicación de destino.</p>
+    <section class="medios-de-envio">
+      <button class="section-accordion-btn">
+        ¿Cómo son los medios de envío?
+        <span class="arrow">&#9660;</span>
+      </button>
+
+      <article class="section-accordion-content">
+        <p>Los métodos de envío disponibles son:</p>
+        <ul>
+          <li><i class="fa-solid fa-truck"></i>Envío estándar (3-5 días hábiles)</li>
+          <li><i class="fa-solid fa-truck"></i>Envío exprés (24-48 horas)</li>
+          <li><i class="fa-solid fa-truck"></i>Recogida en tienda (sin costo adicional)</li>
+        </ul>
+        <p>Los costos de envío dependen de la ubicación de destino.</p>
+      </article>
     </section>
 
-    <section id="cambios">
-      <h2>¿Cómo funcionan los cambios?</h2>
+    <section class="cambios">
+      <button class="section-accordion-btn">
+        ¿Cómo funcionan los cambios?
+        <span class="arrow">&#9660;</span>
+      </button>
+
+      <article class="section-accordion-content">
       <p>Si no estás satisfecho con tu compra, puedes solicitar un cambio dentro de los primeros 30 días desde la recepción del pedido. Solo debes:</p>
       <ul>
-        <li>Contactar a nuestro equipo de atención al cliente</li>
-        <li>Incluir la factura de compra</li>
-        <li>Enviar el artículo en su embalaje original</li>
+        <li><i class="fa-solid fa-arrows-rotate"></i>Contactar a nuestro equipo de atención al cliente</li>
+        <li><i class="fa-solid fa-arrows-rotate"></i>Incluir la factura de compra</li>
+        <li><i class="fa-solid fa-arrows-rotate"></i>Enviar el artículo en su embalaje original</li>
       </ul>
       <p>Te enviaremos el producto nuevo o te reembolsaremos el monto de la compra, dependiendo de la disponibilidad del producto.</p>
+      </article>
     </section>
 
-    <section id="cupones">
-      <h2>¿Cómo aplico un cupón de descuento?</h2>
+    <section class="cupones">
+      <button class="section-accordion-btn">
+        ¿Cómo aplico un cupón de descuento?
+        <span class="arrow">&#9660;</span>
+      </button>
+
+      <article class="section-accordion-content">
       <p>Para aplicar un cupón de descuento, sigue estos pasos:</p>
       <ol>
-        <li>Agrega los productos a tu carrito de compras.</li>
-        <li>Ve al carrito y haz clic en "Aplicar cupón".</li>
-        <li>Introduce el código del cupón y haz clic en "Aplicar".</li>
-        <li>El descuento se reflejará en el total de tu compra.</li>
+        <li><i class="fa-solid fa-ticket"></i>Agrega los productos a tu carrito de compras.</li>
+        <li><i class="fa-solid fa-ticket"></i>Ve al carrito y haz clic en "Aplicar cupón".</li>
+        <li><i class="fa-solid fa-ticket"></i>Introduce el código del cupón y haz clic en "Aplicar".</li>
+        <li><i class="fa-solid fa-ticket"></i>El descuento se reflejará en el total de tu compra.</li>
       </ol>
+      </article>
     </section>
     
   </main>
 
     <%-include("../partials/footer.ejs")%>
+
+    
+    <script>
+
+document.querySelectorAll('.section-accordion-btn').forEach(button => {
+  button.addEventListener('click', () => {
+      button.classList.toggle('active');
+      const content = button.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+    </script>
+
 </body>
 </html>
+

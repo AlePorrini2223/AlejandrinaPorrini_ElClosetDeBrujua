@@ -6,12 +6,13 @@ const adminSessionCheck = require('../middlewares/adminSessionCheck.js');
 
 /* Routes */
 
-router.get('/', index); //home 
-router.get('/admin', admin); //admin
-router.get('/admin/products'), productsAdmin; //admin products
-router.get('/admin/users', usersAdmin); //admin users
-//router.get('/faq', faq);
-//router.get('/about', about);
+router
+   .get('/', index) //home 
+   .get('/admin', admin) //admin ...agregar adminSessionCheck
+   .get('/admin/products', productsAdmin) //admin products
+   .get('/admin/users', usersAdmin) //admin users ...agregar adminSessionCheck
+//.get('/faq', faq);
+//.get('/about', about);
 
 
 module.exports = router;

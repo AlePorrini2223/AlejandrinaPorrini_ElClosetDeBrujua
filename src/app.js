@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session'); 
+const userCookie = require('./middlewares/usersCookie');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,13 +22,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
-// session
+
+// middleware session
 app.use(session({
   secret: 'hacelocircular',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: true,  //guarda la sesión aunque no se haya inicializado
   cookie: { secure: true }
 }));
+
+// middleware de cookie
+app.use(userCookie);
 
 
 // rutas

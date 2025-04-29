@@ -3,8 +3,6 @@ const bcrypt = require('bcrypt'); //encriptar la contraseña
 //const { readJson, saveJson } = require('../utils/fs');
 const { validationResult } = require('express-validator'); // resultado de todas las validaciones
 const { User, Role } = require('../database/models');
-const { remove } = require('./productsControllers');
-
 
 const userController = {
     register: (req, res) => {
@@ -81,7 +79,7 @@ const userController = {
         res.render("users/login");
     },
 
-    processLogin: async (req,res) => {
+    processLogin: async (req, res) => {
 
         try {
             //const users = readJson('../db/user.json');

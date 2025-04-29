@@ -44,7 +44,7 @@ const indexController = {
          const productosCloset = await Product.findAll({
             include : ['images']
          });
-         res.render('products/productsAdmin' , {
+         return res.render('products/productsAdmin' , {
             productosCloset,
             Product
          });

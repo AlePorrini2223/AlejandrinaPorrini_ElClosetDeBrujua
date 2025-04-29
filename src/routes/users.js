@@ -15,7 +15,7 @@ router
    .post('/register', upload.single('avatar'), registerValidator, processRegister) // validación y registro del usuario
    .get('/login', login) // formulario de login
    .post('/login', loginValidator, processLogin) // validación y login del usuario
-   .get('/profile/:id', userSessionCheck, profile) // datos del usuario logueado
+   .get('/profile/:id',  userSessionCheck, profile) // datos del usuario logueado
    .put('/update/:id', upload.single('avatar'), update) // editar datos del usuario
    .get('/logout', logout) // cerrar sesión
    .delete('/remove/:id', removeUser) // eliminar usuario

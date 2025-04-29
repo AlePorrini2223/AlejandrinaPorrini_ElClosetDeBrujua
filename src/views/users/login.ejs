@@ -8,23 +8,38 @@
             <article class ="login-form-container">
                 <h2 class="h2-login">Iniciá sesión</h2>
 
-                <form action="" method="POST" class="login-form">
+                <form action="../users/login" method="POST" class="login-form" id="loginForm">
                     <label>
                         <span class="label-text">Usuario/Email</span>
-                        <input type="text" name="email" class="login-label-input" id="firstName"  min="6" max="50" required>
+                        <input type="text" name="email" class="login-label-input" id="email"  min="6" max="50" required autocomplete="off">
+
+                        <p class="error-msg" id="errorMsg"> <!--Error usuario/email-->
+                            <%= locals.errors && errors.email ? errors.email.msg : null %>
+                        </p>
                     </label>
 
                     <label class="password">
                         <span class="label-text">Contraseña</span>
                         <input type="password" class="login-label-input" name="password">
+
+                        <p class="error-msg" id="errorMsg"> <!--Error Contraseña-->
+                            <%= locals.errors && errors.password ? errors.password.msg : null %>
+                        </p>
                     </label>
                     
-                    <label class="login-checkbox">
-                        <input type="checkbox" class="checkbox-input" name="newsletter">
-                        <span>Me quiero suscribir a las novedades</span>
-                    </label>
+                    <div class="login-checkboxes">
+                        <label for="rememberMe">
+                            <input type="checkbox" class="checkbox-input" name="rememberMe" id="rememberMe">
+                            <span>Recordarme</span>
+                        </label>
 
-                    <div class="error-login">
+                        <label for="newsletter">
+                            <input type="checkbox" class="checkbox-input" name="newsletter">
+                            <span>Me quiero suscribir a las novedades</span>
+                        </label>
+                    </div>
+
+                    <div class="error-login" id="errorLogin">
                         <% if (locals.error) { %>
                             <div class="alert alert-danger">
                                 <%= error %>
@@ -47,5 +62,61 @@
     </main>
 
     <%-include("../partials/footer.ejs")%>
-    
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            event.preventDefault();
+
+            // elementos
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const newsletter = document.getElementById('newsletter').checked;
+            const errorLogin = document.getElementById('errorLogin');
+            const loginForm = document.getElementById('loginForm');
+
+
+            function validateEmail() {
+                const errorMsg = document.getElementById('errorMsg');
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                
+                if (email.value.trim() === "") {
+                    errorMsg.textContent = 'Este campo no puede quedar vacío.';
+                    return false;
+                } else if (!email || !emailPattern.test(email)) {
+                    errorMsg.textContent = 'Por favor ingresa un email válido.';
+                    return false;
+                } else {
+                    email.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+            
+            function validatePassword() {
+                const errorMsg = document.getElementById('erroMsg');
+
+                if (password.value.trim() === "") {
+                    errorMsg.textContent = "La contraseña es obligatoria";
+                    return false;
+                } else if (password.value.trim().length < 8) {
+                    errorMsg.textContent = "Su contraseña debe tener al menos 8 caracteres";
+                    return false;
+                } else {
+                    password.nextElementSibling.textContent = "";
+                    return true;
+                }
+            }
+
+            // validación al enviar el formulario
+            loginForm.addEventListener("submit", function (e) {
+                const isloginFormValid = validateEmail() && validatePassword()
+                if (!isloginFormValid) {
+                    e.preventDefault();
+                    alert("Por favor, complete todos los campos correctamente para registrarse.");
+                }
+            })
+        });
+
+    </script>
 </body>

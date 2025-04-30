@@ -11,7 +11,7 @@ router
    .get('/admin', admin) //admin ...agregar adminSessionCheck
    .get('/admin/products', productsAdmin) //admin products
    .get('/admin/users', usersAdmin) //admin users ...agregar adminSessionCheck
-//.get('/faq', faq);
+   .get('/faq', faq);
 //.get('/about', about);
 
 

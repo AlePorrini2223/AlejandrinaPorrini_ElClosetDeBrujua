@@ -1,24 +1,88 @@
-/*
-.faq-container {
-   padding: 2rem;
+/* -------------- MOBILE ------------ */
+
+@media (min-width: 320px){
+   #faq-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white-color);
+      width: 100%;
+   }
+   
+   #faq-container section {
+      padding: 20px;
+   }
+
+   .faq-banner {
+      width: 100%;
+   }
+
+   .section-accordion-btn {
+      background-image: url(/images/fondo-violeta-textura.jpg);
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 10px 10px 0px 0px;
+      font-family: "Cedarville Cursive", serif;
+      font-size: 20px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+   }
+
+   .section-accordion-btn:hover {
+      color: var(--yellow-color);
+   }
+
+   .section-accordion-content {
+      display: none;
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: rgb(175, 175, 175);
+      border-radius: 0px 0px 10px 10px;
+      color: var(--black-color);
+   }
+
+   .arrow {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+   }
+   .section-accordion-btn.active .arrow {
+      transform: rotate(180deg);
+   }
+
+   #faq-container section ul {
+      list-style: square;
+      margin-left: 10px;
+   }
+
+   .fa-credit-card, 
+   .fa-truck,
+   .fa-arrows-rotate,
+   .fa-ticket {
+      padding-right: 8px;
+      color: var(--black-color);
+   }
+
+   #faq-container section p {
+      padding: 8px 0px;
+   }
+
 }
 
-.faq-container section {
-   margin-bottom: 2rem;
+/* ---------------- TABLET ------------*/
+@media (min-width: 768px) {
+
+
+
 }
 
-.faq-container section h2 {
-   color: #333;
-   margin-bottom: 0.5rem;
+/* ---------------- DESKTOP ------------ */
+
+@media (min-width: 1024px) {
+
 }
 
-.faq-container section ul {
-   list-style: square;
-   margin-left: 20px;
-}
-
-.faq-container section ol {
-   margin-left: 20px;
-}
-
-*/

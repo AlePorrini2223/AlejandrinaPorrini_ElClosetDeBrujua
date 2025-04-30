@@ -57,12 +57,12 @@ const indexController = {
    //const product = productosCloset.find(product => product.id == req.params.id);
    },
 
+
+   faq: (req, res) => {
+      return res.render('others/faq');
+   },
+
    /*
-   faq: function (req, res, next) {
-      res.send("Preguntas Frecuentes");
-   }, 
-
-
    about: function (req, res, next) {
       res.send("vista sobre info About Us");
    },

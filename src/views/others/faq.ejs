@@ -6,7 +6,7 @@
 
   <main id="faq-container">
 
-    <h1>---------------------BANNER DE FAQ----------------------</h1>
+    <img src="/images/faqBanner.png" alt="faq-banner" class="faq-banner">
 
     <section class="faq-formas-de-pago">
         <button class="section-accordion-btn">
@@ -80,19 +80,16 @@
 
     <%-include("../partials/footer.ejs")%>
 
-    
     <script>
 
-document.querySelectorAll('.section-accordion-btn').forEach(button => {
-  button.addEventListener('click', () => {
-      button.classList.toggle('active');
-      const content = button.nextElementSibling;
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-  });
-});
+    document.querySelectorAll('.section-accordion-btn').forEach(button => {
+      button.addEventListener('click', () => {
+          button.classList.toggle('active');
+          const content = button.nextElementSibling;
+          content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
 
     </script>
-
 </body>
 </html>
-

@@ -11,8 +11,9 @@ let productController = {
     list: async (req,res) => {
 
         try {
-            const productosCloset = await Product.findAll();
-            console.log(productosCloset);
+            const productosCloset = await Product.findAll({
+                include : ['images']
+            });
             
             res.render('products/productsList', {
                 productosCloset,
@@ -45,14 +46,14 @@ let productController = {
     detail: async (req,res) => {
 
         try {
-            const productosCloset = await Product.findByPk(req.params.id, { //busqueda por PK
-                include: [
-                    { model: Image, as: 'images' },
-                ]
+            const product = await Product.findByPk(req.params.id, { //busqueda por PK
+                include: ['images', 'category']
             }); 
 
-            if (productosCloset) {    
-                res.render('products/productDetail');
+            if (product) {    
+                res.render('products/productDetail',{
+                    ...product.dataValues
+                });
             } else {
                 res.status(404).send ('Producto no disponible');
             }

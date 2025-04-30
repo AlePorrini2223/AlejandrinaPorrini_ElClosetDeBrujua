@@ -1,4 +1,4 @@
-<%-include("../partials/head.ejs")%>
+<%-include("../partials/head.ejs", {title: "Registrate"})%>
 
 <body>
     <%-include('../partials/header.ejs')%>
@@ -13,7 +13,7 @@
                     <!-- Nombre -->
                     <label>
                         <span class="label-text">Nombre</span>
-                        <input type="text" name="firstName" class="register-label-input" id="firstName" autocomplete="off">
+                        <input type="text" name="firstName" class="register-label-input" id="firstName" autocomplete="off" value="<%= (locals.old && old.firstName) && old.firstName %>">
                         <p class="error-msg"> <!--Error Nombre-->
                             <%= locals.errors && errors.firstName ? errors.firstName.msg : null %>
                         </p>
@@ -22,16 +22,17 @@
                     <!-- Apellido -->
                     <label>
                         <span class="label-text">Apellido</span>
-                        <input type="text" name="lastName" class="register-label-input" id="lastName" autocomplete="off">
+                        <input type="text" name="lastName" class="register-label-input" id="lastName" autocomplete="off"
+                        value="<%= (locals.old && old.lastName) && old.lastName %>">
                         <p class="error-msg"> <!--Error Apellido-->
-                            <%= locals.errors && errors.lastNameerrors.lastName.msg : null %>
+                            <%= locals.errors && errors.lastName ? errors.lastName.msg : null %>
                         </p>
                     </label>
 
                     <!-- Email -->
                     <label> 
                         <span class="label-text">Email</span>
-                        <input type="email" name="email" class="register-label-input" id="email" autocomplete="off">
+                        <input type="email" name="email" class="register-label-input" id="email" autocomplete="off" value="<%= (locals.old && old.email) && old.email %>">
                         <p class="error-msg"> <!--Error Email-->
                             <%= locals.errors && errors.email ? errors.email.msg : null %>
                         </p>

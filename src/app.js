@@ -28,7 +28,6 @@ app.use(session({
   secret: 'hacelocircular',
   resave: false,
   saveUninitialized: true,  //guarda la sesión aunque no se haya inicializado
-  cookie: { secure: true }
 }));
 
 // middleware de cookie

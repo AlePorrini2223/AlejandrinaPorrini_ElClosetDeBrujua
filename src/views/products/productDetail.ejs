@@ -6,21 +6,19 @@
   
   <main>
     <section id="detail-container">
-      <h1 class="title-detail">Detalle de:<span class="detail-h1"><%= product.nameProduct %></span> </h1>
+      <h1 class="title-detail">Detalle de:<span class="detail-h1"><%= nameProduct %></span> </h1>
       <article class="detail-cards-container">
           <div class="detail-card">
             <div class="detail-card-info">
-              <img src="/images/productos/<%= product.img %>">
-              <p class="descripcion-detallada"><%= product.detailedDescription %></p>
+              <img src="/images/productos/<%= images[0].name %>">
+              <p class="descripcion-detallada"><%= detailedDescription %></p>
 
               <div class="detail-iteracion">
-                <% for (const key in product) { %>
-                  <% if (key === 'id' || key === 'detailedDescription || key === 'img') { %>
-                    <%  console.log(!key); %>    
-                  <%} else {%>
-                      <p class="detail-key-style"><%= key %>:</p><p class="detail-value-style"><%= product[key] %></p>
-                <% } %>
-              <% } %>
+                
+                  <p class="detail-key-style">Material: <span class="detail-value-style"><%= stuff %></span></p>
+                  <p class="detail-key-style">Categoría: <span class="detail-value-style"><%= category.name %></span></p>
+
+                  
               </div>
 
               <%-include("../partials/addCart.ejs")%>

@@ -1,4 +1,5 @@
 const userCookie = (req, res, next) => {
+    
     if (req.cookies && req.cookies.userLogin && !req.session.userLogin) {
        req.session.userLogin = req.cookies.userLogin; //Transfiere la información de la cookie a la sesión.
     }

@@ -39,13 +39,15 @@
                         </label>
                     </div>
 
-                    <div class="error-login" id="errorLogin">
+                    <div class="error-login" id="errorLogin" hidden>
+
                         <% if (locals.error) { %>
-                            <div class="alert alert-danger">
-                                <%= error %>
-                            </div>
+                                <div class="alert alert-danger">
+                                    <%= error %>
+                                </div>
                         <% } %>
                     </div>
+
 
                     <div class="submit-div">
                         <button type="submit" name="register">Enviar</button>

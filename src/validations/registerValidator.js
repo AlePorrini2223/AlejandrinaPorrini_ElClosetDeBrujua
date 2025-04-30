@@ -36,7 +36,7 @@ module.exports = [
          .withMessage('La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial').bail(),
 
       //Campo imagen
-      body('image')
+     /*  body('avatar')
          .custom((value, { req }) => {
             const file = req.file;
             if (!file) {
@@ -47,7 +47,7 @@ module.exports = [
                throw new Error(`Las extensiones permitidas son ${acceptedExtensions.join(', ')}`);
             }
             return true;
-         }),
+         }), */
 
 
 

@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const { body } = require('express-validator');
 const { User } = require('../database/models');
 
@@ -21,8 +22,7 @@ module.exports = [
       .notEmpty().withMessage('Éste campo no puede quedar vacío').bail()
       .isLength({ min: 8 }).withMessage('La contraseña ingresada es incorrecta').bail()
       .custom(async (loginPass, { req }) => {
-         const id = req.user.id;
-         const user = await User.findOne({ where: { id } });
+         const user = await User.findOne({ where: { email : req.body.email } });
          if (!user) {
             throw new Error('Usuario no encontrado');
          }

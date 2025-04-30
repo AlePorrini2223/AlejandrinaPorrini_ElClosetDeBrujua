@@ -19,38 +19,32 @@ const userController = {
 
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
+                console.log(errors);
+                
                 return res.render('users/register', {
-                    errors: errors.mapped()
+                    errors: errors.mapped(),
+                    old : req.body
                 });
             }
 
-            const userExist = await User.findOne({ where: { email } });
-            if (userExist) {
-                return res.render('users/register', {
-                    error: 'El email ya se encuentra registrado.'
-                });
-            } else {
-                const {firstName, lastName, email, password, roleId } = req.body;
+                const {firstName, lastName, email, password } = req.body;
                 const avatar = req.file ? req.file.filename : null;
                 const newUser = await User.create({
                     firstName: firstName.trim(),
                     lastName: lastName.trim(),
                     email: email.trim(),
                     password: bcrypt.hashSync(password, 10),
-                    avatar: avatar,
+                    image: avatar,
                     validated: false,
                     token: null,
                     lock: false,
-                    rol: 'user',
-                    roleId: roleId,
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    rolId: 2,
                 });
                 console.log('Nuevo usuario registrado:', newUser);
                 console.log('Se subió la imagen:', avatar);
                 
-                return res.redirect('users/login');
-            }
+                return res.redirect('/users/login');
+            
             /*
             const newUser = {
                 id : uuidv4(),
@@ -69,7 +63,7 @@ const userController = {
             */
         } catch (error) {
             console.error("Error al realizarse el registro:", error);
-            return res.render('users/register', {
+            return res.render('/users/register', {
                 error: 'Hubo un error al registrarse, por favor intente nuevamente'
             });
         }
@@ -83,7 +77,7 @@ const userController = {
 
         try {
             //const users = readJson('../db/user.json');
-            const {email, password, rememberMe} = req.body;
+            const {email, rememberMe} = req.body;
 
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
@@ -93,19 +87,15 @@ const userController = {
             }
 
             const user = await User.findOne({ where: { email } });
-            if (!user && !bcrypt.compareSync(password, user.password))  {
-                return res.render('users/login', {
-                    error: 'Su cuenta no se encuentra registrada.'
-                });
-            }
-
+            
             req.session.userLogin = {     //establece la sesión del usuario
                 id : user.id,
                 firstName : user.firstName,
                 lastName : user.lastName,
-                rol : user.rol,
-                avatar: user.avatar
+                rol : user.rolId,
+                avatar: user.image
             };
+            
 
             if(rememberMe){ //si el usuario seleccionó recordar la sesión, guardó la cookie en el navegador
                 res.cookie('userLogin', req.session.userLogin, {maxAge: 30 * 24 * 60 * 60 * 1000}); //La cookie durará 30 días
@@ -131,7 +121,7 @@ const userController = {
             }
             return res.redirect('/') //redirecciona a la página de inicio
             */
-        } catch (error) {
+        } catch (error) {            
             console.error("Error al intentar loguearse:", error);
             return res.render('users/login', {
                 error: 'Hubo un error al loguearse, por favor intente nuevamente'
@@ -146,20 +136,12 @@ const userController = {
 },
 
     profile: async (req,res) => {
-        // verifica si hay una sesión activa
-        if(!req.session.userLogin || !req.session.userLogin.id) {
-            console.log("Sesión inválida. Inicie sesión para continuar...");
-            return res.redirect('/users/login');
-        }
-
+       
         try { 
             const user = await User.findByPk(req.session.userLogin.id, {  // busca al usuario en la base de datos por su id
                 include: { model: Role, as: 'role' }
             });
-            if (!user) {
-                console.log('Usuario no registrado en la base de datos. Debe registrarse para ingresar...');
-                return res.redirect('/register');
-            }
+           
 
             const isAdmin = user.role.name === 'admin' ? true : false; // verifica si el usuario es administrador
             if (isAdmin) {
@@ -168,6 +150,12 @@ const userController = {
                     title: 'Perfil del usuario', 
                     user: user,
                     isAdmin: isAdmin
+                });
+            }else {
+                return res.render('users/profile', { 
+                    title: 'Perfil del usuario', 
+                    user: user,
+                    isAdmin: false
                 });
             }
         } catch (error) {

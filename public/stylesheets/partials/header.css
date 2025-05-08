@@ -98,19 +98,26 @@
         text-align: center;
     }
 
+    .mobile-menu-hamburgesa ul li:hover {
+        background-color: var(--turquoise-color);
+    }
+
     .mobile-menu-hamburgesa ul li a {
         color: var(--white-color);
         text-decoration: none;
         font-size: 18px;
         display: block;
+        transition: all ease-in;
     }
 
-    .mobile-menu-hamburgesa ul li:hover {
-        background-color: var(--black-color);
+    .mobile-menu-hamburgesa span {
+        color: var(--yellow-color);
+        font-style: italic;
     }
 
     .menu-hamnburguesa-user {
-        background-color: var(--turquoise-color);
+        background-color: var(--black-color);
+        font-style: italic;
     }
 
     .menu-hamnburguesa-user-logo {
@@ -119,8 +126,6 @@
         background-color: var(--black-color);
     }
 
-    /*agregar transicion de color de letra a violeta*/
-
     /* Menú abierto */
     .mobile-menu-hamburgesa.open {
         display: block;
@@ -128,7 +133,7 @@
 
     /* -------> logo <------- */
     .logo img {
-        height: 85px;
+        height: 80px;
     }
 
 
@@ -145,7 +150,7 @@
 
     .fa-user,
     .fa-bag-shopping {
-        font-size: 25px;
+        font-size: 23px;
         padding-left: 22px;
     }
 
@@ -230,6 +235,18 @@
         padding-right: 10px;
     }
 
+    .mobile-menu-hamburgesa {
+        width: 40vw;
+    }
+
+    .menu-hamnburguesa-user {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        padding-bottom: 10px;
+    }
+
 }
 
 /* ---------------- DESKTOP ------------ */
@@ -294,7 +311,6 @@
     }
 
     /* Menú nav desktop */
-
     .header-down {
         display: inline-block;
         height: 30%;
@@ -318,6 +334,11 @@
 
     .desktop-nav-container a {
         color: var(--white-color);
+        transition: all ease-in;
+    }
+
+    .desktop-nav-container a:hover {
+        color: var(--yellow-color);
     }
 
     .fa-bolt {

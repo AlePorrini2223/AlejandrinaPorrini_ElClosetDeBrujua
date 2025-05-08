@@ -5,36 +5,11 @@
     <%- include('../partials/header.ejs') %>
 
     <main>
-
         <section class="products-container">
-
             <h2 class="title-products">Productos</h2>
 
             <article class="products-cards-container">
-
-                <!--modificar al primera linea del foreach, cuando éste definido "categorías":
-                        if (locals.productos) {}    (si existe producto, iterar...)-->
-                    <% productosCloset.forEach(product => { %>
-                        <div class="products-card" id="productsCard">
-                        <div class="product-card-info">
-
-                            <a href="/products/<%= product.id %>/productDetail">
-                                <img src="/images/productos/<%= product.images[0].name %>"  alt="foto '<%= product.nameProduct %>'">
-                            </a>
-                            <h3 class=".title-products"><%= product.nameProduct %></h3>
-                            <p><span class="info">Estado: </span><%= product.condition %></p>
-                            <p class="price" id="price">$<%= product.price %></p>
-
-                            <%-include("../partials/addCart.ejs")%>
-                        
-                        </div>
-                    </div>
-                    <%  }); %>
-            <!--modificar la ultima linea del foreach, cuando éste definido "categorías":
-                    })} else { : msg }      
-                    (si no existe, mostrar el mensaje, no olvidar etiqueta de impresión ejs. Darle estilo al mensaje)-->
-
-
+                <%- include('../partials/productCard.ejs') %>
             </article>
 
             <div class="cart-summary">
@@ -42,16 +17,25 @@
                 <button id="finalize-purchase">Finalizar Compra</button>
                 <button id="clear-cart">Vaciar Carrito</button>
             </div>
-
         </section>
-        
-
     </main>
 
     <%-include("../partials/footer.ejs")%>
 
+    </body>
+    
+    <script>
+        const btnAddCart = document.getElementById('addCart');
+        const msgCart = document.getElementById('msgCart');
+    
+        function agregarAlCarrito() {          
+            msgCart.style.display = 'block';    
+            setTimeout(() => {
+            msgCart.style.display = 'none';}, 1000); 
+        }
+        btnAddCart.addEventListener('click', agregarAlCarrito);
+    </script>
 
-</body>
 </html>
 
 

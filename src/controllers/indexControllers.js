@@ -44,9 +44,9 @@ const indexController = {
          const productosCloset = await Product.findAll({
             include : ['images']
          });
+
          return res.render('products/productsAdmin' , {
-            productosCloset,
-            Product
+            productosCloset
          });
       } catch (error) {
          console.error('Error al listar los productos:', error);

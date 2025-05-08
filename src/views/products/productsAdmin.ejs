@@ -7,7 +7,7 @@
    <h1 class="title-admin">Listado de Productos</h1>
    
    <div class="add-admin-product">
-      <a href="./products/productAdd"><i class="fa-solid fa-plus"></i></a>
+      <a href="/products/add"><i class="fa-solid fa-plus"></i></a>
    </div>
 
 
@@ -15,6 +15,7 @@
 
       <thead>
             <tr>
+               <th>Imagen</th>
                <th>ID</th>
                <th>Nombre Producto</th>
                <th>Descripcion</th>
@@ -29,6 +30,7 @@
       <tbody>
             <% productosCloset.forEach(product => { %>
             <tr>
+               <td><%= product.img %></td>
                <td><%= product.id %></td>
                <td><%= product.nameProduct %></td>
                <td><%= product.description %></td>
@@ -37,9 +39,9 @@
                <td>$<span class="total-price"><%= product.price %></span></td>
                <td>
                   <a href="#"><i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="confirmarEliminar(this)"></i></a></td>
-                <td>
-                  <a href="/products/productEdit/<%= product.id %>" id="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
+               <td>
+                  <a href="/products/edit/<%= product.id %>" id="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>
+               </td>
             </tr>
             <%  }); %>
       </tbody>

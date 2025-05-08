@@ -102,7 +102,7 @@
     }
 
     .footer-logo {
-        padding-bottom: 20px;
+        padding: 20px;
     }
 
     .footer-copy {
@@ -244,11 +244,6 @@
 
         .footer-phrase {
             padding: 30px 20px;
-        }
-
-        .footer-logo {
-            padding: 0px 20px;
-            width: 30%;
         }
 
         .footer-copy,

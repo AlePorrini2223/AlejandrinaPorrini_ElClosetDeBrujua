@@ -1,0 +1,25 @@
+<% productosCloset.forEach(product => { %>
+   <div class="products-card" id="productsCard">
+
+      <div class="product-card-info">
+
+         <a href="/products/<%= product.id %>/detail">
+            <img src="/images/productos/<%= product.images[0].name %>"  alt="foto '<%= product.nameProduct %>'">
+         </a>
+         <h3 class=".title-products"><%= product.nameProduct %></h3>
+         <p><span class="info">Estado: </span><%= product.condition %></p>
+         <p class="price" id="price">$<%= product.price %></p>
+      
+         <div class="detail-btn-cart-container">
+            <button id="addCart">
+               <i class="fa-solid fa-cart-shopping"></i> Agregar
+            </button>
+            <p id="msgCart" class="add-cart-msg">Se agregó al carrito</p>
+         </div>
+      
+         <%-include("../partials/addCart.ejs")%>
+      
+      </div>
+      
+   </div>
+<%  }); %>

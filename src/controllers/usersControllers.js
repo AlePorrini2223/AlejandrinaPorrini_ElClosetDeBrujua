@@ -136,12 +136,10 @@ const userController = {
 },
 
     profile: async (req,res) => {
-       
         try { 
             const user = await User.findByPk(req.session.userLogin.id, {  // busca al usuario en la base de datos por su id
                 include: { model: Role, as: 'role' }
             });
-           
 
             const isAdmin = user.role.name === 'admin' ? true : false; // verifica si el usuario es administrador
             if (isAdmin) {
@@ -170,7 +168,7 @@ const userController = {
             const userId = req.params.id; //obtiene el id del usuario a editar
 
             const user = await User.findByPk(userId, { //busca al usuario por su id
-                include: { model: Role, as: 'role' } 
+                include: { model: Role, as: 'roles' } 
             }); 
             if (!user) {
                 console.error('Usuario no registrado. Debe registrarse para ingresar...');

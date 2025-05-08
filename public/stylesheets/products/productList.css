@@ -53,9 +53,8 @@
 
     .product-card-info h3 {
         font-family: 'Cookie', cursive;
-        font-size: 34px;
+        font-size: 2em;
         color: var(--grey-color);
-        padding-bottom: 5px;
     }
     
     .product-card-info p {
@@ -69,17 +68,16 @@
     }
     
     .product-card-info .price {
-        font-style: italic;
-        font-size: 1.5em;
-        font-weight: 200;
-        padding-bottom: 8px;
+        font-size: 1.3em;
+        font-weight: bolder;
         color: var(--black-color);
     }
 
     .product-card-info .price:hover {
-        color: var(--violet-color);
+        color: var(--yellow-color);
     }
 
+    /* Carrito */
     .list-btn-cart-container {
         text-align: center;
         padding: 20px 0px;
@@ -126,17 +124,29 @@
         cursor: pointer;
         margin: 5px;
     }
-    
+    /* cuando se agrega el producto */
+    .detail-btn-cart-container {
+        text-align: center;
+        padding: 20px 0px;
+    }
+
 }
 
-/* ---------------- TABLET ------------
+/* ---------------- TABLET ------------ */
+@media (min-width:320px) {
+    .products-cards-container {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+}
+
+/*---------------- DESKTOP ------------*/
 @media (min-width:320px) {
 
 }
-
-/* ---------------- DESKTOP ------------
-@media (min-width:320px) {
-
-}
-
-*/

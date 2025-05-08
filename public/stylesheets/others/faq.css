@@ -5,12 +5,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--white-color);
       width: 100%;
    }
    
    #faq-container section {
       padding: 20px;
+      width: 90vw;
+      display: grid;
+      grid-template-columns: 1fr;
    }
 
    .faq-banner {
@@ -19,6 +21,7 @@
 
    .section-accordion-btn {
       background-image: url(/images/fondo-violeta-textura.jpg);
+      background-position: center;
       width: 100%;
       padding: 16px;
       border: none;
@@ -31,11 +34,9 @@
       justify-content: space-between;
       align-items: center;
       transition: all 0.3s ease;
-   }
-
-   .section-accordion-btn:hover {
       color: var(--yellow-color);
    }
+
 
    .section-accordion-content {
       display: none;
@@ -44,10 +45,11 @@
       background-color: rgb(175, 175, 175);
       border-radius: 0px 0px 10px 10px;
       color: var(--black-color);
+      background-color: var(--light-grey-color);
    }
 
    .arrow {
-      font-size: 20px;
+      font-size: 25px;
       transition: transform 0.3s ease;
    }
    .section-accordion-btn.active .arrow {
@@ -71,18 +73,80 @@
       padding: 8px 0px;
    }
 
+   .faq-image {
+      display: none;
+   }
+
 }
 
 /* ---------------- TABLET ------------*/
 @media (min-width: 768px) {
 
+   .section-accordion-btn {
+      color: var(--lavander-color);
+      font-size: 25px;
+      text-align: center;
+      transition: all 0.5s ease;
+      justify-content: center;
+   }
+   .section-accordion-btn:hover {
+      color: var(--yellow-color);
+   }
 
+   .arrow {
+      display: none;
+   }
 
+   .section-accordion-content {
+      font-size: 16px;
+      background-color: var(--grey-color);
+      color: var(--white-color);
+      padding: 10px 30px;
+   }
+}
+
+@media (min-width: 850px) {
+   #faq-container section {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+   }
+
+   .section-accordion-btn {
+      color: var(--yellow-color);
+      display: block;
+   }
+   .section-accordion-content {
+      display: block;
+      background-color: var(--lavander-color);
+      color: var(--black-color);
+   }
 }
 
 /* ---------------- DESKTOP ------------ */
 
 @media (min-width: 1024px) {
+
+   #faq-container section {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 30px 0px;
+   }
+
+   .section-accordion-content {
+      background-color: var(--grey-color);
+      color: var(--white-color);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+   }
+
+   .faq-banner {
+      padding-bottom: 10px;
+   }
+
+   .faq-image {
+      display: block;
+   }
 
 }
 

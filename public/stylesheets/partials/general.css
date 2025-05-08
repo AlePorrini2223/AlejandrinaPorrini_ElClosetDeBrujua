@@ -18,9 +18,11 @@
 :root {
     --black-color: #0f0f0f;
     --grey-color: #414042;
+    --light-grey-color: rgb(119, 119, 119);
     --white-color: #ffffff;
     --turquoise-color: #138D8D;
     --violet-color: #7d46c9;
+    --lavander-color:#8f8eca;
     --yellow-color: #ecce20;
 }
 

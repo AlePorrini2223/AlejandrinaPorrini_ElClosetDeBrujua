@@ -1,21 +1,6 @@
 @media (min-width:768px) {
-    #body-admin {
-        background-color: #000000;
-        padding: 20px;
-    }
-
-    .admin-alert {
-        background-color: #be2c2c;
-        color: #ffffff;
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
 
     .admin-container {
-        max-width: 1000px;
-        margin: auto;
         background-color: #1b1a1a;
         border-radius: 8px;
         padding: 30px;
@@ -26,12 +11,12 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
-        flex-wrap: wrap;
+        flex-wrap: wrap;  
     }
 
     .admin-card {
-        background-color: #e9f0ff;
-        padding: 20px;
+        background-color: var(--light-grey-color);
+        padding: 20px 10px;
         border-radius: 10px;
         width: 30%;
         text-align: center;
@@ -39,42 +24,56 @@
     }
     
     .admin-card h2 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
+        font-size: 2em;
+		font-family: "Cedarville Cursive", serif;    }
     
     .admin-card p {
-        font-size: 2rem;
-        color: #333;
+        font-size: 2em;
+        color: var(--violet-color);
+    }
+
+    .admin-bottom {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .admin-categories h2, 
+    .admin-latest-product h2  {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        text-align: center;
+        color: var(--white-color);
     }
 
     .admin-latest-product {
         margin-bottom: 30px;
+        width: 50%;
     }
-    
-    .admin-latest-product h2 {
-        margin-bottom: 15px;
-    }
+
     
     .admin-latest-product img {
         max-width: 100%;
         border-radius: 8px;
     }
 
-    .admin-categories h2 {
-        margin-bottom: 10px;
+    .admin-categories {
+        width: 50%;
     }
     
     .admin-categories ul {
         list-style: none;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;        
+        justify-content: center;
         gap: 10px;
     }
     
     .admin-categories li {
-        background-color: #d0f0c0;
+        background-color: var(--lavander-color);
+        font-weight: bold;
         padding: 10px 20px;
         border-radius: 20px;
+        text-align: center;
     }
 }

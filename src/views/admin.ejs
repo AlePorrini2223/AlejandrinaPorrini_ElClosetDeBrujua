@@ -1,14 +1,34 @@
 <%-include("./partials/head.ejs")%> 
 
-<body id="body-admin">
+<body class="body-admin">
 
     <%-include("./partials/headerAdmin.ejs")%>
 
     <main class="admin-container">
 
-        <p class="admin-alert">Disculpe las molestias. Vista en proceso...</p>
+        <section class="admin-bottom">
+            <article class="admin-latest-product">
+                <h2>🆕 Último producto agregado</h2>
+                <img src="/images/png/insertimagehere.png" alt="last-product">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda necessitatibus voluptatem, ullam eligendi mollitia, enim, velit libero id natus hic rerum sequi placeat? Aperiam fugiat iusto molestias, architecto sit dicta?</p>
+            </article>
 
-        <section class="admin-stats">
+            <article class="admin-categories">
+                <h2>📂 Categorías</h2>
+                <ul>
+                <li>Mujer</li>
+                <li>Hombre</li>
+                <li>Accesorios</li>
+                <li>Bijou</li>
+                <li>Teens</li>
+                <li>Niños</li>
+                <li>Calzado</li>
+                <li>Otros</li>
+                </ul>
+            </article>
+        </section>
+
+        <div class="admin-stats">
             <div class="admin-card">
                 <h2>📦 Productos</h2>
                 <p>125</p>
@@ -18,29 +38,10 @@
                 <p>58</p>
             </div>
             <div class="admin-card">
-                <h2>👁️ Visitas</h2>
+                <h2>👁️ Vistas</h2>
                 <p>1,024</p>
             </div>
-        </section>
-
-        <section class="admin-latest-product">
-            <h2>🆕 Último producto agregado</h2>
-            <img src="https://via.placeholder.com/300x200" alt="Último producto">
-        </section>
-
-        <section class="admin-categories">
-            <h2>📂 Categorías</h2>
-            <ul>
-            <li>Mujer</li>
-            <li>Hombre</li>
-            <li>Accesorios</li>
-            <li>Bijou</li>
-            <li>Teens</li>
-            <li>Niños</li>
-            <li>Calzado</li>
-            </ul>
-        </section>
-
+        </div>
     </main>
 </body>
 

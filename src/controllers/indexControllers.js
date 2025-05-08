@@ -3,7 +3,7 @@
 //const categories = require('../db/categories.json');
 //const { toThousand, paginator } = require('../utils/index');
 //const { readJson } = require('../utils/fs');
-const { Product, User } = require('../database/models');
+const { Product, User, Image } = require('../database/models');
 
 
 
@@ -15,6 +15,7 @@ const indexController = {
             const productosCloset = await Product.findAll({
                include : ['images']
             });
+
             res.render('home', { 
                productosCloset 
             });
@@ -42,8 +43,9 @@ const indexController = {
       
       try {
          const productosCloset = await Product.findAll({
-            include : ['images']
-         });
+            include: [ 
+                  { model: Image, as: 'images' } 
+            ]});
 
          return res.render('products/productsAdmin' , {
             productosCloset

@@ -1,0 +1,49 @@
+@media (min-width:768px) {
+   .body-admin {
+      margin: 0 auto;
+      margin-top: 50px;
+      width: 90%;
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      border: 2px solid var(--turquoise-color);
+      box-shadow: 0px 0px 20px rgba(245, 188, 3, 0.3);
+      background-color: var(--black-color);
+      background-size: cover;
+   }
+}
+
+.admin-tables-container {
+   padding: 0px 25px 20px 25px;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table.product-table, 
+table.user-table {
+   border-collapse: collapse;
+   margin-top: 20px;
+   width: 100%;
+}
+
+table.product-table tbody, 
+table.user-table tbody {
+   background-color: var(--light-grey-color);
+}
+
+table.user-table th, 
+table.product-table th {
+   font-weight: bold;
+}
+
+table.user-table th, 
+table.product-table th, 
+table.user-table td, 
+table.product-table td {
+   padding: 12px;
+   border: 1px solid #ddd;
+   text-align: center;
+   color: var(--black-color);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: center;
+}
+

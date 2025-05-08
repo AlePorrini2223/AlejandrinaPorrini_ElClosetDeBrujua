@@ -1,6 +1,6 @@
 <%-include("../partials/head.ejs", {title: "Gestión de productos"})%> 
 
-<body id="body-table">
+<body class="body-admin">
 
    <%- include('../partials/headerAdmin.ejs') %>
 
@@ -10,42 +10,42 @@
       <a href="/products/add"><i class="fa-solid fa-plus"></i></a>
    </div>
 
+   <div class="admin-tables-container">
+      <table class="product-table" id="productsTable">
+         <thead>
+               <tr>
+                  <th>Imagen</th>
+                  <th>ID</th>
+                  <th>Nombre Producto</th>
+                  <th>Descripcion</th>
+                  <th>Categoría</th>
+                  <th>Talle</th>
+                  <th>Precio</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+               </tr>
+         </thead>
 
-   <table class="product-table">
-
-      <thead>
-            <tr>
-               <th>Imagen</th>
-               <th>ID</th>
-               <th>Nombre Producto</th>
-               <th>Descripcion</th>
-               <th>Categoría</th>
-               <th>Talle</th>
-               <th>Precio</th>
-               <th>Delete</th>
-               <th>Edit</th>
-            </tr>
-      </thead>
-
-      <tbody>
-            <% productosCloset.forEach(product => { %>
-            <tr>
-               <td><%= product.img %></td>
-               <td><%= product.id %></td>
-               <td><%= product.nameProduct %></td>
-               <td><%= product.description %></td>
-               <td><%= product.category%></td>
-               <td><%= product.size %></td>
-               <td>$<span class="total-price"><%= product.price %></span></td>
-               <td>
-                  <a href="#"><i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="confirmarEliminar(this)"></i></a></td>
-               <td>
-                  <a href="/products/edit/<%= product.id %>" id="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>
-               </td>
-            </tr>
-            <%  }); %>
-      </tbody>
-   </table>
+         <tbody>
+               <% productosCloset.forEach(product => { %>
+               <tr>
+                  <td><%= product.images %></td>
+                  <td><%= product.id %></td>
+                  <td><%= product.nameProduct %></td>
+                  <td><%= product.description %></td>
+                  <td><%= product.category%></td>
+                  <td><%= product.size %></td>
+                  <td>$<span class="total-price"><%= product.price %></span></td>
+                  <td>
+                     <a href="#"><i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="confirmarEliminar(this)"></i></a></td>
+                  <td>
+                     <a href="/products/edit/<%= product.id %>" id="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  </td>
+               </tr>
+               <%  }); %>
+         </tbody>
+      </table>
+   </div>
 
       <script>
             // Eliminar producto del Listado

@@ -4,6 +4,8 @@
 @import url(/stylesheets/partials/footer.css);
 @import url(/stylesheets/partials/headerAdmin.css);
 @import url(/stylesheets/partials/productCard.css);
+@import url(/stylesheets/partials/bodyAdmin.css);
+
 
 /* Main */
 @import url(/stylesheets/home.css);

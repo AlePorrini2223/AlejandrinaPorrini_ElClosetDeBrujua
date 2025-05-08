@@ -1,14 +1,15 @@
 <%- include('../partials/head.ejs', {title: "Administración de Usuarios"}) %>
 
 
-	<body id="body-table">
+	<body class="body-admin">
 
 		<%- include('../partials/headerAdmin.ejs') %>
 
 		<h1 class="title-table"> <%= title %> </h1>
 
-			<div class="user-table-container">
-				<table class="user-table">
+			<div class="admin-tables-container">
+
+				<table class="user-table" id="usersTable">
 					<thead>
 						<tr>
 							<th>ID</th>

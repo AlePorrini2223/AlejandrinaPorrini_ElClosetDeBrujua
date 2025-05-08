@@ -1,4 +1,5 @@
 /* ---------------- MOBILE ------------*/
+
 @media (min-width: 320px) {
 	#section-login {
 		background: url('/images/fondologin.jpg') no-repeat;
@@ -15,7 +16,6 @@
 		border-radius: 0.5em;
 		background-color: rgba(165, 164, 164, 0.5);
 		backdrop-filter: blur(2px);
-		height: 530px;
 		width: 90vw;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 		padding: 2em;
@@ -78,24 +78,24 @@
 		text-transform: uppercase;
 	}
 
-	.login-checkbox {
-		text-align: center;
-		padding: 15px 0px;
-	}
-
 	.checkbox-input {
 		height: 20px;
 	}
 
-	.login-checkbox span {
-		font-family: "Cedarville Cursive", serif;
-		font-size: 1.3em;
+	.login-checkboxes {
+		padding: 20px 0px;
+		text-align: center;
 	}
 
+	.login-checkboxes span {
+		font-family: "Cedarville Cursive", serif;
+		font-size: 1.2em;
+	}
+
+ /* Error */
 	.error-login {
 		width: 60%;
-		background-color: rgb(240, 129, 129);
-		border: 1px solid red;
+		background-color: rgb(219, 25, 25);
 		font-size: 1em;
 		text-align: center;
 	}
@@ -143,8 +143,6 @@
 
 }
 
-
-/*aplicar estilos*/
 /* ---------------- TABLET ------------*/
 @media (min-width: 768px) {
 
@@ -162,8 +160,14 @@
 		text-transform: uppercase;
 	}
 
-	.login-checkbox span {
-		font-size: 1.4em;
+	.login-checkboxes {
+		width: 90%;
+		padding: 20px 0px;
+		display: flex;
+	}
+
+	.login-checkboxes span {
+		font-size: 1.3em;
 	}
 }
 
@@ -179,7 +183,17 @@
 		width: 60%;
 	}
 
-	.login-checkbox span {
+	.login-checkboxes {
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+	}
+
+	.login-checkboxes label {
+		text-align: center;
+	}
+	
+	.login-checkboxes span {
 		font-size: 1.5em;
 	}
 }

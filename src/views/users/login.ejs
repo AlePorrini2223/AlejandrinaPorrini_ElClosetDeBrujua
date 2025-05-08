@@ -9,6 +9,7 @@
                 <h2 class="h2-login">Iniciá sesión</h2>
 
                 <form action="../users/login" method="POST" class="login-form" id="loginForm">
+                    
                     <label>
                         <span class="label-text">Usuario/Email</span>
                         <input type="text" name="email" class="login-label-input" id="email"  min="6" max="50" required autocomplete="off">
@@ -28,14 +29,14 @@
                     </label>
                     
                     <div class="login-checkboxes">
-                        <label for="rememberMe">
-                            <input type="checkbox" class="checkbox-input" name="rememberMe" id="rememberMe">
+                        <label for="rememberMe" class="remeber-me">
                             <span>Recordarme</span>
+                            <input type="checkbox" class="checkbox-input" name="rememberMe" id="rememberMe">
                         </label>
 
-                        <label for="newsletter">
-                            <input type="checkbox" class="checkbox-input" name="newsletter">
+                        <label for="newsletter" class="newsletter">
                             <span>Me quiero suscribir a las novedades</span>
+                            <input type="checkbox" class="checkbox-input" name="newsletter">
                         </label>
                     </div>
 
@@ -58,7 +59,6 @@
         
                 
             </article>
-    
         </section>
             
     </main>

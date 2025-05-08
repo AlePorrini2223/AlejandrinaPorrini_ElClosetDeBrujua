@@ -1,22 +1,10 @@
-/* ------------ TABLA GESTIÓN DE PRODUCTOS ------------  */
 
 @media (min-width:768px) {
-    #body-table {
-        margin: 0 auto;
-        margin-top: 50px;
-        width: 90%;
-        font-family: Arial, sans-serif;
-        border-collapse: collapse;
-        border: 2px solid var(--turquoise-color);
-        box-shadow: 0px 0px 20px rgba(245, 188, 3, 0.3);
-        background-color: var(--black-color);
-        background-size: cover;
-    }
 
     .title-table {
         font-size: 3em;
         font-family: 'Cookie', cursive;
-        color: #8f8eca;
+        color: var(--lavander-color);
         text-align: center;
     }
 
@@ -44,39 +32,14 @@
 
 
     /* Tabla */
-    table.product-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    table.product-table tbody {
-        background-color: rgb(119, 119, 119);
-    }
-
-    table.product-table td {
-        height: 60px;
-        width: 80px;
-    }
-
-    table.product-table th,
-    table.product-table td {
-        border: 1px solid #e9e7e7;
-        padding: 12px;
-        color: var(--black-color);
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        text-align: center;
-    }
 
     table.product-table th {
         background-color: var(--turquoise-color);
-        font-weight: bold;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     /* Eliminar producto */
     .fa-trash-can {
-        font-size: 20px;
+        font-size: 22px;
         color: var(--white-color);
         text-decoration: none;
     }
@@ -87,7 +50,7 @@
 
     /* Editar producto */
     .fa-pen-to-square {
-        font-size: 20px;
+        font-size: 22px;
         color: var(--white-color);
         text-decoration: none;
     }

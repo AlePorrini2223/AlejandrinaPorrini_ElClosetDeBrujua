@@ -5,20 +5,17 @@ const conditionJson = require('../../db/conditions.json');
 
 module.exports = {
   async up (queryInterface, Sequelize) {
+
+    const conditions = conditionJson.map(condition => ({
+      name: condition.name,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }));
     
-      await queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    
+      await queryInterface.bulkInsert('Conditions', conditions, {});
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('Conditions', null, {});
   }
 };

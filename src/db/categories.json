@@ -1,1 +1,30 @@
-["Mujer", "Hombre", "Kids", "Accesorios", "Teens", "Calzado", "Bijou"]
+   [
+      {
+         "id": 1,
+         "name": "Mujer"
+      },
+      {
+         "id": 2,
+         "name": "Hombre"
+      },
+      {
+         "id": 3,
+         "name": "Kids"
+      },
+      {
+         "id": 4,
+         "name": "Accesorios"
+      },
+      {
+         "id": 5,  
+         "name": "Teens"
+      },
+      {
+         "id": 6,
+         "name": "Calzado"
+      },
+      {
+         "id": 7,
+         "name": "Bijou"
+      }
+   ]

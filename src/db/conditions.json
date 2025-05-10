@@ -1,1 +1,18 @@
-["Nuevo","Usado, como nuevo", "Usado, buen estado", "Usado, con detalles"]
+[
+   {
+      "id": 1,
+      "name": "Nuevo"
+   },
+   {
+      "id": 2,
+      "name": "Usado, como nuevo"
+   },
+   {
+      "id": 3,
+      "name": "Usado, buen estado"
+   },
+   {
+      "id": 4,
+      "name": "Usado, con detalles"
+   }
+]

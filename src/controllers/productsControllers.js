@@ -17,7 +17,7 @@ let productController = {
             
             res.render('products/productsList', {
                 productosCloset,
-                toThousand,
+                toThousand
             });
         }  catch (error) {
             return res.status(500).render('error', {

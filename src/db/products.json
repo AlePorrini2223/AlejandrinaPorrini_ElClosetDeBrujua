@@ -1,7 +1,7 @@
 [
    {
       "id": 1,
-      "img": "1.png",
+      "image": "1.png",
       "nameProduct": "Remera con Bordado",
       "description": "Remera elegante con apliques dorados",
       "detailedDescription": "Es una remera negra con un diseño elegante y casual a la vez. Su tela es suave y fresca a pesar de la lycra, se adapta a la figura sin ser demasiado ajustado. Sus apliques bordados son sutiles pero llamativos. Perfecta para combinar con jeans, pantalones sastreros o faldas.",
@@ -14,7 +14,7 @@
    },
    {
       "id": 2,
-      "img": "2.png",
+      "image": "2.png",
       "nameProduct": "Camisaco Abrigado",
       "description": "Camisaco escoces azul y beige, con cierre, tipo campera",
       "detailedDescription": "De lana de algodón, con un diseño escoces en tonos azules y beige. Su cierre es de metal y sus bolsillos son amplios. Es abrigado y cómodo, ideal para el invierno.",
@@ -27,7 +27,7 @@
    },
    {
       "id": 3,
-      "img": "3.png",
+      "image": "3.png",
       "nameProduct": "Jean Mom",
       "description": "Jean estilo Mom con roturas",
       "detailedDescription": "Jean de tiro alto, estilo Mom, con roturas en las rodillas. Es un jean de corte recto y amplio, muy cómodo y versátil. Ideal para combinar con remeras, camisas, sweaters y zapatillas.",
@@ -40,7 +40,7 @@
    },
    {
       "id": 4,
-      "img": "4.png",
+      "image": "4.png",
       "nameProduct": "Remera Nevada Estampada",
       "description": "Remera de moda con efecto 'nevado' con estampado",
       "detailedDescription": "Remera de algodón con estampado de moda y juvenil, con un efecto 'nevado' que le da un toque original. Es una remera amplia y cómoda, ideal para combinar con jeans, shorts o faldas.",
@@ -53,7 +53,7 @@
    },
    {
       "id": 5,
-      "img": "5.png",
+      "image": "5.png",
       "nameProduct": "Campera Vintage 90's",
       "description": "Campera con forro, estilo noventosa de colores vibrantes",
       "detailedDescription": "Campera de tela rompeviento, estilo noventosa con colores vibrantes. Es una campera amplia, cómoda y a la moda.",
@@ -66,7 +66,7 @@
    },
    {
       "id": 6,
-      "img": "6.png",
+      "image": "6.png",
       "nameProduct": "Jean Baggy",
       "description": "Jean de moda amplio tipo baggy",
       "detailedDescription": "Jean juvenil estilo baggy. Es un jean de corte recto y amplio.",
@@ -79,7 +79,7 @@
    },
    {
       "id": 7,
-      "img": "7.png",
+      "image": "7.png",
       "nameProduct": "Campera de Montaña",
       "description": "Campera con forro tipo Montagne, abrigada e impermeable",
       "detailedDescription": "Campera de tela impermeable y polar, con forro. Es abrigada y funcional ya que tiene variedad de bolsillos, ideal para el invierno y para actividades al aire libre, o simplemente para un día frío.",
@@ -92,7 +92,7 @@
    },
    {
       "id": 8,
-      "img": "8.png",
+      "image": "8.png",
       "nameProduct": "Campera University",
       "description": "Campera tipo universitaria amplia y abrigada",
       "detailedDescription": "Campera estilo universitaria tipo americana, con diseños deportivos de beisbol.",
@@ -105,7 +105,7 @@
    },
    {
       "id": 9,
-      "img": "9.png",
+      "image": "9.png",
       "nameProduct": "Campera Aviadora",
       "description": "Chaqueta marrón con un estilo vintage y robusto",
       "detailedDescription": "Chaqueta simil cuero marrón con diseño oversized le da un aspecto relajado y cómodo. Los detalles de la chaqueta incluyen costuras visibles en un tono más claro que el cuero, lo que añade un toque de contraste y refuerza su apariencia robusta. Su cuello es desmontable",

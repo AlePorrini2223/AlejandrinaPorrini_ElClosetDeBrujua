@@ -8,12 +8,12 @@ module.exports = {
     await queryInterface.bulkInsert("Sections",
       [
         {
-          name: "Ofertas",
+          name: "ofertas",
           createdAt: new Date(),
           updatedAt: new Date()        
         },
         {
-          name: "Ingresos",
+          name: "ingresos",
           createdAt: new Date(),
           updatedAt: new Date()
         },

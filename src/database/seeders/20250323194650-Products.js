@@ -8,7 +8,7 @@ const products = productsJson.map(({ nameProduct, description, detailedDescripti
     detailedDescription,
     condition,
     stuff,
-    categoryId: category ? category.id : null,
+    categoryId: category,
     size,
     price,
     sectionId: section,

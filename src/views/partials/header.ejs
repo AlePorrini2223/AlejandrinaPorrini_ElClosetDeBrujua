@@ -54,9 +54,27 @@
                         <div class="dropdown-content">
                             <a href="/users/register">Registro</a>
                             <a href="/users/login">Ingresá</a>
-                            <a href="/users/profile">Mis compras</a>
                         </div>
                     </div>
+
+                    <div class="user-navbar">
+                        <% if (locals.userLogin) { %>
+                            <button class="header-user-button">
+                                <a href="/users/profile">Mi Perfil</a>
+                            </button>
+                            <button class="header-user-button">
+                                <a href="/products/cart">Mis compras</a>
+                            </button>
+                            <button class="header-user-button">
+                                <a href="/users/logout">Cerrar sesión></a>
+                            </button>
+                        <% }else{ %>
+                            <div class="user-buttons">
+                                <button class="header-user-button"><a href="/users/register">Registrate</a></button>
+                                <button class="header-user-button"><a href="/users/login">Ingresá</a></button>
+                            </div>
+                        <% } %>
+                        </div>
     
                     <div class="shop-icon" id="shopIcon">
                         <a href="#"><i class="fa-solid fa-bag-shopping"><span id="carritoCount">0</span></i></a>
@@ -105,7 +123,10 @@
                 }
             });
 
-            //alert
+            // header modal            
+
         </script>
+
     </header> 
+
 

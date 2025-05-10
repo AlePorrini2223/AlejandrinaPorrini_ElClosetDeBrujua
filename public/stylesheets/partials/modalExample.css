@@ -1,0 +1,67 @@
+.modal {
+   position: fixed;
+   top: 0;
+   left:0;
+   right: 0;
+   bottom: 0;
+   background-color: #111111bd;
+   z-index: 1;
+   display: none;
+   opacity: 0;
+   pointer-events: none; /*desactiva el modal*/
+}
+
+.modal-show {
+   opacity: 1;
+   pointer-events: unset;
+}
+
+.modal-container {
+   margin: auto;
+   width: 50%;
+   max-width: 500px;
+   max-height: 80%;
+   background-image: url(/images/fondo-madera-turquesa.jpg);
+   background-size: cover;
+   border-radius: 20px;
+   padding: 2em 2em;
+   display: grid;
+   grid-auto-columns: 100%;
+   gap: 0.5em;
+   place-items: center;
+}
+
+.modal-img {
+   width: 70%;
+   max-width: 180px;
+   border-radius: 20%;
+}
+
+.modal-title {
+   font-size: 2rem;
+   font-family: "Cedarville Cursive", serif;
+   color: var(--black-color);
+}
+
+.modal-text {
+   margin-bottom: 10px;
+}
+
+.modal-button {
+   text-decoration: none;
+   color: var(--white-color);
+   background-color: var(--violet-color);
+   padding: 0.5em;
+   width: 50%;
+   border: 1px solid greenyellow;
+   border-radius: 20px;
+   display: inline-block;
+   font-weight: bold;
+   font-family: "Roboto Condensed", serif; 
+   transition: all ease .3s;
+}
+
+.modal-button:hover {
+   color: var(--black-color);
+   background-color: var(--lavander-color);
+}

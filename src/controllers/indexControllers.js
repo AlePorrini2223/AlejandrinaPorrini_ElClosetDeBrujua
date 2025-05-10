@@ -3,7 +3,7 @@
 //const categories = require('../db/categories.json');
 //const { toThousand, paginator } = require('../utils/index');
 //const { readJson } = require('../utils/fs');
-const { Product, User, Image } = require('../database/models');
+const db = require('../database/models');
 
 
 
@@ -12,7 +12,7 @@ const indexController = {
    index: async (req, res) => {
 
          try {
-            const productosCloset = await Product.findAll({
+            const productosCloset = await db.Product.findAll({
                include : ['images']
             });
 
@@ -22,15 +22,22 @@ const indexController = {
             //res.send(products);
 
          } catch (error) {
-            console.error('Error fetching:', error);
-            return res.status(500).send('Error in database');
+            return res.status(500).render('error', {
+               message: error.message,
+         })
          }
-   },
+      },
 
-   admin: (req, res) => {
-      return res.render('admin', {
-         title: 'Panel de Administración'
-      });
+   admin: async (req, res) => {
+      try {
+         return res.render('admin', {
+            title: 'Panel de Administración'
+         });
+      } catch (error) {
+         return res.status(500).render('/error', {
+            message: error.message,
+      })
+      }
    },
 
    usersAdmin: (req,res) => {
@@ -42,17 +49,17 @@ const indexController = {
    productsAdmin : async (req,res) => {
       
       try {
-         const productosCloset = await Product.findAll({
-            include: [ 
-                  { model: Image, as: 'images' } 
-            ]});
+         const productosCloset = await db.Product.findAll({
+            include: [ 'images' ]
+         });
 
          return res.render('products/productsAdmin' , {
             productosCloset
          });
       } catch (error) {
-         console.error('Error al listar los productos:', error);
-         res.status(500).send('Error in database');
+         return res.status(500).render('error', {
+            message: error.message,
+      })
       }
 
    //const productosCloset = readJson('../db/products.json');

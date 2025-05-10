@@ -18,15 +18,6 @@ module.exports = {
           key: 'id'
         }
       },
-      statusId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model:{
-            tableName: 'Statuses'
-          } ,
-          key: 'id'
-        }
-      },
       total: {
         type: Sequelize.INTEGER
       },

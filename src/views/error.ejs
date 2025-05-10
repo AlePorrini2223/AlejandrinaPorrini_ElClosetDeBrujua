@@ -1,7 +1,21 @@
-<h1><%= error.message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<%-include("./partials/head.ejs", { title: 'Error - El Closet de Brujua'} )%>
 
+<body class="error-body">
+   
+   <main>
+      <div class="error-container">
+         <div class="error-top">
+            <img src="/images/png/error.png" alt="error" class="error-image">
+            <h1 class="h1-error">Upss! algo salió mal</h1>
+         </div>
+         <div class="error-bottom">
+            <h2 class="h2-error">ERROR:<br><%= message %></h2>
+            <a href="/" class="back-button">Volver al inicio</a>
+         </div>
 
+      </div>
+   </main>
+</body>
+</html>
 
 

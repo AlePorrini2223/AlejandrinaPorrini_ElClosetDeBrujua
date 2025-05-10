@@ -1,25 +1,21 @@
 'use strict';
 
 const categoriesJson = require('../../db/categories.json');
-const categories = categoriesJson.map(category => {
-  return {
-    name : category,
-    createdAt : new Date,
-    updatedAt : new Date,
-  }
-})
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
 
-    await queryInterface.bulkInsert("Categories", categories,
-      {}
-    );
+  async up (queryInterface, Sequelize) {
+    const categories = categoriesJson.map(category => ({
+      name: category.name,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }));
+
+    await queryInterface.bulkInsert('Categories', categories, {});
   },
 
   async down (queryInterface, Sequelize) {
-
     await queryInterface.bulkDelete('Categories', null, {});
   }
 };

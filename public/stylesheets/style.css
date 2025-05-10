@@ -10,6 +10,7 @@
 /* Main */
 @import url(/stylesheets/home.css);
 @import url(/stylesheets/admin.css);
+@import url(/stylesheets/error.css);
 
 /* User */
 @import url(/stylesheets/users/login.css);
@@ -27,5 +28,6 @@
 
 /* Other Views */
 @import url(/stylesheets/others/faq.css);
+@import url(/stylesheets/others/modalHome.css);
 
 

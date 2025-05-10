@@ -5,6 +5,23 @@
         <%-include("./partials/header.ejs")%>
 
         <main>
+            <!-- modal bienvenida-->
+            <section class="modal" id="welcomeModal">
+                <div class="modal-content">
+                    <a href="#" class="close-modal" id="closeModal">x</a>
+                    <h2 class="modal-title">"Puedes conseguir lo que quieras en la vida si te vistes para ello"</h2>
+                
+                    <h3 class="modal-subtitle">Nuevo por acá?</h3>
+                    <button class="modal-button">
+                        <a href="/users/register">Registrate</a>
+                    </button>
+                    
+                    <h3 class="modal-subtitle">Ya tenés cuenta?</h3>
+                    <button class="modal-button">
+                        <a href="/users/login">Ingresá</a>
+                    </button>                </div>
+            </section>
+
             <!-- banner -->
             <section id="home-banner">
                 <div class="adbar"><p>Envío Gratis a TODO EL PAÍS con tu compra mínima de $40.000</p></div>
@@ -12,9 +29,8 @@
                 <div class="banner-container">
                     <img src="/images/banner.jpg" class="desktop-banner" alt="">
                     <img src="/images/banner-mobile.jpg" class="mobile-banner" alt="">
-                    <h1 class="title-banner">comprá . vendé . reutilizá </h1>
+                    <h1 class="title-banner">... comprá . vendé . reutilizá ...</h1>
                 </div>
-
             </section>
 
             <!-- slider -->
@@ -59,7 +75,6 @@
                         <div class="slider-item"><i class="fa-solid fa-angles-right"></i></div>
                     </div>
                 </div>
-
             </section>
 
             <!-- productos -->
@@ -68,7 +83,7 @@
                     <div class="carrousel-imagenes">
                         <% productosCloset.forEach(( {images} ) => { %>
                             <figure class="imagen">
-                                <a href="./products/productList">
+                                <a href="/products">
                                     <img src="/images/productos/<%= images[0].name %>" alt="imagen">
                                 </a>
                             </figure>
@@ -103,7 +118,7 @@
                     </h1>
                 </div>
 
-                <a href="/products/productList"><button class="ofertas-btn">COMPRAR AHORA</button></a>
+                <a href="#"><button class="ofertas-btn">COMPRAR AHORA</button></a>
             </section>
 
             <!-- ingresos -->
@@ -132,16 +147,26 @@
             if (index >= imagenes.length / 2.5) {
                 index = 0;
             }
-
             carrousel.style.transform = `translateX(-${index * 100}%)`;
-
             index++;
             }
-
             setInterval(mostrarImagen, intervalo);
+
+            
+            //Modal de Bienvenida
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const modal = document.getElementById('welcomeModal');
+                modal.style.display = 'flex';
+            });
+
+        // Cerrar el modal al hacer clic en la "X"
+        document.getElementById('closeModal').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('welcomeModal').style.display = 'none';
+        });
+
         </script>
-
-
     </body>
 </html>
 

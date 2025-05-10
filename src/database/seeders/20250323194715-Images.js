@@ -1,26 +1,30 @@
 'use strict';
 
-const imagesJson = require('../../db/products.json');
-const images = imagesJson.map(({id, img}) => {
-  return {
-    name: img,
-    productId: id,
-    createdAt : new Date,
-    updatedAt : new Date,
-  }
-})
+const imagesJson = require('../../db/products.json')
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
+
   async up (queryInterface, Sequelize) {
 
-    await queryInterface.bulkInsert("images", images,
-      {}
-    );
+    const images = [];
+
+    imagesJson.forEach(product => {
+      images.push({
+        file: product.image,
+        productId: product.id,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    });
+  });
+
+    await queryInterface.bulkInsert("Images", images, {});
   },
 
   async down (queryInterface, Sequelize) {
-
-    await queryInterface.bulkDelete('images', null, {});
+    await queryInterface.bulkDelete('Images', null, {});
   }
 };
+
+
+

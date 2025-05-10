@@ -1,33 +1,36 @@
 'use strict';
 const { randomNumber } = require('../../utils');
 const productsJson = require('../../db/products.json');
-const products = productsJson.map(({nameProduct, description, detailedDescription, condition, stuff, size, price}) => {
+const products = productsJson.map(({ nameProduct, description, detailedDescription, condition, stuff, category, size, price, section }) => {
   return {
     nameProduct,
     description,
     detailedDescription,
     condition,
     stuff,
-    categoryId: randomNumber(7),
+    categoryId: category ? category.id : null,
     size,
     price,
-    createdAt : new Date,
-    updatedAt : new Date,
+    sectionId: section,
+    createdAt : new Date(),
+    updatedAt : new Date(),
   }
-})
+});
 
 /** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up (queryInterface, Sequelize) {
 
-    await queryInterface.bulkInsert("Products", products,
-      {}
-    );
+module.exports = {
+  
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('Products', products, {});
   },
 
   async down (queryInterface, Sequelize) {
-
     await queryInterface.bulkDelete('Products', null, {});
   }
 };
+
+
+
+
 

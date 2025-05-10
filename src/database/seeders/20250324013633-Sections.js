@@ -9,12 +9,13 @@ module.exports = {
       [
         {
           name: "Ofertas",
-          createdAt: new Date,
-          updatedAt: new Date        },
+          createdAt: new Date(),
+          updatedAt: new Date()        
+        },
         {
           name: "Ingresos",
-          createdAt: new Date,
-          updatedAt: new Date
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
       ],
       {}
@@ -22,7 +23,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-
     await queryInterface.bulkDelete('Sections', null, {});
   },
 };

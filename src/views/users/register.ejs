@@ -56,15 +56,6 @@
                         </p>
                     </label>
 
-                    <!-- Imagen de perfil -->
-                    <label>
-                        <span class="label-text">Subir imagen</span>
-                        <input type="file" id="avatar" name="avatar" class="file-img" accept=".jpg, .jpeg, .png, .gif">
-                        <p class="error-msg"> <!--Error Imagen de perfil-->
-                            <%= locals.errors && errors.avatar ? errors.avatar.msg : null %>
-                        </p>
-                    </label>
-
                     <!-- Aceptar Términos y condiciones -->
                     <label class="register-checkbox">
                         <input type="checkbox" class="checkbox-input" name="newsletter">

@@ -47,7 +47,7 @@
         border-radius: 0.5em;
 		outline: none;
 		border: 2px solid var(--turquoise-color);
-		background-color: #121212;
+		background-color: var(--black-color);
 		color: var(--white-color);
 		font-weight: 200;
 		padding: 0.125em 0.25em;

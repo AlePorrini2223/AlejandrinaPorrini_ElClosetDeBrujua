@@ -29,7 +29,6 @@ main {
     }
 
     /* Sección banner */
-
     .adbar {
         background-color: var(--violet-color);
         width: 100%;
@@ -56,8 +55,8 @@ main {
         left: 50%;
         transform: translate(-50%, -50%);
         color: var(--white-color);
-        font-size: 20px;
         font-weight: bold;
+        font-size: 24px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         background-color: rgba(0, 0, 0, 0.7);
     }
@@ -67,8 +66,8 @@ main {
         font-family: "Cedarville Cursive", serif;
         white-space: nowrap;
         border-right: 4px solid;
-        width: 21ch;
-        animation: typing 3s steps(10), blink 1s infinite step-end alternate;
+        width: 26ch;
+        animation: typing 5s steps(10), blink 1s infinite step-end alternate;
         overflow: hidden;
     }
 

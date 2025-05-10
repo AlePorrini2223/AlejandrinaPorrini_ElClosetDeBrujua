@@ -4,11 +4,14 @@
 
    <%- include('../partials/headerAdmin.ejs') %>
 
-   <h1 class="title-admin">Listado de Productos</h1>
-   
-   <div class="add-admin-product">
-      <a href="/products/add"><i class="fa-solid fa-plus"></i></a>
+   <div class="productsAdmin-title">
+      <div class="productsAdmin-title-plus">
+         <h1 class="title-admin">Listado de Productos</h1>
+         <a href="/products/add" class="add-admin-product"><i class="fa-solid fa-plus"></i></a>
+      </div>
+
    </div>
+   
 
    <div class="admin-tables-container">
       <table class="product-table" id="productsTable">

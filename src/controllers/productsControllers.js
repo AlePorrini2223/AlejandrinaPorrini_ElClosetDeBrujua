@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require ('path');
+//const fs = require('fs');
+//const path = require ('path');
 //const { readJson, saveJson } = require('../utils/fs');
 const { toThousand } = require('../utils/index');
 const { validationResult } = require('express-validator');
-const { Product, Cart, Condition, Stuff, Category, Image, Section, Status, Size } = require('../database/models');
+const db = require('../database/models');
 
 
 let productController = {
@@ -11,8 +11,8 @@ let productController = {
     list: async (req,res) => {
 
         try {
-            const productosCloset = await Product.findAll({
-                include : ['images']
+            const productosCloset = await db.Product.findAll({
+                include : [ 'images' ]
             });
             
             res.render('products/productsList', {
@@ -20,8 +20,9 @@ let productController = {
                 toThousand,
             });
         }  catch (error) {
-            console.error('Error fetching products:', error);
-            return res.status(500).render('Error fetching products');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
 
         /*
@@ -46,7 +47,7 @@ let productController = {
     detail: async (req,res) => {
 
         try {
-            const product = await Product.findByPk(req.params.id, { //busqueda por PK
+            const product = await db.Product.findByPk(req.params.id, { //busqueda por PK
                 include: ['images', 'category']
             }); 
 
@@ -58,8 +59,9 @@ let productController = {
                 res.status(404).send ('Producto no disponible');
             }
         }  catch (error) {
-            console.error('Error fetching products:', error);
-            return res.status(500).render('Error fetching products');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
 
         /*
@@ -77,7 +79,7 @@ let productController = {
     cartl: async (req,res) => {  // muestra carrito  de compras
 
         try {
-            const product = await Product.findByPk(req.params.id, {
+            const product = await db.Product.findByPk(req.params.id, {
                 include: [ 'images' ]
             });
 
@@ -89,8 +91,9 @@ let productController = {
                 return res.status(404).send('Producto no disponible');
             }
         }  catch (error) {
-            console.error('Error fetching products:', error);
-            return res.status(500).render('Error fetching products');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
 
         //res.render('products/productCartl', { title: 'Carrito - El Closet de Brujua' });
@@ -116,8 +119,9 @@ let productController = {
                 errors:errors.isEmpty() ? null : errors.array(),
             });
         }  catch (error) {
-            console.error('Error fetching products:', error);
-            return res.status(500).render('Error fetching products');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
 
         /*
@@ -178,8 +182,9 @@ let productController = {
             return res.redirect('/admin/products' + newProduct);
         
         }  catch (error) {
-            console.error('Error fetching products:', error);
-            return res.status(500).render('Error in server');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
 
         /*
@@ -210,7 +215,7 @@ let productController = {
         try {
             const errors = validationResult(req);
 
-            const product = await Product.findByPk(req.params.id, {
+            const product = await db.Product.findByPk(req.params.id, {
                 include: [ 'condition', 'stuff', 'category', 'image', 'section', 'size' ],
             });
 
@@ -233,10 +238,11 @@ let productController = {
                 categories,
                 sizes,
                 });
-        } catch (error) {
-            console.error('Error al encontrar el producto a editar', error);
-            return res.status(500).render('Error fetching products');
-        }
+            }  catch (error) {
+                return res.status(500).render('error', {
+                    message: error.message,
+            })
+            }
         /*
         const {id} = req.params;
         const productosCloset = readJson('../db/products.json');
@@ -303,8 +309,9 @@ let productController = {
             return res.redirect('products/productEdit' + modifiedProduct);
         
         }  catch (error) {
-            console.error('Error fetching products:', error);
-            return res.status(500).render('Error in server');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
         /*
         const productosCloset = readJson('../db/products.json');
@@ -331,7 +338,7 @@ let productController = {
     remove: async (req,res,next) => { // eliminar producto
 
         try {
-            const product = await Product.findByPk(req.params.id, {
+            const product = await db.Product.findByPk(req.params.id, {
                 include: [ 'images']
             });
 
@@ -344,8 +351,9 @@ let productController = {
             res.redirect('admin/products');
 
         }  catch (error) {
-            console.error('Error al eliminar el producto:', error);
-            return res.status(500).render('Error in server');
+            return res.status(500).render('error', {
+                message: error.message,
+        })
         }
 
         /*

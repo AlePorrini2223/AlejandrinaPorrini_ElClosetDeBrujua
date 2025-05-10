@@ -14,6 +14,21 @@
         color: var(--white-color)
     }
 
+    .productsAdmin-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0px 30px;
+    }
+
+    .productsAdmin-title-plus {
+        display: flex;
+        width: 63%;;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     /* Icono Agregar producto */
     .add-admin-product {
         display: flex;

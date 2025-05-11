@@ -1,0 +1,76 @@
+<%-include("../partials/head.ejs", { title: 'Preguntas Frecuentes' })%>
+
+<body>
+
+   <%-include("../partials/header.ejs")%>
+
+   <div class="form-complain-container">
+      <h1>Enviar solicitud</h1>
+
+      <form>
+         <div class="form-complain-grid">
+
+            <label for="nombre">
+               <span>Nombre y Apellido</span>
+               <input type="text" id="nombre" name="nombre" required>
+            </label>
+
+            <label for="email">
+               <span>Email</span>
+               <input type="email" id="email" name="email" required>
+            </label>
+
+            <label for="dni">
+               <span>DNI</span>
+               <input type="text" id="dni" name="dni" required>
+            </label>
+
+            <label for="pedido">
+               <span>Número de Pedido</span>
+               <input type="number" id="pedido" name="pedido" required>
+            </label>
+
+            <div>
+               <label for="estado">
+                  <span>Estado del Pedido</span>
+                  <select id="estado" name="estado" required>
+                     <option value="">Seleccione...</option>
+                     <option value="recibido">Recibido</option>
+                     <option value="no_recibido">No Recibido</option>
+                  </select>
+               </label>
+            </div>
+
+            <div>
+               <label for="motivo">
+                  <span>Motivo</span>
+                  <select id="motivo" name="motivo" required>
+                     <option value="">Seleccione...</option>
+                     <option value="talle">Talle</option>
+                     <option value="color">Color</option>
+                     <option value="estado">Estado</option>
+                     <option value="tiempo">Tiempo de Entrega</option>
+                     <option value="otros">Otros</option>
+                  </select>
+               </label>
+            </div>
+
+            <div class="full-width">
+               <label for="descripcion">Descripción</label>
+               <textarea id="descripcion" name="descripcion" required></textarea>
+            </div>
+
+            <small>Ingrese los detalles de esta solicitud. Un integrante de nuestro personal de soporte responderá en breve.</small>
+
+            <div class="file-upload full-width">
+               <label for="archivo">Archivos Adjuntos (opcional)</label>
+               <input type="file" id="archivo" name="archivo" multiple accept="image/*">
+            </div>
+         </div>
+
+         <button type="submit" class="submit-complain-btn">Enviar</button>
+      </form>
+   </div>
+
+   </body>
+   </html>

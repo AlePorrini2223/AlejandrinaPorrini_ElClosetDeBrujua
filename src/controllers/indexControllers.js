@@ -40,11 +40,22 @@ const indexController = {
       }
    },
 
-   usersAdmin: (req,res) => {
-      return res.render( 'users/usersAdmin', {
-         title: 'Panel de Administración de Usuarios'
-      });
-},
+   usersAdmin: async (req,res) => {
+
+      try {
+         const usersCloset = await db.User.findAll();
+
+         return res.render( 'users/usersAdmin', {
+            title: 'Panel de Administración de Usuarios',
+            usersCloset,
+         });
+         
+      } catch (error) {
+         return res.status(500).render('error', {
+            message: error.message,
+      })
+      }
+   },
 
    productsAdmin : async (req,res) => {
       
@@ -66,20 +77,33 @@ const indexController = {
    //const product = productosCloset.find(product => product.id == req.params.id);
    },
 
-
    faq: (req, res) => {
       return res.render('others/faq');
    },
 
-   /*
-   about: function (req, res, next) {
-      res.send("vista sobre info About Us");
+   about: async (req, res, next) => {
+
+      try {
+         return res.render("others/aboutUs");
+
+      } catch (error) {
+         return res.status(500).render('error', {
+            message: error.message,
+      })
+      }
    },
 
-   info: function (req, res, next) {
-      res.send("vista info sobre Moda Circular")
-    */
+   send: async (req, res, next) => {
 
+      try {
+         return res.render("others/reclamo");
+
+      } catch (error) {
+         return res.status(500).render('error', {
+            message: error.message,
+      })
+      }
+   }
 }
 
 module.exports = indexController;

@@ -17,8 +17,13 @@
       return Math.floor(Math.random()*limit)+1;
    }
 
+   const baseURL = (req) => {
+      return `${req.protocol}://${req.get('host')}`;
+   }
+
    module.exports =  {
       toThousand,
       paginator,
-      randomNumber
+      randomNumber,
+      baseURL
    }

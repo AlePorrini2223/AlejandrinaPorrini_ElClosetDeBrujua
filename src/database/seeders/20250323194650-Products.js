@@ -1,5 +1,5 @@
 'use strict';
-const { randomNumber } = require('../../utils');
+//const { randomNumber } = require('../../utils');
 const productsJson = require('../../db/products.json');
 const products = productsJson.map(({ nameProduct, description, detailedDescription, condition, stuff, category, size, price, section }) => {
   return {

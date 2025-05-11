@@ -23,42 +23,39 @@
 						</tr>
 					</thead>
 					<tbody>
+						<% usersCloset.forEach(({id, firstName, lastName, email, validate, lock, rolId})=> { %>
 						<tr>
-							<td>1</td>
-							<td>Admin</td>
-							<td>Admin</td>
-							<td>admin@ejemplo.com</td>
-							<td><span class="validado">Sí</span></td>
-							<td><button class="bloquear">Bloquear</button></td>
-							<td>Admin</td>
-							<td><button class="acciones">Editar</button> <button class="acciones">Eliminar</button></td>
+							<td><%= id %></td>
+							<td><%= firstName %></td>
+							<td><%= lastName %></td>
+							<td><%= email %></td>
+							<td>
+								<label for="user-check">
+									<input type="checkbox" class="validado" id="userValidate<%= id %>"
+									autocomplete="off" <%= validate && 'checked' %>>
+								</label>
+							</td>
+							<td>
+								<label for="user-lock">
+									<input type="checkbox" class="bloquear" id="userLock<%= id %>"
+									autocomplete="off" <%= lock && 'checked' %>>
+								</label>
+							</td>
+							<td><%= rolId %></td>
+							<td>
+                        <a href="#">
+										<i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="userDelete(this)"></i>
+								</a>
+								<a href="#" id="editIcon">
+									<i class="fa-solid fa-pen-to-square"></i>
+								</a>
+							</td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>User</td>
-							<td>Usuario</td>
-							<td>user@ejemplo.com</td>
-							<td><span class="validado">No</span></td>
-							<td><button class="bloquear">Bloquear</button></td>
-							<td>Usuario</td>
-							<td><button class="acciones">Editar</button> <button class="acciones">Eliminar</button></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Locked</td>
-							<td>Bloqueado</td>
-							<td>locked@ejemplo.com</td>
-							<td><span class="validado">Sí</span></td>
-							<td><button class="bloquear">Desbloquear</button></td>
-							<td>Usuario</td>
-							<td><button class="acciones">Editar</button> <button class="acciones">Eliminar</button></td>
-						</tr>
+						<% }) %>
 					</tbody>
 				</table>
 			</div>
-
 	</body>
-
 </html>
 
 

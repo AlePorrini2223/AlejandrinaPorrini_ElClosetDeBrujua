@@ -75,14 +75,14 @@ const productValidator =[
    }),
 
    //Campo image
-   body('img')
+   body('image')
       .custom((value, { req }) => {
 
          const file = req.file;
          if (!file) {
             throw new Error('Debes subir una imagen');
          }
-         const allowedTypes = ['img/jpeg', 'img/png', 'img/gif'];
+         const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
          if (!allowedTypes.includes(req.file.mimetype)) {
             throw new Error('Formato de imagen no permitido. Formatos permitidos: .jpeg, .png, .gif');
       }

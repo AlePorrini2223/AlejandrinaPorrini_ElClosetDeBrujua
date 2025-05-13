@@ -29,7 +29,7 @@
                 <div class="banner-container">
                     <img src="/images/banner.jpg" class="desktop-banner" alt="">
                     <img src="/images/banner-mobile.jpg" class="mobile-banner" alt="">
-                    <h1 class="title-banner">... comprá . vendé . reutilizá ...</h1>
+                    <h1 class="title-banner"> Moda que no termina, se transforma</h1>
                 </div>
             </section>
 
@@ -153,12 +153,14 @@
             setInterval(mostrarImagen, intervalo);
 
             
-            //Modal de Bienvenida
+        //Modal de Bienvenida
 
-            window.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('DOMContentLoaded', () => {
+            if(window.matchMedia('(min-width: 1024px)'). matches) {
                 const modal = document.getElementById('welcomeModal');
                 modal.style.display = 'flex';
-            });
+            }
+        });
 
         // Cerrar el modal al hacer clic en la "X"
         document.getElementById('closeModal').addEventListener('click', (e) => {

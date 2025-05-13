@@ -1,0 +1,24 @@
+<%-include("../partials/head.ejs", { title: 'El Closet de Brujua - Moda que circula'} )%>
+
+
+   <body>
+
+      <%-include("../partials/header.ejs")%>
+
+      <h1>Resultados de búsqueda de: <%= searchTerm %> </h1>
+
+      <% if(products.length > 0) { %>
+         <% for( let i = 0; i < products.length ; i++) { %>
+
+               <%-include("../partials/productCard.ejs")%>
+         <% } %>
+
+      <% } else { %>
+         <h2>No existen resultados para su busqueda</h2>
+      <% } %>
+
+      <%-include("../partials/footer.ejs")%>
+
+   </body>
+
+</html>

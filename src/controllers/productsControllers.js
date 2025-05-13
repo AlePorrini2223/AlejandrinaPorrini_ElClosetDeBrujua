@@ -32,17 +32,7 @@ let productController = {
             toThousand,
         });
         */
-    },    
-
-    /*  const categoria = req.params.categoria;
-        const producto = producto.filter((producto) => producto.categoria == categoria);
-        producto.length > 0 
-        ? res.render('products/productList', { productosCloset: db.lista })
-        : res.render ('products/productList' , {
-            productosCloset: db.lista, 
-            msg: "No hay productos para la categoría seleccionada"
-        }) 
-    }, */
+    },
 
     detail: async (req,res) => {
 
@@ -241,7 +231,7 @@ let productController = {
             }  catch (error) {
                 return res.status(500).render('error', {
                     message: error.message,
-            })
+                })
             }
         /*
         const {id} = req.params;
@@ -335,7 +325,53 @@ let productController = {
         */
     },
 
-    remove: async (req,res,next) => { // eliminar producto
+    search: async (req, res) => { // busca el producto
+
+        const searchTerm = req.query.search;
+        
+        try {
+            const products = await db.Product.findAll({
+                where: {
+                    title: {
+                        [Op.like]: `%${searchTerm}%`,
+                    },
+                },
+            });
+
+            return res.render("products/productSearch", {
+                title: "Resultados de búsqueda",
+                searchTerm,
+                products,
+            });
+        
+        }  catch (error) {
+            return res.status(500).render('error', {
+                message: error.message,
+            })
+        }
+    },
+
+    filter: async (req, res, next) => { // filtra el producto por categoría
+
+        try {
+            const {categoryId} = req.query;
+
+            const category = await db.Category.findByPk(categoryId, {
+            include : ['products']
+            });
+            return res.render("products/productsList", {
+                title: "Categorías",
+                category,
+            });
+
+        }  catch (error) {
+            return res.status(500).render('error', {
+                message: error.message,
+            })
+        }
+    },
+
+    remove: async (req,res,next) => { // elimina producto
 
         try {
             const product = await db.Product.findByPk(req.params.id, {

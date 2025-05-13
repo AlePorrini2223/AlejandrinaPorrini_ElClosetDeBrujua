@@ -120,6 +120,10 @@
       background-color: var(--lavander-color);
       color: var(--black-color);
    }
+
+   .section-accordion-content a {
+      color: var(--yellow-color);
+   }
 }
 
 /* ---------------- DESKTOP ------------ */

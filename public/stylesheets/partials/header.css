@@ -295,21 +295,30 @@
         padding-left: 5px;
     }
 
-    /* Search-bar*/
+    /* Search */
     .search-form {
-        display: flex;
-        justify-content: center;
-        align-items: end;
-        align-items: center;
+        display: block;
+        position: relative;
+        align-content: center;
+    }
 
-        input {
-            border: 0;
-            height: 2em;
-            width: 400px;
-            border-radius: 5px;
-            background-color: var(--grey-color);
-            color: var(--white-color)
-        }
+    .search-form input {
+        border: 0;
+        height: 2em;
+        width: 400px;
+        border-radius: 5px;
+        background-color: var(--grey-color);
+        color: var(--white-color);
+        padding-left: 9px;
+    }
+
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        pointer-events: none;
     }
 
     /* iconos */

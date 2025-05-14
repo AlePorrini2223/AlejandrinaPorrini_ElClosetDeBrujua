@@ -9,7 +9,7 @@
     "token": null,
     "validate": true,
     "lock": false,
-    "rol": "admin"
+    "role": "admin"
   },
   {
     "id": "2",
@@ -21,7 +21,7 @@
     "token": null,
     "validate": false,
     "lock": false,
-    "rol": "user"
+    "role": "user"
   },
   {
     "id": "3",
@@ -33,6 +33,6 @@
     "token": null,
     "validate": true,
     "lock": true,
-    "rol": "user"
+    "role": "user"
   }
 ]

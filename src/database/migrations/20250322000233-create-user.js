@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      image: {
+      avatar: {
         type: Sequelize.STRING
       },
       token: {
@@ -39,7 +39,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      rolId: {
+      roleId: {
         type: Sequelize.INTEGER,
         references: {
           model: {

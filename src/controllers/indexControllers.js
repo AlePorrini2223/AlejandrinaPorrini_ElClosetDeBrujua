@@ -13,7 +13,7 @@ const indexController = {
 
          try {
             const productosCloset = await db.Product.findAll({
-               include : ['images']
+               include : [ 'images' ]
             });
 
             res.render('home', { 

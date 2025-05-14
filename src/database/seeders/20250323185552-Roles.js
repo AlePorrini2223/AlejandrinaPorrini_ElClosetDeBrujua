@@ -5,8 +5,8 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
 
-    await queryInterface.bulkInsert("Roles",
-      [
+    try {
+      await queryInterface.bulkInsert("Roles", [
         {
           name: "admin",
           createdAt: new Date(),
@@ -17,9 +17,13 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         },
-      ],
-      {}
-    );
+      ]);
+
+      } catch (error) {
+          return res.status(500).render('error', {
+          message: error.message,
+        })
+      }
   },
 
   async down(queryInterface, Sequelize) {

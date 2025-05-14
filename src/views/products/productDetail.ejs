@@ -6,19 +6,18 @@
   
   <main>
     <section id="detail-container">
-      <h1 class="title-detail">Detalle de:<span class="detail-h1"><%= nameProduct %></span> </h1>
+      <h1 class="title-detail">Detalle de:<span class="detail-h1"><%= product.nameProduct %></span> </h1>
       <article class="detail-cards-container">
           <div class="detail-card">
             <div class="detail-card-info">
-              <img src="/images/productos/<%= images[0].name %>">
-              <p class="descripcion-detallada"><%= detailedDescription %></p>
+              <img src="/images/productos/<%= product.images[0].name %>">
+              <p class="descripcion-detallada"><%= product.detailedDescription %></p>
 
               <div class="detail-iteracion">
                 
-                  <p class="detail-key-style">Material: <span class="detail-value-style"><%= stuff %></span></p>
-                  <p class="detail-key-style">Categoría: <span class="detail-value-style"><%= category.name %></span></p>
+                  <p class="detail-key-style">Material: <span class="detail-value-style"><%= product.stuff %></span></p>
+                  <p class="detail-key-style">Categoría: <span class="detail-value-style"><%= product.category.name %></span></p>
 
-                  
               </div>
 
               <%-include("../partials/addCart.ejs")%>

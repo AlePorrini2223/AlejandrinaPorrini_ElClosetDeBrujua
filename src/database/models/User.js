@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 
       User.belongsTo(models.Role, {
         as: 'role',
-        foreignKey: 'rolId'
+        foreignKey: 'roleId'
       });
     }
   }
@@ -25,11 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: DataTypes.STRING,
     email: DataTypes.STRING,
-    image: DataTypes.STRING,
+    avatar: DataTypes.STRING,
     token: DataTypes.STRING,
     validated: DataTypes.BOOLEAN,
     lock: DataTypes.BOOLEAN,
-    rolId: DataTypes.INTEGER
+    roleId: {
+      type:DataTypes.INTEGER,
+      references: {
+        model: 'Role',
+        key: 'id'
+      }
+    } 
   }, {
     sequelize,
     modelName: 'User',

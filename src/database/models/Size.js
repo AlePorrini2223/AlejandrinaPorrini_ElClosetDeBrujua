@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Size.init({
     name: DataTypes.STRING,
-    allowNull: false,
   }, {
     sequelize,
     modelName: 'Size',

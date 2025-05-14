@@ -43,7 +43,7 @@ let productController = {
 
             if (product) {    
                 res.render('products/productDetail',{
-                    ...product.dataValues
+                    product
                 });
             } else {
                 res.status(404).send ('Producto no disponible');

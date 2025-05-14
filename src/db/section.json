@@ -1,1 +1,10 @@
-["Ingresos", "Ofertas"]
+[
+   {
+      "id": 1,
+      "name": "Ofertas"
+   },
+   {
+      "id": 2,
+      "name": "Ingresos"
+   }
+]

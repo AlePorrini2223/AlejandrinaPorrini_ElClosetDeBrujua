@@ -19,7 +19,8 @@
                     <h3 class="modal-subtitle">Ya tenés cuenta?</h3>
                     <button class="modal-button">
                         <a href="/users/login">Ingresá</a>
-                    </button>                </div>
+                    </button>  
+                </div>
             </section>
 
             <!-- banner -->
@@ -81,29 +82,14 @@
             <section id="home-section-products">
                 <article class="home-carrousel-mobile">
                     <div class="carrousel-imagenes">
-                        <% productosCloset.forEach(( {images} ) => { %>
+                        <% productosCloset.forEach(product => { %>
                             <figure class="imagen">
                                 <a href="/products">
-                                    <img src="/images/productos/<%= images[0].name %>" alt="imagen">
-                                </a>
+                                    <img src="/images/productos/<%= product.images[0].file %>"  alt="'<%= product.nameProduct %>'">                                </a>
                             </figure>
                         <% }) %>
                     </div>
-                </article>
-
-                <article class="home-carrousel-container-desktop"> <!-- hacer un forEach para mostrar las imgs en un carrousel -->
-
-                    <div style="background-image: url('/images/productos/1.png');"></div>
-                    <div style="background-image: url('/images/productos/2.png');"></div>
-                    <div style="background-image: url('/images/productos/3.png');"></div>
-                    <div style="background-image: url('/images/productos/4.png');"></div>
-                    <div style="background-image: url('/images/productos/5.png');"></div>
-                    <div style="background-image: url('/images/productos/6.png');"></div>
-                    <div style="background-image: url('/images/productos/7.png');"></div>
-                    <div style="background-image: url('/images/productos/8.png');"></div>
-                    <div style="background-image: url('/images/productos/9.png');"></div>
-                </article>    
-            
+                </article>   
             </section>
 
             <!-- ofertas -->

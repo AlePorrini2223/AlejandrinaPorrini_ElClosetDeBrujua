@@ -11,19 +11,15 @@ module.exports = {
       },
       firstName: {
         type: Sequelize.STRING(50),
-        allowNull: false
       },
       lastName: {
         type: Sequelize.STRING(50),
-        allowNull: false
       },
       password: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       avatar: {
         type: Sequelize.STRING
@@ -49,11 +45,9 @@ module.exports = {
         }
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE
       }
     });

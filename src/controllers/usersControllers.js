@@ -38,7 +38,7 @@ const userController = {
                     validated: false,
                     token: null,
                     lock: false,
-                    rolId: 2,
+                    roleId: 2,
                 });
                 console.log('Nuevo usuario registrado:', newUser);
                 //console.log('Se subió la imagen:', avatar);
@@ -91,7 +91,7 @@ const userController = {
                     id : user.id,
                     firstName : user.firstName,
                     lastName : user.lastName,
-                    rol : user.rolId
+                    rol : user.roleId
                 };
                 
     
@@ -135,7 +135,7 @@ const userController = {
 
             if (isAdmin) {
                 console.log('Usuario Administrador');
-                return res.render('/admin', { 
+                return res.render('admin', { 
                     title: 'Administrador', 
                     user: user,
                     isAdmin: true
@@ -146,7 +146,7 @@ const userController = {
                 include: [ { association: 'role' } ] 
             });
 
-            return res.render('/users/profile', { 
+            return res.render('users/profile', { 
                 title: 'Perfil del usuario', 
                 user: user
             });

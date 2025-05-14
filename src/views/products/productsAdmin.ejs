@@ -24,6 +24,7 @@
                   <th>Categoría</th>
                   <th>Talle</th>
                   <th>Precio</th>
+                  <th>Sección</th>
                   <th>Delete</th>
                   <th>Edit</th>
                </tr>
@@ -36,11 +37,10 @@
                   <td><%= product.id %></td>
                   <td><%= product.nameProduct %></td>
                   <td><%= product.description %></td>
-                  <td><%= product.category%></td>
+                  <td><%= product.category %></td>
                   <td><%= product.size %></td>
                   <td>$<span class="total-price"><%= product.price %></span></td>
                   <td><%= product.section %></td>
-
                   <td>
                      <a href="#"><i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="confirmarEliminar(this)"></i></a></td>
                   <td>

@@ -32,11 +32,9 @@ module.exports = (sequelize, DataTypes) => {
   Product.init({
     nameProduct: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         notEmpty: { 
           msg: 'La descripción es requerida' },
@@ -48,7 +46,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     detailedDescription: {
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         notEmpty: { 
           msg: 'La descripción detallada del producto es requerida' },
@@ -60,7 +57,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     condition:{
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         notEmpty: { 
           msg: 'Debes seleccionar una opción' },
@@ -68,7 +64,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     stuff: {
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         notEmpty: { 
           msg: 'Debes seleccionar una opción' },
@@ -76,7 +71,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     categoryId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'Category',
         key: 'id'
@@ -89,11 +83,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     size: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     price: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       validate: {
         isInt: {
           msg: 'El precio debe ser un número entero'
@@ -106,7 +98,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     sectionId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'Section',
         key: 'id'

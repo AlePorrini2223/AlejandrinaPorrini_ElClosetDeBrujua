@@ -94,10 +94,10 @@ let productController = {
         try {
 
             const [conditions, stuff, categories, sizes] = await Promise.all([
-                Condition.findAll(),
-                Stuff.findAll(),
-                Category.findAll(),
-                Size.findAll()
+                db.Condition.findAll(),
+                db.Stuff.findAll(),
+                db.Category.findAll(),
+                db.Size.findAll()
             ]);
 
             return res.render('products/productAdd', {

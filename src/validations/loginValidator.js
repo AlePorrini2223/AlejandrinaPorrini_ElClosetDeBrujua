@@ -19,8 +19,7 @@ module.exports = [
       
       //Campo contraseña
       body('password')
-      .notEmpty().withMessage('Éste campo no puede quedar vacío').bail()
-      .isLength({ min: 8 }).withMessage('La contraseña ingresada es incorrecta').bail()
+      .notEmpty().withMessage('Éste campo no puede quedar vacío').bail()   
       .custom(async (loginPass, { req }) => {
          const user = await User.findOne({ where: { email : req.body.email } });
          if (!user) {
@@ -28,6 +27,11 @@ module.exports = [
          }
          
          const isMatch = await bcrypt.compare(loginPass, user.password);
+         console.log({
+            isMatch,
+            loginPass,
+            userPassword: user.password
+         })
          if (!isMatch) {
             throw new Error('La contraseña no coincide con la existente');
          }

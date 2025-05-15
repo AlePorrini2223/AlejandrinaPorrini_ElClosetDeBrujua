@@ -14,14 +14,10 @@ module.exports = {
     const products = productsJson.map( (product) => {
       const { nameProduct, description, detailedDescription, condition, stuff, category, size, price, section } = product;
     
-    const id = categoriesJson.find(cat => {
-      if(cat.name === category) cat.id 
-      });
+    const id = categoriesJson.find(cat => cat.name === category).id;
 
-      const section_id = sectionJson.find(sect => {
-      if(sect.name === section) sect.id 
-      });
-
+      const section_id = sectionJson.find(sect => sect.name.toLowerCase() === section.toLowerCase()).id;
+            
     return {
       nameProduct,
       description,

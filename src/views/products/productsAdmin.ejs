@@ -33,14 +33,16 @@
          <tbody>
                <% productosCloset.forEach(product => { %>
                <tr>
-                  <td><%= product.images %></td>
+                  <td>
+                     <img height="100px" src="/images/productos/<%= product.images[0].file %>" alt="">
+                  </td>
                   <td><%= product.id %></td>
                   <td><%= product.nameProduct %></td>
                   <td><%= product.description %></td>
-                  <td><%= product.category %></td>
+                  <td><%= product.category.name %></td>
                   <td><%= product.size %></td>
                   <td>$<span class="total-price"><%= product.price %></span></td>
-                  <td><%= product.section %></td>
+                  <td><%= product.section.name %></td>
                   <td>
                      <a href="#"><i class="fa-solid fa-trash-can" class="eliminar-icon" onclick="confirmarEliminar(this)"></i></a></td>
                   <td>

@@ -51,8 +51,14 @@
                             <a href="#"><i class="fa-regular fa-user"></i></a>
                         </div>
                         <div class="dropdown-content">
-                            <a href="/users/register">Registro</a>
-                            <a href="/users/login">Ingresá</a>
+                            <% if (locals.userLogin) { %>
+                                <a href="/users/profile">Mi Perfil</a>
+                                <a href="/products/cart">Mis compras</a>
+                                <a href="/users/logout">Cerrar sesión></a>
+                            <% }else{ %>
+                                <a href="/users/register">Registrate</a>
+                                <a href="/users/login">Ingresá</a>
+                            <% } %>
                         </div>
                     </div>
 

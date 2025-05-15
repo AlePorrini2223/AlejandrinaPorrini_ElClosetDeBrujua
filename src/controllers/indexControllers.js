@@ -61,7 +61,7 @@ const indexController = {
       
       try {
          const productosCloset = await db.Product.findAll({
-            include: [ 'images', 'category' ]
+            include: [ 'images', 'category', 'section' ]
          });
 
          return res.render('products/productsAdmin' , {

@@ -1,6 +1,7 @@
 'use strict';
+require('dotenv').config(); 
 const bcrypt = require('bcrypt');
-const usersJson = ('../../db/user.json');
+const usersJson = require('../../db/user.json');
 
 /** @type {import('sequelize-cli').Migration} */
 
@@ -9,17 +10,17 @@ module.exports = {
   async up (queryInterface, Sequelize) {
 
     const users = usersJson.map( (user) => {
-      const { firtsName, lastName, email, password, token, validate, lock, role } = user;
+      const { firstName, lastName, email, password, token, validated, lock, role } = user;
   
       return {
-          firtsName,
+          firstName,
           lastName,
           email,
-          password: bcrypt.hashSync(password, 10),
+          password: bcrypt.hashSync(process.env.PASSWORD_ADMIN, 10),
           token,
-          validate,
+          validated,
           lock,
-          roleId: role,
+          roleId: role == 'admin' ? 1 : 2,
           createdAt : new Date(),
           updatedAt : new Date()
       }

@@ -33,6 +33,13 @@ app.use(session({
 // middleware de cookie
 app.use(userCookie);
 
+// middleware de locals
+app.use((req, res, next) => {
+  if(req.session.userLogin){
+    res.locals.userLogin = req.session.userLogin;
+  }
+  next();
+})
 
 // rutas
 app.use('/', indexRouter);

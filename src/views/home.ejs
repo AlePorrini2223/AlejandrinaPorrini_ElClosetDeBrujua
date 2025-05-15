@@ -140,13 +140,15 @@
 
             
         //Modal de Bienvenida
-
-        window.addEventListener('DOMContentLoaded', () => {
+        if(!'<%=locals.userLogin?.id%>'){
+            window.addEventListener('DOMContentLoaded', () => {
             if(window.matchMedia('(min-width: 1024px)'). matches) {
                 const modal = document.getElementById('welcomeModal');
                 modal.style.display = 'flex';
             }
         });
+        }
+      
 
         // Cerrar el modal al hacer clic en la "X"
         document.getElementById('closeModal').addEventListener('click', (e) => {

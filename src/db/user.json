@@ -4,10 +4,10 @@
     "firstName": "Admin",
     "lastName": "Ejemplo",
     "email": "admin@ejemplo.com",
-    "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+    "password": null,
     "avatar": "",
     "token": null,
-    "validate": true,
+    "validated": true,
     "lock": false,
     "role": "admin"
   },
@@ -16,10 +16,10 @@
     "firstName": "User",
     "lastName": "Ejemplo",
     "email": "user@ejemplo.com",
-    "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+    "password": null,
     "avatar": "",
     "token": null,
-    "validate": false,
+    "validated": false,
     "lock": false,
     "role": "user"
   },
@@ -28,10 +28,10 @@
     "firstName": "User",
     "lastName": "Bloqueado",
     "email": "locked@ejemplo.com",
-    "password": "$2b$10$WxfCLsdhYJ6xD.XFZI6fbOH83e3ngDQK93zfrCp/35rtjhnJNHjL6",
+    "password": null,
     "avatar": "",
     "token": null,
-    "validate": true,
+    "validated": true,
     "lock": true,
     "role": "user"
   }

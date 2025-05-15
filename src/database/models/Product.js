@@ -20,6 +20,13 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
+
+      Product.belongsTo(models.Condition, { // pertenece a una condicion
+        as: 'condition',
+        foreignKey: 'conditionId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
       
       Product.hasMany(models.Image, { // tiene muchas imagenes
         as: 'images',
@@ -27,6 +34,8 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
+
+
     }
   }
   Product.init({
@@ -55,12 +64,12 @@ module.exports = (sequelize, DataTypes) => {
           }
         },
     },
-    condition:{
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: { 
-          msg: 'Debes seleccionar una opción' },
-        }
+    conditionId:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Condition',
+        key: 'id'
+      }
     },
     stuff: {
       type: DataTypes.STRING,

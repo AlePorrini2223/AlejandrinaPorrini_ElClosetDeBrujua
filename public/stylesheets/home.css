@@ -1,16 +1,16 @@
-/* ---------------- MOBILE ------------*/
+/* ---------------- MOBILE ------------DONE */
 main {
     background-color: var(--black-color);
 }
 
-@media (min-width: 320px) {
+@media (min-width: 320px) {  
 
     /* Ocultos */
     .desktop-banner {
         display: none;
     }
 
-    #home-section-slider-desktop {
+    .home-section-slider-desktop {
         display: none ;
     }
 
@@ -28,6 +28,12 @@ main {
 
     /* Sección banner */
 
+    .home-banner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    }
+
     .adbar {
         background-color: var(--violet-color);
         width: 100%;
@@ -35,17 +41,6 @@ main {
         font-size: 16px;
         text-align: center;
         padding: 5px;
-    }
-
-    .banner-container {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .mobile-banner {
-        width: 100%;
-        height: 100%;
     }
 
     .banner-container h1 {
@@ -57,6 +52,10 @@ main {
         font-size: 1.2em;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         background-color: rgba(153, 5, 153, 0.5);
+    }
+
+    .banner-container img {
+        width: 100%;
     }
 
     .title-banner {
@@ -106,22 +105,22 @@ main {
         transition: opacity 5s ease-in-out
     }
 
-    #home-section-products img {
+    .home-section-products img {
         width: 100%;
+        height: 100%;
     }
 
     /* Sección Ofertas*/
-    #home-section-ofertas {
+    .home-section-ofertas {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 25vh;
+        height: 20vh;
         background-image: url(/images/fondo-ofertas.png);
         background-size: cover;
         background-position: center;
-        box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.6);
     }
 
     .ofertas-container h1 {
@@ -172,13 +171,13 @@ main {
     }
 
     /* Sección ingresos*/
-    #home-section-ingresos {
+    .home-section-ingresos {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 25vh;
+        height: 20vh;
         background-image: url(/images/fondo-ingresos.jpg);
         background-size: cover;
         background-position: center;
@@ -217,10 +216,21 @@ main {
 /* ---------------- TABLET ------------*/
 @media (min-width: 768px) {
 
-    #home-section-ofertas,
-    #home-section-ingresos {
+        .banner-container h1 {
+        top: 53%;
+        left: 50%;
+    }
+
+    figure.imagen {
+    min-width: 30%;
+    transition: opacity 5s ease-in-out
+    }
+
+    .home-section-ofertas,
+    .home-section-ingresos {
         display: flex;
         flex-direction: row;
+        height: 26vh;
     }
 
     .ingresos-btn,
@@ -274,40 +284,17 @@ main {
         display: block;
         position: relative;
         width: 100%;
-        height: 55vh;
     }
 
-    #home-section-ofertas,
-    #home-section-ingresos {
+    .home-section-ofertas,
+    .home-section-ingresos {
         height: 28vh;
     }
 
     .home-carrousel-container-desktop, 
-    #home-section-slider-desktop {
+    .home-section-slider-desktop {
         display: block;
     }
-
-    /* Carrousel 
-    .carousel-container-desktop {
-        display: flex;
-        height: 18rem;
-        gap: 1rem;
-        display: block;
-    }
-
-    .carousel-container-desktop > div {
-        flex: 1;
-        border-radius: 0.5rem;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: auto 100%;
-        transition: all 3s cubic-bezier(.25, .4, .45, 1.4);
-    }
-
-    .carousel-container-desktop > div:hover {
-        flex: 5;
-    }
-        */
 
     /* Section Slider */
     .home-slider-cont {
@@ -345,7 +332,7 @@ main {
 
 
     /*Seccion ofertas*/
-    #home-section-ofertas {
+    .home-section-ofertas {
         display: flex;
         flex-direction: column;
     }

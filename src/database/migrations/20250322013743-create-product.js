@@ -18,8 +18,14 @@ module.exports = {
       detailedDescription: {
         type: Sequelize.STRING(600)
       },
-      condition: {
-        type: Sequelize.STRING
+      conditionId: {
+        type: Sequelize.INTEGER,
+          references: {
+          model: {
+            tableName: 'Categories'
+          },
+          key: 'id'
+        }
       },
       stuff: {
         type: Sequelize.STRING

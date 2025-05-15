@@ -145,7 +145,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: end;
-        width: 20%;
     }
 
     .fa-user,
@@ -160,13 +159,17 @@
 
     /* Menú desplegable */
     .user-dropdown-menu {
-        position: relative;
+        position: absolute;
         display: inline-block;
+        width: 35%;
+        top: 4%;
     }
 
     .dropdown-content {
         display: none;
-        position: absolute;
+        position: relative;
+        top: 8px;
+        left: 8px;
         background-color: var(--grey-color);
         border: 2px solid var(--violet-color);
         min-width: 60px;
@@ -179,7 +182,6 @@
         padding: 12px;
         text-decoration: none;
         display: block;
-        width: 150px;
     }
 
     .dropdown-content a:hover {

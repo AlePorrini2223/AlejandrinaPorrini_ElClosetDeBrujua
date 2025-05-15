@@ -1,7 +1,7 @@
 //const { v4: uuidv4, validate } = require('uuid');
 const bcrypt = require('bcrypt'); //encriptar la contraseña
 //const { readJson, saveJson } = require('../utils/fs');
-const { validationResult } = require('express-validator'); // resultado de todas las validaciones
+const { validationResult } = require ('express-validator'); // resultado de todas las validaciones
 const db = require('../database/models');
 
 const userController = {
@@ -91,7 +91,7 @@ const userController = {
                     id : user.id,
                     firstName : user.firstName,
                     lastName : user.lastName,
-                    rol : user.roleId
+                    role : user.roleId
                 };
                 
     

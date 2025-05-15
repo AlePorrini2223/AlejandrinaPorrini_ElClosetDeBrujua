@@ -3,6 +3,7 @@
 const productsJson = require('../../db/products.json');
 const categoriesJson = require('../../db/categories.json');
 const sectionJson = require ('../../db/section.json');
+const conditionJson = require('../../db/conditions.json');
 
 
 /** @type {import('sequelize-cli').Migration} */
@@ -14,17 +15,17 @@ module.exports = {
     const products = productsJson.map( (product) => {
       const { nameProduct, description, detailedDescription, condition, stuff, category, size, price, section } = product;
     
-    const id = categoriesJson.find(cat => cat.name === category).id;
-
+      const category_id = categoriesJson.find(cat => cat.name === category).id;
+      const condition_id = conditionJson.find(con => con.name === condition).id;
       const section_id = sectionJson.find(sect => sect.name.toLowerCase() === section.toLowerCase()).id;
             
     return {
       nameProduct,
       description,
       detailedDescription,
-      condition,
+      conditionId: condition_id,
       stuff,
-      categoryId: id,
+      categoryId: category_id,
       size,
       price,
       sectionId: section_id,

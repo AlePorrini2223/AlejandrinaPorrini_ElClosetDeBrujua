@@ -6,11 +6,15 @@ module.exports = (sequelize, DataTypes) => {
   class Condition extends Model {
 
     static associate(models) {
+
+      Condition.belongsTo(models.Product, {
+      as: 'product',
+      foreignKey: 'conditionId'
+    });
     }
   }
   Condition.init({
     name: DataTypes.STRING,
-    allowNull: false,
   }, {
     sequelize,
     modelName: 'Condition',

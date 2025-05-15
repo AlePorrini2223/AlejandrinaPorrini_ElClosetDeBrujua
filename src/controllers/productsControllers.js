@@ -38,12 +38,12 @@ let productController = {
 
         try {
             const product = await db.Product.findByPk(req.params.id, { //busqueda por PK
-                include: ['images', 'category']
+                include: [ { association: 'condition' } ]
             }); 
 
             if (product) {    
-                res.render('products/productDetail',{
-                    product
+                return res.render('products/productDetail',{
+                    ...product.dataValues
                 });
             } else {
                 res.status(404).send ('Producto no disponible');
@@ -95,7 +95,6 @@ let productController = {
 
             const [conditions, stuff, categories, sizes] = await Promise.all([
                 db.Condition.findAll(),
-                db.Stuff.findAll(),
                 db.Category.findAll(),
                 db.Size.findAll()
             ]);
@@ -206,7 +205,7 @@ let productController = {
             const errors = validationResult(req);
 
             const product = await db.Product.findByPk(req.params.id, {
-                include: [ 'condition', 'stuff', 'category', 'image', 'section', 'size' ],
+                include: [ 'condition', 'category', 'image', 'section', 'size' ],
             });
 
             if (!product) {
@@ -214,10 +213,9 @@ let productController = {
             };
 
             const [conditions, stuff, categories, sizes] = await Promise.all([
-                Condition.findAll(),
-                Stuff.findAll(),
-                Category.findAll(),
-                Size.findAll()
+                db.Condition.findAll(),
+                db.Category.findAll(),
+                db.Size.findAll()
             ]);
 
             return res.render('products/productEdit', {

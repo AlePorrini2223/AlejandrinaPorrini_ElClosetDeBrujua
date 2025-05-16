@@ -56,18 +56,25 @@
 
       <script>
             // Eliminar producto del Listado
+
             function confirmarEliminar(icon) {
-                const confirmar = confirm("¿Estás seguro de que deseas eliminar este producto?"); // muestra un cuadro de confirmación
-               
-                if (confirmar) {                                                    // Si el usuario confirma, eliminar el producto
-                  const row = icon.parentElement;
-                    row.remove();  // Elimina la fila de la tabla
-                  alert("Producto eliminado exitosamente.");
+
+               const confirmar = confirm("¿Estás seguro de que deseas eliminar este producto?");
+
+               if (confirmar) {                                                          // Si el usuario confirma, eliminar el producto
+                  // Encuentra la fila completa (<tr>) desde el icono o botón clicado
+                  const row = icon.closest('tr');
+                  
+                  if (row) {
+                        row.remove(); // Elimina la fila de la tabla
+                        alert("Producto eliminado exitosamente.");
+                  } else {
+                        alert("No se pudo encontrar la fila del producto.");
+                  }
                } else {
                   alert("Operación cancelada.");
                }
             }
-
       </script>
 </body>
 

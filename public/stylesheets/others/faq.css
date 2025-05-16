@@ -141,7 +141,7 @@
       color: var(--white-color);
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
    }
 
    .faq-banner {
@@ -150,6 +150,7 @@
 
    .faq-image {
       display: block;
+      height: 230px;
    }
 
 }

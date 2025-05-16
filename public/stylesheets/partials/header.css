@@ -139,6 +139,13 @@
 
     /* -------> usuario <------- */
 
+    .user-bienvenidx {
+		font-family: "Cedarville Cursive", serif;
+        font-size: 20px;
+        color: var(--yelow-green-color);
+        padding-top: 10px;
+    }
+
     /* iconos */
     .header-icons-container {
         display: flex;
@@ -323,7 +330,10 @@
         pointer-events: none;
     }
 
-    /* iconos */
+    /* buttons */
+    .user-bienvenidx {
+        padding: 0 ;
+    }
     .header-icons-container {
         width: 30%;
         padding-right: 10px;
@@ -332,6 +342,13 @@
     .user-navbar {
         display: flex;
         width: 100%;
+            flex-direction: column-reverse;
+    }
+
+    .user-buttons-logueado {
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
     }
 
     .user-buttons {
@@ -345,7 +362,7 @@
         background-color: var(--violet-color);
         border: 1px solid var(--yelow-green-color);
         padding: 0.4em;
-        width: 45%;
+        width: 49%;
         border-radius: 20px;
         display: inline-block;
         justify-content: space-between;

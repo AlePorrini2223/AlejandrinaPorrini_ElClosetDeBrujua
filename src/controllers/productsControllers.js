@@ -66,9 +66,14 @@ let productController = {
         */
     },
 
-    cartl: async (req,res) => {  // muestra carrito  de compras
+    cart: async (req,res) => {  // muestra carrito  de compras
 
         try {
+            return res.render('products/productCartl', { 
+                title: "Mi carrito de compras"
+            });
+
+            /*
             const product = await db.Product.findByPk(req.params.id, {
                 include: [ 'images' ]
             });
@@ -80,6 +85,7 @@ let productController = {
             } else {
                 return res.status(404).send('Producto no disponible');
             }
+            */
         }  catch (error) {
             return res.status(500).render('error', {
                 message: error.message,
@@ -93,19 +99,23 @@ let productController = {
         
         try {
 
-            const [conditions, stuff, categories, sizes] = await Promise.all([
+            const errors = validationResult(req);
+
+            const [conditions, categories, sizes, sections] = await Promise.all([
                 db.Condition.findAll(),
                 db.Category.findAll(),
-                db.Size.findAll()
+                db.Size.findAll(),
+                db.Section.findAll()
             ]);
 
             return res.render('products/productAdd', {
                 title: "Agregar Producto",
                 conditions,
-                stuff,
                 categories,
                 sizes,
-                errors:errors.isEmpty() ? null : errors.array(),
+                sections,
+                errors: errors.mapped(),
+
             });
         }  catch (error) {
             return res.status(500).render('error', {
@@ -130,19 +140,19 @@ let productController = {
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
-                const [conditions, stuff, categories, sizes] = await Promise.all([
-                    Condition.findAll(),
-                    Stuff.findAll(),
-                    Category.findAll(),
-                    Size.findAll()
+                const [conditions, categories, sizes, sections] = await Promise.all([
+                    db.Condition.findAll(),
+                    db.Category.findAll(),
+                    db.Size.findAll(),
+                    db.Section.findAll()
                 ]);
 
                 return res.status(422).render('products/productAdd', {
                     title: "Creación del Producto",
                     conditions,
-                    stuff,
                     categories,
                     sizes,
+                    sections,
                     errors: errors.mapped(),
                 });
             } 
@@ -212,19 +222,20 @@ let productController = {
                 res.status(404).send ('Producto a editar no encontrado');
             };
 
-            const [conditions, stuff, categories, sizes] = await Promise.all([
+            const [conditions, categories, sizes, sections] = await Promise.all([
                 db.Condition.findAll(),
                 db.Category.findAll(),
-                db.Size.findAll()
+                db.Size.findAll(),
+                db.Section.findAll()
             ]);
 
             return res.render('products/productEdit', {
                 ...product.dataValues,
                 title: "Edición del Producto",
                 conditions,
-                stuff,
                 categories,
                 sizes,
+                sections
                 });
             }  catch (error) {
                 return res.status(500).render('error', {
@@ -253,19 +264,20 @@ let productController = {
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
-                const [conditions, stuff, categories, sizes] = await Promise.all([
-                    Condition.findAll(),
-                    Stuff.findAll(),
-                    Category.findAll(),
-                    Size.findAll()
+                const [conditions, categories, sizes, sections] = await Promise.all([
+                    db.Condition.findAll(),
+                    db.Category.findAll(),
+                    db.Size.findAll(),
+                    db.Section.findAll()
+
                 ]);
 
                 return res.render('products/productEdit', {
                     title: "Edición del Producto",
                     conditions,
-                    stuff,
                     categories,
                     sizes,
+                    sections, 
                     errors: errors.mapped(),
                 });
             } 

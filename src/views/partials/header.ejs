@@ -39,22 +39,26 @@
                         </div>
                     </a>
                 </div>    
-    
+                
+                <!-- Barra de búsqueda -->
                 <form action="#" method="get" class="search-form">
                     <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" name="search" placeholder="Busca...">
                 </form>
-    
+                
+                <!-- Usuarios -->
                 <div class="header-icons-container">
+                    <!-- menu colapsable / mobile y tablet -->
                     <div class="user-dropdown-menu" id="userDropDMenu">
                         <div class="user-icon" id="userIcon">
                             <a href="#"><i class="fa-regular fa-user"></i></a>
                         </div>
+
                         <div class="dropdown-content">
                             <% if (locals.userLogin) { %>
+                            <p class="user-bienvenidx">🥰Estás logueadx!!</p>
                                 <a href="/users/profile">Mi Perfil</a>
-                                <a href="/products/cart">Mis compras</a>
-                                <a href="/users/logout">Cerrar sesión></a>
+                                <a href="/users/logout">Cerrar sesión</a>
                             <% }else{ %>
                                 <a href="/users/register">Registrate</a>
                                 <a href="/users/login">Ingresá</a>
@@ -62,31 +66,34 @@
                         </div>
                     </div>
 
+                    <!-- buttons / desktop -->
                     <div class="user-navbar">
                         <% if (locals.userLogin) { %>
+                            <div class="user-buttons-logueado">
                             <button class="header-user-button">
                                 <a href="/users/profile">Mi Perfil</a>
                             </button>
                             <button class="header-user-button">
-                                <a href="/products/cart">Mis compras</a>
+                                <a href="/users/logout">Cerrar sesión</a>
                             </button>
-                            <button class="header-user-button">
-                                <a href="/users/logout">Cerrar sesión></a>
-                            </button>
+                            </div>
+
+                            <p class="user-bienvenidx">🥰Estás logueadx!!</p>
                         <% }else{ %>
                             <div class="user-buttons">
                                 <button class="header-user-button"><a href="/users/register">Registrate</a></button>
                                 <button class="header-user-button"><a href="/users/login">Ingresá</a></button>
                             </div>
                         <% } %>
-                        </div>
-    
+
+                    </div>
+                    
+                    <!-- Carrito -->
                     <div class="shop-icon" id="shopIcon">
-                        <a href="#"><i class="fa-solid fa-bag-shopping"><span id="carritoCount">0</span></i></a>
+                        <a href="/products/cart"><i class="fa-solid fa-bag-shopping"><span id="carritoCount">0</span></i></a>
                     </div>
                 </div>
             </div>
-    
         </div>
 
         <div class="header-down">

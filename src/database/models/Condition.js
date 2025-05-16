@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
 
-      Condition.belongsTo(models.Product, {
+      Condition.hasMany(models.Product, {
       as: 'product',
       foreignKey: 'conditionId'
     });

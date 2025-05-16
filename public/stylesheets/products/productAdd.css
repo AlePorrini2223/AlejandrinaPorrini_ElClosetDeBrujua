@@ -25,24 +25,11 @@
         color: var(--white-color)
     }
 
-    .admin-refresh-icon {
-    text-align: end;
-    padding-right: 1em;
+    .productsAdd-title-refresh img {
+        height: 2em;
+        cursor: pointer;
+        padding-right: 30px;
     }
-
-    .admin-refresh-icon i {
-        color: var(--white-color);
-        font-size: 1.5em;
-    }
-
-    .admin-refresh-icon i:hover {
-        color: var(--turquoise-color);
-    }
-
-    .fa-rotate-right {
-        font-size: 18px;
-    }
-
 
     /* Formulario */
     .admin-form-addProduct {
@@ -50,8 +37,8 @@
         flex-direction: column;
         justify-content: space-between;
         width: 100%;
-        padding: 0.5em 1em;
         gap: 30px;
+        padding: 30px;
     }
 
     /* input */
@@ -105,33 +92,39 @@
     }
 
     .add-error-msg {
-        color: var(--red-color);
+        color:rgb(168, 16, 16);
         font-size: 0.8em;
         text-align: center;
         margin-top: 10px;
+        background-color: rgb(238, 160, 160);
+        font-size: 0.9em;
     }
 
 
-
-    /* Precio */
-    .admin-price-container {
+    /* Precio y Seccion */
+    .admin-price-image-container {
         display: flex;
-        margin-bottom: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .admin-price {
-        width: 45%;
+        width: 60%;
     }
 
+    /* Button */
     .admin-addProduct-btn {
-        width: 35%;
-        align-content: end;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
     }
 
     .admin-addProduct-btn button {
-        color: var(--black-color);
-        background-color: var(--turquoise-color);
-        border-color: var(--black-color);
+        background-color: var(--violet-color);
+        color: var(--white-color);
+        border-color: greenyellow;
         padding: 7px;
         border-radius: 20px;
         transition: all 1ms ease;
@@ -139,9 +132,9 @@
     }
 
     .admin-addProduct-btn button:hover {
-        background-color: var(--violet-color);
-        color: var(--white-color);
-        border-color: greenyellow;
+        color: var(--black-color);
+        background-color: var(--turquoise-color);
+        border-color: var(--black-color);
     }
 
 }

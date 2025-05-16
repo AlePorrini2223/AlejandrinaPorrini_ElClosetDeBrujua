@@ -4,11 +4,13 @@
 
     <%- include('../partials/headerAdmin.ejs') %>
 
-    <h1 class="title-admin"><%= title %></h1>
-
-    <div class="admin-refresh-icon">
-        <a href="#"><i class="fa-solid fa-rotate-right"></i></a>
+    <div class="productsAdd-title">
+        <div class="productsAdd-title-refresh">
+            <h1 class="title-admin"><%= title %></h1>
+            <img src="/images/icons/rotate-right-solid.svg" alt="refresh-icon" id="refreshBtn">
+        </div>
     </div>
+
 
     <div class="admin-form-addProduct">
 
@@ -20,7 +22,7 @@
                 <input type="text" id="nameProduct" name="nameProduct">
                 
                 <p class="add-error-msg" id="errorName"> <!--Error Nombre-->
-                    <%= local.errors && errors.name ? errors.name.msg : null  %>
+                    <%= locals.errors && errors.nameProduct ? errors.nameProduct.msg : null  %>
                 </p>
             </label>
 
@@ -30,7 +32,7 @@
                 <textarea id="description" name="description" rows="1"></textarea>
 
                 <p class="add-error-msg" id="errorDescription"> <!--Error Descripción-->
-                    <%= local.errors && errors.description ? errors.description.msg : null  %>
+                    <%= locals.errors && errors.description ? errors.description.msg : null  %>
                 </p>
             </label>
 
@@ -40,23 +42,16 @@
                 <textarea id="detailedDescription" name="detailedDescription" rows="5"></textarea>
 
                 <p class="add-error-msg" id="errorDetailedDescription"> <!--Error Descripción Detallada-->
-                    <%= local.errors && errors.detailedDescription ? errors.detailedDescription.msg : null  %>
+                    <%= locals.errors && errors.detailedDescription ? errors.detailedDescription.msg : null  %>
                 </p>
             </label>
 
-
             <div class="admin-select-addProduct">
-
                 <!-- Estado -->
                 <label for="condition">
                     <span>Estado</span>
                     <select id="condition" name="condition" class="admin-select-input">
                         <option value="" hidden selected>Elegir Estado</option>
-                        <option value="usado - con detalle">Usado - Con detalle</option>
-                        <option value="usado - buen estado">Usado - Buen Estado</option>
-                        <option value="usado - como nuevo">Usado - Como nuevo</option>
-                        <option value="nuevo">Nuevo</option>
-
                         <% conditions.forEach(condition => { %>
                             <option value="<%= condition.id %>">
                                 <%= condition.name %>
@@ -65,7 +60,7 @@
                     </select>
 
                     <p class="add-error-msg" id="errorCondition"> <!--Error Estado-->
-                        <%= local.errors && errors.condition ? errors.condition.msg : null  %>
+                        <%= locals.errors && errors.condition ? errors.condition.msg : null  %>
                     </p>
                 </label>
 
@@ -75,15 +70,12 @@
                     <input type="text" id="stuff" name="stuff">
 
                     <p class="add-error-msg" id="errorStuff"> <!--Error Material-->
-                        %= local.errors && errors.stuff ? errors.stuff.msg : null  %>
+                        <%= locals.errors && errors.stuff ? errors.stuff.msg : null  %>
                     </p>
                 </label>
-
             </div>
 
-
             <div class="admin-select-addProduct">
-
                 <!-- Categoría -->
                 <label for="category">
                     <span>Categoria</span>
@@ -95,7 +87,7 @@
                     </select>
 
                     <p class="add-error-msg" id="errorCategory"> <!--Error Categoria-->
-                        <%= local.errors && errors.category ? errors.category.msg : null  %>
+                        <%= locals.errors && errors.category ? errors.category.msg : null  %>
                     </p>
                 </label>
 
@@ -103,13 +95,7 @@
                 <label for="size">
                     <span>Talle</span>
                     <select id="size" name="size" class="admin-select-input">
-                        <option value="xs">XS</option>
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                        <option value="xxl">Oversize</option>
-
+                        <option value="" hidden selected>Elegir Talle</option>
                         <% sizes.forEach(size => { %>
                             <option value="<%= size.id %>">
                                 <%= size.name %>
@@ -118,23 +104,7 @@
                     </select>
 
                     <p class="add-error-msg" id="errorSize"> <!--Error Talle-->
-                        <%= local.errors && errors.size ? errors.size.msg : null  %>
-                    </p>
-                </label>
-
-            </div>
-
-
-            <div class="admin-price-container">
-
-                <!-- Precio --> 
-                <label for="price" >
-                    <span>Precio</span>
-                    <input type="number" id="price" name="price" class="admin-price">
-                    <span class="admin-price-symbol">$</span>
-
-                    <p class="add-error-msg" id="errorPrice"> <!--Error Precio-->
-                        <%= local.errors && errors.price ? errors.price.msg : null  %>
+                        <%= locals.errors && errors.size ? errors.size.msg : null  %>
                     </p>
                 </label>
 
@@ -142,9 +112,7 @@
                 <label for="section">
                     <span>Sección</span>
                     <select id="section" name="section" class="admin-select-input">
-                        <option value="ingreso">Ingreso</option>
-                        <option value="ofertas">Oferta</option>
-
+                        <option value="" hidden selected>Elegir Sección</option>
                         <% sections.forEach(section => { %>
                             <option value="<%= section.id %>">
                                 <%= section.name %>
@@ -153,15 +121,27 @@
                     </select>
 
                     <p class="add-error-msg" id="errorSection"> <!--Error Sección-->
-                        <%= local.errors && errors.price ? errors.price.msg : null  %>
+                        <%= locals.errors && errors.price ? errors.price.msg : null  %>
+                    </p>
+                </label>
+            </div>
+
+            <div class="admin-price-image-container">
+                <!-- Precio --> 
+                <label for="price" >
+                    <span>Precio</span>
+                    <input type="number" id="price" name="price" class="admin-price" min="2000" value="2000">
+
+                    <p class="add-error-msg" id="errorPrice"> <!--Error Precio-->
+                        <%= locals.errors && errors.price ? errors.price.msg : null  %>
                     </p>
                 </label>
 
                 <!-- Imagen -->
                 <label for="img">
-                    <span>Subir Imagen</span>
-                    <input type="file" id="img" name="img" class="file-img">
-                    <p class="add-error-msg" id="errorImg"></p> <!--Error Imagen-->
+                <span>Subir Imagen</span>
+                <input type="file" id="img" name="img" class="file-img">
+                <p class="add-error-msg" id="errorImg"></p> <!--Error Imagen-->
                 </label>
             </div>
 
@@ -174,7 +154,7 @@
         </form>
     </div>
 
-    <script>
+        <script>
         //******* VALIDACIÓN DE FORMULARIO *******//
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -190,6 +170,7 @@
             const priceInput = document.getElementById("price");
             const sectionSelect = document.getElementById("section");
             const imgInput = document.getElementById("img");
+            const refreshBtn = document.getElementById('refreshBtn');
             
             const allowedExtensions= ['jpg', 'jpeg', 'png', 'gif'];
 
@@ -198,9 +179,13 @@
                 const errorMsg = document.getElementById("errorName");
                 if (nameInput.value.trim() === "") {
                     errorMsg.textContent = "Este campo es obligatorio";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 } else if (nameInput.value.trim().length < 5) {
                     errorMsg.textContent = "El nombre debe tener al menos 5 caracteres";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 } else {
                     errorName.textContent = "";
@@ -212,9 +197,13 @@
                 const errorMsg = document.getElementById("errorDescription");
                 if (descriptionInput.value.trim() === "") {
                     errorMsg.textContent = "Este campo es obligatorio";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 } else if (descriptionInput.value.trim().length < 20) {
                     errorMsg.textContent = "La descripción debe tener al menos 20 caracteres";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 errorDescription.textContent = "";
@@ -225,6 +214,8 @@
                 const errorMsg = document.getElementById("errorDetailedDescription");
                 if (detailedDescriptionInput.value.trim().length < 20) {
                     errorMsg.textContent = "La descripción detallada debe tener al menos 20 caracteres";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('.add-error-msg');
                     return false;
                 }
                 errorDetailedDescription.textContent = "";
@@ -235,6 +226,8 @@
                 const errorMsg = document.getElementById("errorCondition");
                 if (!conditionSelect.value) {
                     errorMsg.textContent = "Debe seleccionar un estado";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 errorCondition.textContent = "";
@@ -245,9 +238,13 @@
                 const errorMsg = document.getElementById("errorStuff");
                 if (stuffInput.value.trim() === "") {
                     errorMsg.textContent = "Este campo es obligatorio";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 } else if (stuffInput.value.trim().length < 3) {
                     errorMsg.textContent = "El material debe tener al menos 3 caracteres";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 } else {
                     errorStuff.textContent = "";
@@ -259,6 +256,8 @@
                 const errorMsg = document.getElementById("errorCategory");
                 if (!categorySelect.value) {
                     errorMsg.textContent = "Debe seleccionar una categoría";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 errorCategory.textContent = "";
@@ -269,6 +268,8 @@
                 const errorMsg = document.getElementById("errorSize");
                 if (!sizeSelect.value) {
                     errorMsg.textContent = "Debe seleccionar un talle";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 errorSize.textContent = "";
@@ -278,8 +279,10 @@
             function validatePrice() {
                 const errorMsg = document.getElementById("errorPrice");
                 const price = parseFloat(priceInput.value);
-                if (isNaN(price) || price <= 1000) {
-                    errorMsg.textContent = "Debe ingresar un precio válido mayor a 1000";
+                if (isNaN(price) || price <= 2000) {
+                    errorMsg.textContent = "Debe ingresar un precio válido mayor a 2000";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 errorPrice.textContent = "";
@@ -290,6 +293,8 @@
                 const errorMsg = document.getElementById("errorSection");
                 if (!sectionSelect.value) {
                     errorMsg.textContent = "Debe seleccionar una sección";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 errorSection.textContent = "";
@@ -301,16 +306,28 @@
                 const file = imgInput.files[0];
                 if (!file) {
                     errorMsg.textContent = "Debe subir una imagen";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('add-error-msg');
                     return false;
                 }
                 const extension = file.name.split('.').pop().toLowerCase(); //extrae y convierte a minúsculas la extensión del archivo
                 if (!allowedExtensions.includes(extension)) {
                     errorMsg.textContent = "El archivo debe ser una imagen válida (.jpg, .jpeg, .png, .gif)";
+                    errorMsg.style.display = 'block';
+                    errorMsg.classList.add('.add-error-msg');
                     return false;
                 }
                 errorImg.textContent = "";
                 return true;
             }
+
+            function refreshPage() {
+                if(formProduct) {
+                    formProduct.reset();
+                }
+                location.reload();
+            }
+
 
             // eventos blur y change
             nameInput.addEventListener("blur", validateName);
@@ -323,6 +340,8 @@
             priceInput.addEventListener("blur", validatePrice);
             sectionSelect.addEventListener("change", validateSection);
             imgInput.addEventListener("change", validateImg);
+            refreshBtn.addEventListener('click', refreshPage);
+
 
             // validación al enviar el formulario
             formProduct.addEventListener("submit", function (e) {

@@ -4,7 +4,7 @@ const productValidator = require('../validations/productValidator');
 const userSessionCheck = require('../middlewares/userSessionCheck');
 const upload = require('../middlewares/uploadFiles');
 
-const {list, detail, cartl, add, create, edit, update, search, filter, remove} = require('../controllers/productsControllers');
+const {list, detail, cart, add, create, edit, update, search, filter, remove} = require('../controllers/productsControllers');
 
 
 /* Routes */
@@ -12,7 +12,8 @@ const {list, detail, cartl, add, create, edit, update, search, filter, remove} =
 router
    .get('/', list) // Lista de productos
    .get('/:id/detail', detail) // Detalle de producto
-   .get('/cartl/:id', cartl) // Muestra el carrito de compras.....agregar userSessionCheck
+   .get('/cart', cart) // Muestra el carrito de compras.....agregar userSessionCheck
+   //.get('/cart/:id', cart) // Muestra el carrito de compras del usuario logueado.....agregar userSessionCheck
    .get('/add', add) // Renderiza el formulario de creación del producto.....agregar userSessionCheck
    .post('/add', upload.single('image'), productValidator, create) // Recibe los datos del fomulario luego de la validación
    .get('/edit/:id', edit) // Renderiza el formulario de edición del producto

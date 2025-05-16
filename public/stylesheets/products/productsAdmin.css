@@ -14,7 +14,8 @@
         color: var(--white-color)
     }
 
-    .productsAdmin-title {
+    .productsAdmin-title,
+    .productsAdd-title {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -22,7 +23,8 @@
         padding: 0px 30px;
     }
 
-    .productsAdmin-title-plus {
+    .productsAdmin-title-plus,
+    .productsAdd-title-refresh{
         display: flex;
         width: 63%;;
         align-items: center;

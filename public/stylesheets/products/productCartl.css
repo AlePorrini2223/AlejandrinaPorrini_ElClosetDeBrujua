@@ -1,12 +1,16 @@
 @media (min-width:320px) {
 
-    #cart-section {
-        height: 100vh;
+    .cart-section {
+        height: 65vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 50px;
     }
 
-
     .cart-undefined {
-        height: 100%;
+        width: 100%;
         color: var(--white-color);
         display: flex;
         flex-direction: column;
@@ -14,5 +18,12 @@
         text-align: center;
         font-size: 3em;
         font-family: "Cedarville Cursive", serif;
+        padding-right: 20px;
+    }
+
+    .cart-section img {
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #c2a318;
     }
 }

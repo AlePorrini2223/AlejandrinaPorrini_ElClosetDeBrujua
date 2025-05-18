@@ -10,7 +10,7 @@
 
 .error-container {
    margin: 0 auto;
-   height: auto;
+   height: 100vh;
    width: min-content;
    font-family: Arial, sans-serif;
    border-collapse: collapse;
@@ -21,10 +21,14 @@
    padding: 10px 30px;
 }
 
+.error-bottom {
+   border: 1px dotted red;
+   padding: 10px 30px;
+}
+
 .error-top,
 .error-bottom {
    text-align: center;
-   padding: 10px 0px;
 }
 
 .h1-error {

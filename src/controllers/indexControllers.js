@@ -93,10 +93,10 @@ const indexController = {
       }
    },
 
-   send: async (req, res, next) => {
+   regret: async (req, res, next) => {
 
       try {
-         return res.render("others/reclamo");
+         return res.render('others/regret');
 
       } catch (error) {
          return res.status(500).render('error', {

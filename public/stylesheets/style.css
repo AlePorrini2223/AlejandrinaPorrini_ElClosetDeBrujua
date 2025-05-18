@@ -3,8 +3,12 @@
 @import url(/stylesheets/partials/header.css);
 @import url(/stylesheets/partials/footer.css);
 @import url(/stylesheets/partials/headerAdmin.css);
-@import url(/stylesheets/partials/productCard.css);
 @import url(/stylesheets/partials/bodyAdmin.css);
+@import url(/stylesheets/partials/productCard.css);
+@import url(/stylesheets/partials/cart.css);
+
+
+
 
 
 /* Main */

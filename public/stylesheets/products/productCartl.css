@@ -1,8 +1,47 @@
-@media (min-width:320px) {
+@media (min-width: 320px) {
 
     .cart-section {
-        height: 65vh;
         display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .cart-undefined {
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2em;
+    font-family: "Cedarville Cursive", serif;
+    padding-bottom: 1.3em;
+    }
+
+    .cart-undefined span {
+    padding-bottom: 1em;
+    }
+
+    .cart-section img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px #c2a318;
+    width: 90%;
+    align-self: center;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .cart-section img {
+    width: 80%;
+    align-self: center;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .cart-section {
+        height: 68vh;
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
@@ -11,14 +50,10 @@
 
     .cart-undefined {
         width: 100%;
-        color: var(--white-color);
-        display: flex;
-        flex-direction: column;
         justify-content: center;
         text-align: center;
-        font-size: 3em;
+        font-size: 2.5em;
         font-family: "Cedarville Cursive", serif;
-        padding-right: 20px;
     }
 
     .cart-section img {
@@ -26,4 +61,5 @@
     border-radius: 10px;
     box-shadow: 0 0 10px #c2a318;
     }
+    
 }

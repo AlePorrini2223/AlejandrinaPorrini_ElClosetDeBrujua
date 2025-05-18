@@ -12,10 +12,10 @@ let productController = {
 
         try {
             const productosCloset = await db.Product.findAll({
-                include : [ 'images' ]
+                include : [ 'images', 'condition' ]
             });
             
-            res.render('products/productsList', {
+            return res.render('products/productsList', {
                 productosCloset,
                 toThousand
             });
@@ -37,13 +37,13 @@ let productController = {
     detail: async (req,res) => {
 
         try {
-            const product = await db.Product.findByPk(req.params.id, { //busqueda por PK
-                include: [ { association: 'condition' } ]
+            const productDetail = await db.Product.findByPk(req.params.id, { //busqueda por PK
+                include: [ 'images', 'category' ]
             }); 
 
-            if (product) {    
+            if (productDetail) {    
                 return res.render('products/productDetail',{
-                    ...product.dataValues
+                    productDetail
                 });
             } else {
                 res.status(404).send ('Producto no disponible');

@@ -1,0 +1,107 @@
+   /* ---------------- MOBILE ------------*/
+   @media (min-width:320px) {
+
+      .add-cart,
+      .see-cart {
+         background-color: var(--violet-color);
+         color: var(--white-color);
+         border: 2px solid #6ef801;
+         border-radius: 20px;
+         padding: 10px 15px;
+         cursor: pointer;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+         font-family: "Roboto Condensed", serif;
+         font-weight: bold;
+         font-size: 20px;
+      }
+
+      .add-cart {
+         width: 50%;
+      }
+
+      .add-cart:hover {
+         background-color: var(--turquoise-color);
+      }
+
+      .see-cart:hover {
+         background-color: var(--yellow-color);
+         color: var(--black-color);
+      }
+
+      .see-cart {
+         width: 50%;
+      }
+
+      .cart-summary {
+         text-align: center;
+         padding: 10px 0px;
+      }
+
+      .add-cart-msg {
+         display: none;
+         padding-top: 15px;
+         color: rgb(10, 77, 10);
+         text-align: center;
+         font-weight: bold;
+      }
+
+      /********* ver *********/
+      #finalize-purchase,
+      #clear-cart {
+         background-color: #007bff;
+         color: white;
+         padding: 10px 15px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         margin: 5px;
+      }
+
+      /* cuando se agrega el producto */
+      .detail-btn-cart-container {
+         text-align: center;
+         padding: 20px 0px;
+      }
+
+      #carritoCount {
+         color: var(--white-color);
+         font-size: 15px;
+         padding: 2px;
+         background-color: var(--turquoise-color);
+         border-radius: 100%;
+         border: 1px solid var(--violet-color);
+         position: absolute;
+         top: 30px;
+      }
+   }
+
+   /* ---------------- TABLET ------------*/
+   @media (min-width:768px) {
+
+      .add-cart {
+         width: 40%;
+      }
+
+      .see-cart {
+         width: 40%;
+      }
+   }
+
+   @media (min-width:768px) {
+
+      .add-cart {
+         width: 62%;
+      }
+   }
+
+   /* ---------------- DESKTOP ------------*/
+   @media (min-width:1024px) {
+
+      .add-cart {
+         width: 50%;
+      }
+
+      .see-cart {
+         width: 20%;
+      }
+   }

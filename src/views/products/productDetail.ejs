@@ -6,17 +6,16 @@
   
   <main>
     <section id="detail-container">
-      <h1 class="title-detail">Detalle de:<span class="detail-h1"><%= product.nameProduct %></span> </h1>
+      <h1 class="title-detail"><span class="detail-h1"><%= productDetail.nameProduct %></span> </h1>
       <article class="detail-cards-container">
-          <div class="detail-card">
+          <div class="products-card">
             <div class="detail-card-info">
-              <img src="/images/productos/<%= product.images[0].name %>">
-              <p class="descripcion-detallada"><%= product.detailedDescription %></p>
+              <img src="/images/productos/<%= productDetail.images[0].file %>">
+              <p class="descripcion-detallada"><%= productDetail.detailedDescription %></p>
 
-              <div class="detail-iteracion">
-                
-                  <p class="detail-key-style">Material: <span class="detail-value-style"><%= product.stuff %></span></p>
-                  <p class="detail-key-style">Categoría: <span class="detail-value-style"><%= product.category.name %></span></p>
+              <div class="detail-card-info">
+                  <p class="detail-key-style">Material: <span class="detail-value-style"><%= productDetail.stuff %></span></p>
+                  <p class="detail-key-style">Categoría: <span class="detail-value-style"><%= productDetail.category.name %></span></p>
 
               </div>
 
@@ -27,7 +26,7 @@
       </article>
 
       <div class="cart-summary">
-          <button id="seeCart">Ver Carrito</button>
+          <button class="see-cart" id="seeCart">Ver Carrito</button>
       </div> 
 
     </section>
